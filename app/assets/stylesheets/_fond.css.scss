@@ -1,0 +1,36 @@
+#fond_part {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#fond_h_org_author, #fond_imgs_min {
+  width: 50%;
+  height: auto;
+}
+
+#fond_h_org_author {
+  float: right;
+}
+
+#fond_green {
+  background-color: $my_green;
+
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#forest_img {
+  width: auto;
+  height: 100%;
+  min-width: 600px;
+  min-height: 310px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}

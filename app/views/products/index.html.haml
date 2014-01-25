@@ -1,0 +1,13 @@
+#block
+  = render partial: 'layouts/menu_up'
+  #list
+    - @products.each do |product|
+      .list_position
+        = link_to product do
+          = image_tag(product.image, alt: product.name, id: 'position_img')
+          #list_name
+            = product.name
+          #list_description
+            = truncate(strip_tags(product.description), length: 150, separator: ' ')
+          = link_to 'Подробнее...', product, id: 'link_under_description'
+          = image_tag('products/separator.png', alt: 'white', id: 'separator')

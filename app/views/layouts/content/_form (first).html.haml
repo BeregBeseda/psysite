@@ -1,0 +1,30 @@
+#button
+  %form
+
+    #top_field
+      Напишите психологу, чтобы вместе выбрать удобные для Вас время и тариф
+
+    %input.input-address.input-xlarge{name: 'T1', type: 'text', placeholder: 'Ваш E-mail или Skype (обязательно)', 'data-maxsize' => '60', spellcheck: 'false'}
+
+
+    %input.input-name.input-xlarge{name: 'textfield', type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '30', spellcheck: 'false'}
+
+
+    %p.my_p
+      %textarea#redex.input-message.input-xlarge{name: 'textarea', cols: '10', rows: '2', 'data-maxsize' => '500', spellcheck: 'false'}
+        Сообщение психологу
+      :css
+        #redex { resize: none; }
+
+
+    %main_button.btn.btn-large.btn-primary{type: 'submit'}
+      %i.icon-ok.icon-white
+      %b
+        &nbsp Нажмите, чтобы почувствовать счастье,
+        %br
+        найти себя... :
+        %br
+        .second_string
+          отправить психологу
+
+

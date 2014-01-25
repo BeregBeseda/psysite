@@ -1,0 +1,32 @@
+.btn-primary {
+  border-color: rgb(226, 232, 255) rgb(226, 232, 255) rgb(133, 183, 255) rgb(133, 183, 255);
+}
+
+.btn-large {
+  padding: 5px 2px 7px 5px;
+  margin: 0;
+  width: 98%;
+  text-align: left;
+  line-height: 17px;
+}
+
+.input-xlarge {
+  width: 98%;
+}
+
+#button INPUT, TEXTAREA {
+  background-color: rgb(255, 249, 234);
+  color: $form_text;
+  padding: 2px;
+  margin: 0 0;
+  height: 93%;
+}
+
+.my_p {
+  margin: 1px 0;
+  padding: 0;
+}
+
+.btn {
+
+}

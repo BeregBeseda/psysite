@@ -1,0 +1,67 @@
+%div{itemscope: '', itemtype: 'http://schema.org/Organization'}
+  %h1
+    = @h1
+  %div{itemprop: 'description'}
+    %b
+      = @descr_body
+  / END_body_description
+
+  %nav#menu_list
+    %ul
+      %li
+        %a{href: 'main'}
+          %strong
+            Главная
+    %p
+      В какой сфере хотите
+      %strong
+        изменений
+    %ul
+      %li
+        %a{href: 'life'}
+          %strong
+            Личная жизнь
+      %li
+        %a{href: 'creation'}
+          %strong
+            Стать более
+            %em продуктивным
+      %li
+        %a{href: 'habit'}
+          %strong
+            Избавиться от
+            %em привычки
+            курить, переедать и т.п.
+  / END_menu_list
+  %div
+    у психолога, психотерапия, депрессия, psiholog, онлайн консультация
+
+  %a{href: 'http://happy-vita.com/', itemprop: 'url'}
+  %div{itemprop: 'name'}
+    %strong
+      %em Психолог онлайн
+      по
+      %em Skype
+      и
+      %em E-mail
+  %a{href: 'fond/forest_min.jpg', itemprop: 'image'}
+    Logo
+  %div{itemprop: 'founder'} Татьяна
+  %i Связаться:
+  %br/
+  %strong Skype:
+  %span{itemprop: 'faxNumber'} Bereg.Beseda
+  %br/
+  %strong E-mail:
+  %span{itemprop: 'email'} bereg.beseda@ukr.net
+/ END_text_contacts
+
+#copyright
+  %strong
+    \© 2013
+    %em Все права защищены.
+    Авторские права на контент сайта принадлежат владельцу сайта.
+    Полное или частичное копирование материалов сайта преследуется по закону <<Об авторском праве>>
+  / END_rights_part
+
+/ END_schema_org

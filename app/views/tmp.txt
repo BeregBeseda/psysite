@@ -1,0 +1,4 @@
+  @title = ''
+  @descr_head = ''
+  @descr_body = ''
+  @keys = ''

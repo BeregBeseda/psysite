@@ -1,0 +1,25 @@
+@mixin transition_b {
+  -webkit-transition: background .5s ease;
+  -moz-transition: background .5s ease;
+  -o-transition: background .5s ease;
+  transition: background .5s ease;
+}
+
+@mixin transition_o {
+  -webkit-transition: opacity .5s ease;
+  -moz-transition: opacity .5s ease;
+  -o-transition: opacity .5s ease;
+  transition: opacity .5s ease;
+}
+
+@mixin background-size {
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  -khtml-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+@mixin text-shadow {
+  text-shadow: black 1px 0 2px, black 0 1px 2px, black -1px 0 2px, black 0 -1px 2px;
+}

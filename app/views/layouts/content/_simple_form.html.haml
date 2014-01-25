@@ -1,0 +1,12 @@
+#button
+  = form_for User.new do |f|
+    #top_field
+      Напишите психологу, чтобы вместе выбрать удобные для Вас время и тариф
+    %div
+      = f.text_field :email, {class: 'input-address' ' input-xlarge', name: 'T1', type: 'text', placeholder: 'Ваш E-mail или Skype (обязательно)', 'data-maxsize' => '60', spellcheck: 'false'}
+      = f.text_field :name, {class: 'input-name' ' input-xlarge', name: 'textfield', type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '30', spellcheck: 'false'}
+      %p.my_p
+        = f.text_area :description, {value: 'Сообщение психологу', id: 'redex' , class: 'input-xlarge' ' input-message', name: 'textarea', cols: '10', rows: '2', 'data-maxsize' => '500', spellcheck: 'false'}
+      = f.submit 'Отправить письмо психологу', { class: 'btn' ' btn-large' ' btn-success' }
+
+

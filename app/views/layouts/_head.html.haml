@@ -1,0 +1,23 @@
+%meta{content: 'utf-8', name: 'charset'}/
+%meta{content: 'all', name: 'robots'}/
+%meta{content: 'index, follow', name: 'robots'}/
+%meta{content: @descr_head, name: 'description'}/
+%meta{content: @keys, name: 'keywords'}/
+%meta{content: 'vitalina.liane@gmail.com', name: 'author'}/
+
+= csrf_meta_tags
+= stylesheet_link_tag    'application', media: 'all'
+= javascript_include_tag 'application'
+
+/[if IE]
+  %script{type: 'text/javascript', src: 'html5'}
+/[if lt IE 9]
+  :css
+    #block {
+      background: #ffe190;
+    }
+
+
+%title
+  ● Психолог по Skype и E-mail -
+  = @title

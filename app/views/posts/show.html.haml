@@ -1,0 +1,21 @@
+#block
+  = render partial: 'layouts/menu_up'
+  = image_tag(@post.image, alt: @post.name, id: 'position_img')
+  #list_name
+    = @post.name
+  #list_description
+    = @post.description.html_safe
+  = image_tag('products/separator.png', alt: 'white', id: 'separator')
+  #list_date.half_of_width
+    = @post.date.to_s(:ru_datetime)
+  #list_price
+    %span
+      Цена:
+    = @post.price
+    %span
+      = t(:monetary_unit)
+  = image_tag('products/separator.png', alt: 'white', id: 'separator')
+
+  - $addresser ||= User.new
+  = render partial: 'layouts/content/form2'
+

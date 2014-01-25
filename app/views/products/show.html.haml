@@ -1,0 +1,20 @@
+#block
+  = render partial: 'layouts/menu_up'
+  = image_tag(@product.image, alt: @product.name, id: 'position_img')
+  #list_name
+    = @product.name
+  #list_description
+    = @product.description.html_safe
+  = image_tag('products/separator.png', alt: 'white', id: 'separator')
+  #list_date.half_of_width
+    = @product.date.to_s(:ru_datetime)
+  #list_price
+    %span
+      Цена:
+    = @product.price
+    %span
+      = t(:monetary_unit)
+  = image_tag('products/separator.png', alt: 'white', id: 'separator')
+
+  - $addresser ||= Buyer.new
+  = render partial: 'layouts/content/form2'

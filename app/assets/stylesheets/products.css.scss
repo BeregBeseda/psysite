@@ -1,0 +1,46 @@
+.list_position {
+  A {
+    text-decoration: none;
+  }
+  &:hover A {
+    color: $link_green;
+  }
+  &:active A {
+    color: $dark_blue;
+  }
+}
+
+#link_under_description {
+  font-weight: 600;
+  letter-spacing: 120%;
+  font-size: 120%;
+}
+
+#list_name {
+  color: $dark_brown;
+  font-size: 120%;
+  font-weight: 600;
+  font-family: Verdana, 'Bitstream Vera Sans';
+  text-align: justify;
+}
+
+#list_description {
+  color: $dark_brown;
+  font-size: 110%;
+  font-family: Verdana, 'Bitstream Vera Sans';
+  text-align: justify;
+}
+
+#position_img {
+  width: 20%;
+  height: auto;
+  min-width: 80px;
+  min-height: 80px;
+  margin:  0 5px 5px 0;
+  float:left;
+}
+
+#separator {
+  width: 100%;
+  height: auto;
+}

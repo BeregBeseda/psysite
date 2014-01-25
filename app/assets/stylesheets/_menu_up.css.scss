@@ -1,0 +1,32 @@
+.menu_up {
+  display: block;
+  UL {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+  LI {
+    display: inline-block;
+    margin-right: 8px;
+  }
+  A {
+    color: $link_dark_green;
+    display: inline-block;
+    text-decoration: none;
+    font-family: Verdana, 'Bitstream Vera Sans';
+    &:hover {
+      color: $dark_brown;
+    }
+    &:active, &:focus {
+      color: $light_brown;
+    }
+  }
+}
+
+.icon_opacity {
+  opacity: .9;
+}
+
+.float_left {
+  float: left;
+}

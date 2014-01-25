@@ -1,0 +1,45 @@
+#main_content {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#psychologist {
+  min-width: 200px;
+  min-height: 260px;
+  margin-top: 8%;
+  max-width: 50%;
+}
+
+#block {
+  background: transparent url(bred.png) no-repeat;
+
+  width: 90%;
+  height: auto;
+  @include background-size;
+  padding: 22px;
+  margin-top: 10%;
+  padding-bottom: 15px;
+}
+
+
+
+#p_measure{
+  width: 100%;
+  height: 270px;
+  overflow: auto;
+  margin-bottom: 10px;
+  &:focus {
+    outline: none;
+  }
+  P {
+    color: $dark_brown;
+    font-size: 150%;
+    font-weight: 600;
+    font-family: Verdana, 'Bitstream Vera Sans';
+    text-align: justify;
+  }
+}
+
+
+
