@@ -7,12 +7,12 @@ require File.expand_path('../application', __FILE__)
 Psysite::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.sendgrid.net',
+  :address        => 'mail.google.com',
   :port           => '587',
   :authentication => :plain,
-  :user_name      => ENV['SENDGRID_USERNAME'],
-  :password       => ENV['SENDGRID_PASSWORD'],
-  :domain         => 'heroku.com',
+  :user_name      => 'bereg.beseda',
+  :password       => 'sh19781968199719gmail',
+  :domain         => 'psysite.herokuapp.com',
   :enable_starttls_auto => true
 }
 
