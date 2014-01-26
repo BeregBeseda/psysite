@@ -7,12 +7,12 @@ require File.expand_path('../application', __FILE__)
 Psysite::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :address        => 'mail.google.com',
+  :address        => 'smtp.gmail.com',
   :port           => '587',
   :authentication => :plain,
-  :user_name      => 'bereg.beseda',
+  :user_name      => 'bereg.beseda@gmail.com',
   :password       => 'sh19781968199719gmail',
-  :domain         => 'psysite.herokuapp.com',
+  :domain         => 'mail.google.com',
   :enable_starttls_auto => true
 }
 
