@@ -88,8 +88,7 @@ Psysite::Application.configure do
   user_name:              'bereg.beseda@gmail.com',  
   domain:                 'example.com',  
   password:               'sh19781968199719gmail',  
-  authentication:         :plain  
-  ssl:                    true,  
+  authentication:         :plain   
   tls:                    true 
   }  
 
