@@ -10,41 +10,41 @@
 }
 
 #title_text {
-  background: transparent url(/assets/menu_main/title_text.png) no-repeat;
+  background: transparent url(/assets/images/menu_main/title_text.png) no-repeat;
 
   width: 350px;
   height: 107px;
 }
 
 #life {
-  background: transparent url(/assets/menu_main/life_text1.png) no-repeat;
+  background: transparent url(/assets/images/menu_main/life_text1.png) no-repeat;
   @include transition_b;
 
   width: 350px;
   height: 76px;
   &:hover, &:focus, &:active {
-    background: transparent url(/assets/menu_main/life_text2.png) no-repeat;
+    background: transparent url(/assets/images/menu_main/life_text2.png) no-repeat;
   }
 }
 
 #creation {
-  background: transparent url(/assets/menu_main/creation_text1.png) no-repeat;
+  background: transparent url(/assets/images/menu_main/creation_text1.png) no-repeat;
   @include transition_b;
 
   width: 350px;
   height: 131px;
   &:hover, &:focus, &:active {
-    background: transparent url(/assets/menu_main/creation_text2.png) no-repeat;
+    background: transparent url(/assets/images/menu_main/creation_text2.png) no-repeat;
   }
 }
 
 #habit {
-  background: transparent url(/assets/menu_main/habit_text1.png) no-repeat;
+  background: transparent url(/assets/images/menu_main/habit_text1.png) no-repeat;
   @include transition_b;
 
   width: 350px;
   height: 136px;
   &:hover, &:focus, &:active {
-    background: transparent url(/assets/menu_main/habit_text2.png) no-repeat;
+    background: transparent url(/assets/images/menu_main/habit_text2.png) no-repeat;
   }
 }
