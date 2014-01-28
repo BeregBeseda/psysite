@@ -89,6 +89,8 @@ Psysite::Application.configure do
   domain:                 'example.com',  
   password:               'sh19781968199719gmail',  
   authentication:         :plain  
+  ssl:                    true,  
+  tls:                    true 
   }  
 
   config.action_mailer.default_url_options = { :host => 'psysite.herokuapp.com' }
