@@ -89,8 +89,6 @@ Psysite::Application.configure do
   domain:                 'example.com',  
   password:               'sh19781968199719gmail',  
   authentication:         :plain  
-  ssl:                    true,  
-  tls:                    true,  
   enable_starttls_auto:   true  
   }  
 
