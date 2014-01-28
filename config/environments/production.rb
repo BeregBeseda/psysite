@@ -84,9 +84,9 @@ Psysite::Application.configure do
 
   config.action_mailer.smtp_settings = {  
   address:                'smtp.gmail.com',  
-  port:                      465,  
+  port:                      587,  
   user_name:              'bereg.beseda@gmail.com',  
-  domain:                 'example.com',  
+  domain:                 'psysite.herokuapp.com',  
   password:               'sh19781968199719gmail',  
   authentication:         :plain   
   }  
