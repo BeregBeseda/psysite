@@ -8,7 +8,7 @@ $(document).ready(function(){
     });
 
     $(".input-message").focus(function(){
-        $("#top_field").text(encodeURIComponent("Если желаете, опишите в нескольких фразах, какую проблему Вы хотите решить"));
+        $("#top_field").text("Если желаете, опишите в нескольких фразах, какую проблему Вы хотите решить");
     });
 });
 
