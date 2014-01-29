@@ -1,4 +1,13 @@
-  @title = ''
-  @descr_head = ''
-  @descr_body = ''
-  @keys = ''
+$(".input-address").click(function(){
+        $("#top_field").text(encodeURIComponent("Ваша персональная информация будет находиться в безопасности"));
+    });
+
+    $(".input-name").click(function(){
+        $("#top_field").text(encodeURIComponent("Как к Вам обращаться"));
+    });
+
+    $(".input-message").click(function(){
+        $("#top_field").text(encodeURIComponent("Если желаете, опишите в нескольких фразах, какую проблему Вы хотите решить"));
+    });
+
+    
