@@ -6,6 +6,10 @@
         #button INPUT {
           margin-bottom: 4px !important;
         }
+
+        #button {
+          margin-top: 15px !important;
+        }
       #errors_style
         - $addresser.errors.each do |attribute, msg|
           - if attribute == :email
@@ -24,5 +28,5 @@
       = f.text_field :name, {class: 'input-name' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше Имя (обязательно)', 'data-maxsize' => '50', spellcheck: 'false'}
       - @email_class = nil
       - @name_class = nil
-      = f.submit 'Отправить письмо', { class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+      = f.submit 'Отправить письмо', { class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
 

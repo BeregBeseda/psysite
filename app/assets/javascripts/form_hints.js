@@ -1,10 +1,10 @@
 $(document).ready(function(){
     $(".input-address").focus(function(){
-        $("#top_field").text(encodeURIComponent("Ваша персональная информация будет находиться в безопасности"));
+        $("#top_field").text("Ваша персональная информация будет находиться в безопасности");
     });
 
     $(".input-name").focus(function(){
-        $("#top_field").text(encodeURIComponent("Как к Вам обращаться"));
+        $("#top_field").text("Как к Вам обращаться");
     });
 
     $(".input-message").focus(function(){
