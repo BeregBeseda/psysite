@@ -80,16 +80,6 @@ Psysite::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  config.action_mailer.delivery_method = :smtp 
+  # config.action_mailer.delivery_method = :smtp 
 
-  config.action_mailer.smtp_settings = {  
-  address:                'smtp.gmail.com',  
-  port:                      587,  
-  user_name:              'bereg.beseda@gmail.com',  
-  domain:                 'psysite.herokuapp.com',  
-  password:               'sh19781968199719gmail',  
-  authentication:         :plain   
-  }  
-
-  config.action_mailer.default_url_options = { :host => 'psysite.herokuapp.com' }
 end
