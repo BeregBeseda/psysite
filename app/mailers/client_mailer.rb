@@ -5,7 +5,7 @@ class ClientMailer < ActionMailer::Base
 
   def client_welcome_email(client)
     @client = client
-    mail(to: client.email, subject: 'Личное сообщение от нового клиента касательно консультации')
+    mail(to: 'bereg.beseda@ukr.net', subject: 'Личное сообщение от нового клиента касательно консультации')
   end
 
 end
