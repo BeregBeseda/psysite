@@ -9,6 +9,20 @@
 #block
   = render partial: 'layouts/menu_up'
   #about
+  %h3
+    Контактные данные: 
+  %br/
+  %p
+    E-mail:
+    %b
+      bereg.beseda@ukr.net 
+    (Татьяна)
+  %p
+    Skype:
+    %b
+      Bereg.Beseda
+    
+    
   %form#payment{action: "https://sci.interkassa.com/", enctype: "utf-8", method: "post", name: "payment"}
     %input{name: "ik_co_id", type: "hidden", value: "52ebcda5bf4efcf93108363c"}/
     %input{name: "ik_pm_no", type: "hidden", value: "ID_4233"}/
