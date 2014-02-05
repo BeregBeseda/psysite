@@ -5,6 +5,5 @@
   %body
     %h1
       Welcome to example.com, #{@buyer.name}
-    %p
-      To login to the site, just follow this link: #{@url}.
     %p Thanks for joining and have a great day!
+    = link_to 'Ссылка для оплаты', @akey_link

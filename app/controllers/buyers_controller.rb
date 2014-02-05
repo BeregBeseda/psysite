@@ -13,6 +13,7 @@ class BuyersController < ApplicationController
 
     if @buyer.save
       $addresser = nil
+      @akey_link = 'http://psysite.herokuapp.com/users/'+@buyer.akey 
       BuyerMailer.buyer_welcome_email(@buyer).deliver
       redirect_to buyers_path(buyer_partial: 'layouts/buyers/success_created')
     else

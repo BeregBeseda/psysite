@@ -6,7 +6,8 @@
     %p
       Меня зовут #{@client.name}
     %p
-      = @client.message
+      - if @client.message !== 'Сообщение психологу'  
+        = @client.message
     %p
       Мой E-mail
       %b
