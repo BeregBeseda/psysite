@@ -1,16 +1,11 @@
 # encoding: UTF-8
 class UserMailer < ActionMailer::Base
 
-  default from: 'admin@happy-vita.com'
-
-  def receive(email)
-    
-  end
+  default from: 'bereg.beseda@ukr.net'
 
   def user_welcome_email(user)
     @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    mail(to: @user.name, subject: 'Вебинар')
   end
 
 end

@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
     I18n.locale = :ru
     @product = Product.find(params[:id])
     $product_id = @product.id
+    $event_name = @product.name
   end
 
 

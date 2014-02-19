@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
     if @user.save
       $addresser = nil
+      UserMailer.user_welcome_email(@user).deliver
+      $event_name = nil
       redirect_to users_path(user_partial: 'layouts/users/success_created')
     else
       redirect_to post_path($post_id)

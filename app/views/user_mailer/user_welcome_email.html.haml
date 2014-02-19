@@ -3,6 +3,19 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %h1
-      Welcome to example.com, #{@user.name}
-    %p Thanks for joining and have a great day!
+    %h2
+      Вы выразили желание принять участие в вебинаре
+      %u
+        = $event_name
+    %p
+      После оплаты вебинара отправьте номер назначения платежа (8 цифр) на e-mail
+      %b
+        Bereg.Beseda@ukr.net
+    %p
+      В ответном сообщении Вам придет адрес, дополнительная информация и пароль от Вебинара.
+      Если Вы не видите номер назначения платежа, то проследуйте по
+      %a{href: 'http://psysite.herokuapp.com/users?user_partial=layouts%2Fusers%2Fsuccess_created'}
+        этой ссылке
+    %i
+      Счастливо и до встречи
+
