@@ -1,2 +1,9 @@
 %h1
-  success created
+  pay instruction
+%form#payment{action: "https://sci.interkassa.com/", enctype: "utf-8", method: "post", name: "payment"}
+  %input{name: "ik_co_id", type: "hidden", value: "52ebcda5bf4efcf93108363c"}/
+  %input{name: "ik_pm_no", type: "hidden", value: "12022014a5879215"}/
+  %input{name: "ik_am", type: "hidden", value: "1.00"}/
+  %input{name: "ik_cur", type: "hidden", value: "UAH"}/
+  %input{name: "ik_desc", type: "hidden", value: "Second"}/
+  %input{type: "submit", value: "Pay"}/

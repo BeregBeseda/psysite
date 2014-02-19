@@ -1,0 +1,28 @@
+#button
+  = form_for $addresser do |f|
+    - if $addresser.errors.any?
+      = javascript_include_tag 'auto_focus'
+      :css
+        #button INPUT {
+          margin-bottom: 4px !important;
+        }
+
+        #button {
+          margin-top: 30px !important;
+        }
+      #errors_style
+        - $addresser.errors.each do |attribute, msg|
+          - if attribute == :name
+            - @email_class = 'errors_field'
+          %li
+            = msg
+    - unless $addresser.errors.any?
+      #top_field
+        Напишите психологу, чтобы вместе выбрать удобные для Вас время и тариф
+    - $addresser = nil
+
+    %div
+      = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'Ваш E-mail (обязательно)', 'data-maxsize' => '60', spellcheck: 'false'}
+      - @email_class = nil
+      = f.submit 'Ok', { class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+
