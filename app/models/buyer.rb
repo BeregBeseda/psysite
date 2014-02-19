@@ -11,19 +11,13 @@ class Buyer < ActiveRecord::Base
 
 
 
-  before_save { self.email = email.downcase }
+  before_save { self.name = name.downcase }
 
-  validates :email, presence: { message: 'Поле "E-mail" обязательно к заполнению' }
-  validates :name, presence: { message: 'Поле "Имя" обязательно к заполнению' }
+  validates :name, presence: { message: 'Поле "E-mail" обязательно к заполнению' }
 
-  validates :email, uniqueness: { case_sensitive: false, message: 'E-mail уже занят' }
+  validates :name, format: { with: /@/, message: 'Проверьте E-mail на правильность' }
 
-  validates :email, format: { with: /@/, message: 'Проверьте E-mail на правильность' }
-
-  validates :email, length: { minimum: 3, message: 'Минимальная длина E-mail - 3 символа' }
-  validates :email, length: { maximum: 61, message: 'Максимальная длина E-mail - 60 символов' }
-
-  validates :name, length: { minimum: 2, message: 'Минимальная длина Имени - 2 символа' }
-  validates :name, length: { maximum: 51, message: 'Максимальная длина Имени - 50 символов' }
+  validates :name, length: { minimum: 3, message: 'Минимальная длина E-mail - 3 символа' }
+  validates :name, length: { maximum: 61, message: 'Максимальная длина E-mail - 60 символов' }
 
 end

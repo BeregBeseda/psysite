@@ -16,7 +16,7 @@ ActiveAdmin.register Buyer do
 
   controller do
     def permitted_params
-      params.permit buyer: [:name, :email]
+      params.permit buyer: [:name]
     end
   end
 

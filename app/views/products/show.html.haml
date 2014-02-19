@@ -16,4 +16,6 @@
       = t(:monetary_unit)
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
+  - $addresser ||= Buyer.new
+  = render partial: 'layouts/content/form_pay'
 
