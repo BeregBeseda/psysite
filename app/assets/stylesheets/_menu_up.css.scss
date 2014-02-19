@@ -8,12 +8,12 @@
   LI {
     display: inline-block;
     margin-right: 8px;
+    fond-size: 110%;
   }
   A {
     color: $link_dark_green;
     display: inline-block;
     text-decoration: none;
-    font-family: Verdana, 'Bitstream Vera Sans';
     &:hover {
       color: $dark_brown;
     }
