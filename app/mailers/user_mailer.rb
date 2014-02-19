@@ -1,7 +1,11 @@
 # encoding: UTF-8
 class UserMailer < ActionMailer::Base
 
-  default from: 'notifications@example.com'
+  default from: 'admin@happy-vita.com'
+
+  def receive(email)
+    
+  end
 
   def user_welcome_email(user)
     @user = user

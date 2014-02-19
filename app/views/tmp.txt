@@ -10,4 +10,10 @@ $(".input-address").click(function(){
         $("#top_field").text(encodeURIComponent("Если желаете, опишите в нескольких фразах, какую проблему Вы хотите решить"));
     });
 
-    
+from products/show
+      - $addresser ||= Buyer.new
+      = render partial: 'layouts/content/form2'
+
+from posts/show
+        - $addresser ||= User.new
+        = render partial: 'layouts/content/form2'

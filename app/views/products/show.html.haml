@@ -5,7 +5,7 @@
     = @product.name
   #list_description
     = @product.description.html_safe
-  = image_tag('products/separator.png', alt: 'white', id: 'separator')
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   #list_date.half_of_width
     = @product.date.to_s(:ru_datetime)
   #list_price
@@ -14,7 +14,6 @@
     = @product.price
     %span
       = t(:monetary_unit)
-  = image_tag('products/separator.png', alt: 'white', id: 'separator')
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
-  - $addresser ||= Buyer.new
-  = render partial: 'layouts/content/form2'
+

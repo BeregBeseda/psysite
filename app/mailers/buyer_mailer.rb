@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class BuyerMailer < ActionMailer::Base
 
-  default from: 'notifications@example.com'
+  default from: 'admin@happy-vita.com'
 
   def buyer_welcome_email(buyer)
     @buyer = buyer
