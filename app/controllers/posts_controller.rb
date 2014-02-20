@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     I18n.locale = :ru
     @post = Post.find(params[:id])
     $post_id = @post.id
+    $event_name = @post.name
   end
 
 

@@ -7,6 +7,8 @@ class BuyersController < ApplicationController
 
     if @buyer.save
       $addresser = nil
+      BuyerMailer.buyer_welcome_email(@buyer).deliver
+      $event_name = nil
       redirect_to buyers_path(buyer_partial: 'layouts/buyers/success_created')
     else
       redirect_to product_path($product_id)

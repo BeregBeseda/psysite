@@ -3,7 +3,19 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %h1
-      Welcome to example.com, #{@buyer.name}
-    %p Thanks for joining and have a great day!
-    = link_to 'Ссылка для оплаты', @akey_link
+    %h2
+      Вы выразили желание приобрести запись семинара психолога Татьяны Вакульчик:
+      %u
+        = $event_name
+    %p
+      После оплаты семинара отправьте номер назначения платежа (8 цифр) на e-mail
+      %b
+        Bereg.Beseda@ukr.net
+    %p
+      В ответном сообщении Вам придет адрес для скачивания семинара.
+      Если Вы не видите номер назначения платежа, то проследуйте по
+      %a{href: 'http://psysite.herokuapp.com/users?user_partial=layouts%2Fusers%2Fsuccess_created'}
+        этой ссылке
+    %i
+      Счастливо и до встречи
+

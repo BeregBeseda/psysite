@@ -15,6 +15,7 @@
     %span
       = t(:monetary_unit)
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
   - $addresser ||= User.new
   = render partial: 'layouts/content/form_pay'
 
