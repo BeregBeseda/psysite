@@ -18,7 +18,8 @@
             = msg
     - unless $addresser.errors.any?
       #top_field
-        Напишите психологу, чтобы вместе выбрать удобные для Вас время и тариф
+        = $top_field_text
+    - $top_field_text = nil
     - $addresser = nil
 
     %div

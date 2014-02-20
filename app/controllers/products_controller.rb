@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ProductsController < ApplicationController
 
   before_action :set_post, only: [:show]
@@ -13,6 +14,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     $product_id = @product.id
     $event_name = @product.name
+    $top_field_text = 'Введите свой E-mail, чтобы оплатить запись семинара, и на Вашу почту придет вся необходимая информация для закачки:'
   end
 
 

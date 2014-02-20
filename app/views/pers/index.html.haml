@@ -7,11 +7,6 @@
 
 #block
   = render partial: 'layouts/menu_up'
-  #personality
-    = image_tag('apple.jpeg', alt: 'apple')
-    #personality_description
-      DESCRIPTION
-  = image_tag('products/separator.png', alt: 'white', id: 'separator')
 
   - $addresser ||= Client.new
   = render partial: 'layouts/content/form3'

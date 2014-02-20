@@ -27,21 +27,26 @@
   #menu
     .menu_vars
       = link_to pers_path do
-        = image_tag('http://tryimg.com/4/08c0b.png', alt: 'Apple')
         %p
-          Every day, kono saki no shine de I wanna see you, Hikaru my soul on fire
-
-    .menu_vars
-      = link_to products_path do
-        = image_tag('apple.jpeg', alt: 'Apple')
-        %p
-          Every day, kono saki no shine de I wanna see you, Hikaru my soul on fire
+          %b
+            Личная консуль&shy;тация с&nbsp;психо&shy;логом
+          (Skype, E-mail и т.д.- на Ваше усмот&shy;ре&shy;ние)
 
     .menu_vars
       = link_to posts_path do
-        = image_tag('apple.jpeg', alt: 'Apple')
         %p
-          Every day, kono saki no shine de I wanna see you, Hikaru my soul on fire
+          %b
+            Принять учас&shy;тие в&nbsp;Веби&shy;наре
+            (онлайн-семи&shy;наре)
+    .menu_vars
+      = link_to products_path do
+        %p
+          %b
+            Приоб&shy;рести запись семи&shy;нара
+
+
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  %br/
 
   #menu_description
     = @menu.description.html_safe

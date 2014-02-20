@@ -19,9 +19,12 @@
     font-size: 110%;
     color: $dark_blue;
     text-align: justify;
+    padding: 4px;
+    background: transparent url(http://tryimg.com/4/2rrr.png) no-repeat;
+    @include background-size;
   }
   IMG {
-    width: 80%;
+    width: 90%;
     height: auto;
   }
 }

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PostsController < ApplicationController
 
   before_action :set_post, only: [:show]
@@ -13,6 +14,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     $post_id = @post.id
     $event_name = @post.name
+    $top_field_text = 'Введите свой E-mail, чтобы оплатить Вебинар, и на Вашу почту придет вся необходимая информация для участия:'
   end
 
 
