@@ -10,7 +10,6 @@ class Buyer < ActiveRecord::Base
   @h1='Психолог по Skype и E-mail - Хочется почувствовать радость, любовь, доброжелательность, тепло, стать счастливым'
 
 
-
   before_save { self.name = name.downcase }
 
   validates :name, presence: { message: 'Поле "E-mail" обязательно к заполнению' }

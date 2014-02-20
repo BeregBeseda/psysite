@@ -5,7 +5,7 @@ class BuyerMailer < ActionMailer::Base
 
   def buyer_welcome_email(buyer)
     @buyer = buyer
-    mail(to: @buyer.email, subject: 'Запись семиеара по психологии')
+    mail(to: @buyer.email, subject: 'Запись семинара по психологии')
   end
 
 end
