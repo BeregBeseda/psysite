@@ -27,3 +27,8 @@ pers/index
                 Чувство подавленности, дискомфорта, заторможенности, пустоты, неудовлетворенности от пустых взаимоотношений. Хочется радости, безопасности, тепла
 
           = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+
+= render partial: "#{params[:buyer_partial]}"
+&
+redirect_to users_path(user_partial: 'layouts/users/success_created')

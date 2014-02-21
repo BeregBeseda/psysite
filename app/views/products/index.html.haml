@@ -2,8 +2,9 @@
   = render partial: 'layouts/menu_up'
   #list
     - @products.each do |product|
-      .list_position
-        = link_to product do
+
+      = link_to product do
+        .list_position
           = image_tag(product.image, alt: product.name, id: 'position_img')
           #list_name
             = product.name

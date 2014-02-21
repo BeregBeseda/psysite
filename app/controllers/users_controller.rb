@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       $addresser = nil
       UserMailer.user_welcome_email(@user).deliver
       $event_name = nil
-      redirect_to users_path(user_partial: 'layouts/users/success_created')
+      redirect_to users_path
     else
       redirect_to post_path($post_id)
     end

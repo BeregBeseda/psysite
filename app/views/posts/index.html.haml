@@ -2,8 +2,9 @@
   = render partial: 'layouts/menu_up'
   #list
     - @posts.each do |post|
-      .list_position
-        = link_to post do
+
+      = link_to post do
+        .list_position
           = image_tag(post.image, alt: post.name, id: 'position_img')
           #list_name
             = post.name
