@@ -23,30 +23,20 @@
   - @h1='Психолог по Skype и E-mail - Хочется почувствовать уверенность, принятие, тепло, любовь, безопасность, счастье, избавиться от нежелательных привычек'
 
 #block
-
-  #menu
-    .menu_vars
-      = link_to pers_path do
-        %p
-          %b
-            Личная консуль&shy;тация с&nbsp;психо&shy;логом
-          (Skype, E-mail и т.д.- на Ваше усмот&shy;ре&shy;ние)
-
-    .menu_vars
-      = link_to posts_path do
-        %p
-          %b
-            Принять учас&shy;тие в&nbsp;Веби&shy;наре
-            (онлайн-семи&shy;наре)
-    .menu_vars
-      = link_to products_path do
-        %p
-          %b
-            Приоб&shy;рести запись семи&shy;нара
-
+  .menu_up
+    %ul
+      %li
+        = link_to abouts_path do
+          %p
+            = image_tag 'fond/square.png'
+            Обо&nbsp;мне
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-  %br/
+
+  - $addresser ||= Client.new
+  = render partial: 'layouts/content/form3'
+
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
   #menu_description
     = @menu.description.html_safe
