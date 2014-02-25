@@ -23,15 +23,6 @@
   - @h1='Психолог по Skype и E-mail - Хочется почувствовать уверенность, принятие, тепло, любовь, безопасность, счастье, избавиться от нежелательных привычек'
 
 #block
-  .menu_up
-    %ul
-      %li
-        = link_to abouts_path do
-          %p
-            = image_tag 'fond/square.png'
-            Обо&nbsp;мне
-
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
   - $addresser ||= Client.new
   = render partial: 'layouts/content/form3'

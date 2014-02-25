@@ -32,3 +32,8 @@ pers/index
 = render partial: "#{params[:buyer_partial]}"
 &
 redirect_to users_path(user_partial: 'layouts/users/success_created')
+
+
+form3
+%p.my_p
+        = f.text_area :message, {value: 'Сообщение психологу', id: 'redex' , class: 'input-xlarge' ' input-message', cols: '10', rows: '2', 'data-maxsize' => '1000', spellcheck: 'false'}
