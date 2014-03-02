@@ -37,3 +37,11 @@ redirect_to users_path(user_partial: 'layouts/users/success_created')
 form3
 %p.my_p
         = f.text_area :message, {value: 'Сообщение психологу', id: 'redex' , class: 'input-xlarge' ' input-message', cols: '10', rows: '2', 'data-maxsize' => '1000', spellcheck: 'false'}
+
+
+client/index
+    %br/
+    .down_p
+      Также Вы можете:
+  = link_to '- принять участие в ближайших Вебинарах', posts_path, { class: ' clients_btn' ' btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 8px 5px 8px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans";', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+  = link_to '- посмотреть записи семинаров, которые доступны для приобретения', products_path, { class: ' clients_btn' ' btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 8px 5px 8px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }

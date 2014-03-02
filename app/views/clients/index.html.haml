@@ -1,10 +1,13 @@
 #block
-  = render partial: 'layouts/menu_up'
+
   #top_field
     %p
       Вы отправили мне своё сообщение, и в ближайшее время я свяжусь с Вами, чтобы мы вместе обсудили детали консультации.
-    %br/
-    .down_p
-      Также Вы можете:
-  = link_to '- принять участие в ближайших Вебинарах', posts_path, { class: ' clients_btn' ' btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 8px 5px 8px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans";', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
-  = link_to '- посмотреть записи семинаров, которые доступны для приобретения', products_path, { class: ' clients_btn' ' btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 8px 5px 8px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+
+    .menu_up{style: 'float: left; padding-top: 10px;'}
+      %ul
+        %li
+          = link_to menus_path do
+            %p
+              = image_tag 'fond/square.png'
+              На главную
