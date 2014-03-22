@@ -12,11 +12,11 @@ class Client < ActiveRecord::Base
 
   before_save { self.address = address.downcase }
 
-  validates :address, presence: { message: 'Поле "Адрес" обязательно к заполнению' }
+  validates :address, presence: { message: 'Поле "Skype или E-mail" обязательно к заполнению' }
   validates :name, presence: { message: 'Поле "Имя" обязательно к заполнению' }
 
-  validates :address, length: { minimum: 3, message: 'Минимальная длина Адреса - 3 символа' }
-  validates :address, length: { maximum: 61, message: 'Максимальная длина Адреса - 60 символов' }
+  validates :address, length: { minimum: 3, message: 'Минимальная длина поля "Skype или E-mail" - 3 символа' }
+  validates :address, length: { maximum: 61, message: 'Максимальная длина поля "Skype или E-mail" - 60 символов' }
 
   validates :name, length: { minimum: 2, message: 'Минимальная длина Имени - 2 символа' }
   validates :name, length: { maximum: 51, message: 'Максимальная длина Имени - 50 символов' }
