@@ -14,6 +14,8 @@
         - $addresser.errors.each do |attribute, msg|
           - if attribute == :address
             - @address_class = 'errors_field'
+          - if attribute == :message
+            - @message_class = 'errors_field'
           - if attribute == :name
             - @name_class = 'errors_field'
           %li
@@ -23,16 +25,17 @@
         Здравствуйте. Я пси&shy;холог Татьяна Вакульчик. Мне 45 лет, я люблю жизнь, людей и свою страну. 
         %br/
         %br/
-        Напи&shy;шите мне, и я от&shy;ве&shy;чу с 10 до 11 утра по Киевс&shy;кому вре&shy;мени, чтобы дого&shy;во&shy;риться о вре&shy;мени пер&shy;вой кон&shy;суль&shy;тации в Skype. Опла&shy;та на кар&shy;точку или интер&shy;нет-ко&shy;шелек.
+        Напи&shy;шите мне, и я от&shy;ве&shy;чу с 10 до 11 утра по Киевс&shy;кому вре&shy;мени, чтобы дого&shy;во&shy;риться о вре&shy;мени пер&shy;вой кон&shy;суль&shy;тации в Skype. Опла&shy;та на кар&shy;точку или интернет-ко&shy;шелек.
     - $addresser = nil
 
     %div
-      = f.text_field :address, {class: 'input-address' ' input-xlarge' " #{@address_class}", type: 'text', placeholder: 'Ваш Skype или E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
+      = f.text_field :address, {class: 'input-address' ' input-xlarge' " #{@address_class}", type: 'text', placeholder: 'Ваш E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
+      = f.text_field :message, {class: 'input-name' ' input-xlarge' " #{@message_class}", type: 'text', placeholder: 'Ваш Skype', 'data-maxsize' => '50', spellcheck: 'false'}
       = f.text_field :name, {class: 'input-name' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше Имя', 'data-maxsize' => '50', spellcheck: 'false'}
 
       - @address_class = nil
       - @name_class = nil
-      = f.submit 'Отправить письмо', { class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+      = f.submit 'Выбрать удобное время', { class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
 
       .menu_up{style: 'float: right; padding-top: 10px;'}
         %ul

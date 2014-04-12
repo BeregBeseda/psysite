@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
       ClientMailer.client_welcome_email(@client).deliver
       redirect_to clients_path
     else
-      redirect_to menu_path($menu)
+      redirect_to pers_path
     end
   end
 
