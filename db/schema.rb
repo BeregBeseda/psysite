@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115130704) do
+ActiveRecord::Schema.define(version: 20140503215917) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -76,12 +76,37 @@ ActiveRecord::Schema.define(version: 20140115130704) do
     t.datetime "updated_at"
   end
 
+  create_table "mentions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "surname"
+    t.string   "place"
+    t.string   "nation"
+    t.integer  "age"
+    t.string   "profession"
+    t.text     "mention"
+    t.string   "video_url"
+    t.string   "audio_url"
+    t.string   "online_address"
+    t.string   "site"
+    t.string   "img_url"
+    t.boolean  "visible"
+  end
+
   create_table "menus", force: true do |t|
     t.string   "name"
     t.string   "css_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+  end
+
+  create_table "news_emails", force: true do |t|
+    t.string   "email"
+    t.boolean  "use_for_news"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
@@ -106,6 +131,42 @@ ActiveRecord::Schema.define(version: 20140115130704) do
     t.datetime "updated_at"
     t.text     "short"
     t.text     "description"
+  end
+
+  create_table "recalls", force: true do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.string   "my_city"
+    t.string   "my_country"
+    t.integer  "age"
+    t.string   "profession"
+    t.string   "recall"
+    t.string   "video_url"
+    t.string   "audio_url"
+    t.string   "online_address"
+    t.string   "site"
+    t.string   "img_url"
+    t.boolean  "visible"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.string   "city"
+    t.integer  "age"
+    t.string   "profession"
+    t.text     "review"
+    t.string   "video_url"
+    t.string   "audio_url"
+    t.string   "online_address"
+    t.string   "site"
+    t.string   "img_url"
+    t.boolean  "visible"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "my_country"
   end
 
   create_table "users", force: true do |t|

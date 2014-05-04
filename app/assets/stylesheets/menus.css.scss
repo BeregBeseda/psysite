@@ -1,9 +1,11 @@
 #menu {
   margin: 17px -17px 17px 17px;
+  height: auto;
 }
 
 .menu_vars {
   width: 33%;
+  height: 100%;
   float: left;
   &:hover P {
     color: $blue;
@@ -20,13 +22,14 @@
     color: $dark_blue;
     text-align: justify;
     padding: 5px;
-    background: transparent url(http://tryimg.com/4/3iyi.png) no-repeat;
+    background: transparent url(menu_main/main_menu_section_yellow_shadow.png) no-repeat;
     @include background-size;
   }
   IMG {
     width: 90%;
     height: auto;
   }
+
 }
 
 #menu_description {

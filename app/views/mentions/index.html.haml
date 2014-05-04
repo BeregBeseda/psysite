@@ -1,0 +1,25 @@
+- @menu_up_item = 'mentions'
+
+#block
+  = render partial: 'layouts/menu_up'
+
+  - if $success_msg
+    #top_field
+      = $success_msg
+
+  #list
+    - @mentions.each do |mention|
+
+      = link_to mention do
+        .list_position
+          = image_tag(mention.img_url, alt: mention.name, id: 'position_img')
+          #list_name
+            = mention.name
+          #list_description
+            = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
+          = link_to 'Подробнее...', mention, id: 'link_under_description'
+          = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+  - $addresser ||= Mention.new
+  = render partial: 'layouts/forms/mention_form'
+

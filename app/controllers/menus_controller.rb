@@ -11,6 +11,7 @@ class MenusController < ApplicationController
   def show
     @menu = Menu.find(params[:id])
     $menu = Menu.find(params[:id])
+    $menu_id = @menu.id
   end
 
   def about_me

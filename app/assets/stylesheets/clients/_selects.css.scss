@@ -1,0 +1,41 @@
+.wrapper-dropdown-5 {
+  /* размер и позиция */
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+  padding: 12px 15px;
+  /* стили */
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-out;
+  &:after {
+    /* небольшая стрелка */
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #4cbeff transparent;
+  }
+  &.active {
+    border-radius: 5px 5px 0 0;
+    background: #4cbeff;
+    box-shadow: none;
+    border-bottom: none;
+    color: white;
+    &:after {
+      border-color: #82d1ff transparent;
+    }
+    .dropdown {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      max-height: 400px;
+    }
+  }
+}

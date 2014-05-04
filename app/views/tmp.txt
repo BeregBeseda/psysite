@@ -45,3 +45,7 @@ client/index
       Также Вы можете:
   = link_to '- принять участие в ближайших Вебинарах', posts_path, { class: ' clients_btn' ' btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 8px 5px 8px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans";', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
   = link_to '- посмотреть записи семинаров, которые доступны для приобретения', products_path, { class: ' clients_btn' ' btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 8px 5px 8px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+
+
+
+:name, :surname, :country, :city, :age, :profession, :review, :video_url, :audio_url, :online_address, :site, :img_url, :visible

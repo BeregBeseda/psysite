@@ -2,21 +2,26 @@
   = render partial: 'layouts/menu_up'
 
   #menu
-    .menu_vars
-      = link_to pers_path do
+    = link_to pers_path do
+      .menu_vars
+
         %p
           %b
             Личная консуль&shy;тация с&nbsp;психо&shy;логом
           (Skype, E-mail и т.д.- на Ваше усмот&shy;ре&shy;ние)
 
-    .menu_vars
-      = link_to posts_path do
+    = link_to posts_path do
+      .menu_vars
+
         %p
           %b
-            Принять учас&shy;тие в&nbsp;Веби&shy;наре
-            (онлайн-семи&shy;наре)
-    .menu_vars
-      = link_to products_path do
+            Позна&shy;комь&shy;тесь бли&shy;же с моими твор&shy;чест&shy;вом и профес&shy;сиональ&shy;ной дея&shy;тель&shy;ностью
+          %br/
+          (статьи, заметки...)
+
+    = link_to products_path do
+      .menu_vars
+
         %p
           %b
             Приоб&shy;рести запись семи&shy;нара

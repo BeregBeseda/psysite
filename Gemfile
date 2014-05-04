@@ -18,6 +18,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'uglifier', '>= 1.3.0'
 
+
 group :development, :test do 
   gem 'sqlite3-ruby'
   gem 'sqlite3'

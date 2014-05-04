@@ -1,0 +1,15 @@
+#block
+  = render partial: 'layouts/menu_up'
+  #list
+    - @recalls.each do |recall|
+
+      = link_to recall do
+        .list_position
+          = image_tag(recall.img_url, alt: recall.name, id: 'position_img')
+          #list_name
+            = recall.name
+          #list_description
+            = truncate(strip_tags(recall.recall), length: 150, separator: ' ')
+          = link_to 'Подробнее...', recall, id: 'link_under_description'
+          = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+

@@ -5,6 +5,9 @@
 @import "vars";
 @import "mixins";
 
+@import "clients/table_number";
+@import "clients/selects";
+
 HTML, BODY {
   width: auto;
   height: 100%;

@@ -6,6 +6,7 @@
 //= require form_hints
 //= require maxlength
 //= require angle
+//= require clients_selects
 //= require google_analytics
 
 

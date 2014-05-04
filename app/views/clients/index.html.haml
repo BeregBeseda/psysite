@@ -1,13 +1,14 @@
 #block
 
-  #top_field
-    %p
-      Вы отправили мне своё сообщение, и в течении суток я свяжусь с Вами, чтобы мы вместе обсудили время консультации по Скайпу.
+  = render partial: 'layouts/clients/selects'
 
-    .menu_up{style: 'float: left; padding-top: 10px;'}
-      %ul
-        %li
-          = link_to menus_path do
-            %p
-              = image_tag 'fond/square.png'
-              На главную
+  = render partial: 'layouts/clients/table_number'
+
+  .menu_up{style: 'float: left; padding-top: 10px;'}
+
+    %ul
+      %li
+        = link_to menus_path do
+          %p
+            = image_tag 'fond/square.png'
+            На главную

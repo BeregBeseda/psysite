@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   def show
     I18n.locale = :ru
     @product = Product.find(params[:id])
+    $redirect_news = 'products'
     $product_id = @product.id
     $event_name = @product.name
     $top_field_text = 'Введите свой E-mail, чтобы оплатить запись семинара, и на Вашу почту придет вся необходимая информация для его скачивания:'

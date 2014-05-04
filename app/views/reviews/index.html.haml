@@ -1,0 +1,15 @@
+#block
+  = render partial: 'layouts/menu_up'
+  #list
+    - @reviews.each do |review|
+
+      = link_to review do
+        .list_position
+          = image_tag(review.img_url, alt: review.name, id: 'position_img')
+          #list_name
+            = review.name
+          #list_description
+            = truncate(strip_tags(review.review), length: 150, separator: ' ')
+          = link_to 'Подробнее...', review, id: 'link_under_description'
+          = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+

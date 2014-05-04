@@ -7,7 +7,8 @@
     = @product.description.html_safe
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   #list_date.half_of_width
-    = @product.date.to_s(:ru_datetime)
+    - if @product.date
+      = @product.date.to_s(:ru_datetime)
   #list_price
     %span
       Цена:
@@ -16,6 +17,6 @@
       = t(:monetary_unit)
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
-  - $addresser ||= Buyer.new
+  - $addresser ||= NewsEmail.new
   = render partial: 'layouts/content/form_pay'
 

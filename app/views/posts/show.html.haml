@@ -6,17 +6,17 @@
   #list_description
     = @post.description.html_safe
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-  #list_date.half_of_width
+  -##list_date.half_of_width
     = @post.date.to_s(:ru_datetime)
-  #list_price
+  -##list_price
     %span
       Цена:
     = @post.price
     %span
       = t(:monetary_unit)
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
-  - $addresser ||= User.new
+  - $addresser ||= NewsEmail.new
   = render partial: 'layouts/content/form_pay'
 
 

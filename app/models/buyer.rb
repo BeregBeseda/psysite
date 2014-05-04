@@ -14,9 +14,9 @@ class Buyer < ActiveRecord::Base
 
   validates :name, presence: { message: 'Поле "E-mail" обязательно к заполнению' }
 
-  validates :name, format: { with: /@/, message: 'Проверьте E-mail на правильность' }
+  validates :name, format: { with: /@/, message: 'Проверьте E-mail на правильность', if: :name? }
 
-  validates :name, length: { minimum: 3, message: 'Минимальная длина E-mail - 3 символа' }
+  validates :name, length: { minimum: 3, message: 'Минимальная длина E-mail - 3 символа', if: :name? }
   validates :name, length: { maximum: 61, message: 'Максимальная длина E-mail - 60 символов' }
 
 end

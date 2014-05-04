@@ -1,0 +1,23 @@
+#block
+  = render partial: 'layouts/menu_up'
+  = image_tag(@mention.img_url, alt: @mention.name, id: 'position_img')
+  #list_name
+    = @mention.name
+  #list_description
+    = @mention.mention.html_safe
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  -##list_date.half_of_width
+    = @post.date.to_s(:ru_datetime)
+  -##list_price
+    %span
+      Цена:
+    = @post.price
+    %span
+      = t(:monetary_unit)
+  -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+  - $addresser ||= Mention.new
+  = render partial: 'layouts/forms/mention_form'
+
+
+

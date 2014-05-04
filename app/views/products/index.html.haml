@@ -1,5 +1,12 @@
+- @menu_up_item = 'products'
+
 #block
   = render partial: 'layouts/menu_up'
+
+  - if $success_msg
+    #top_field
+      = $success_msg
+
   #list
     - @products.each do |product|
 

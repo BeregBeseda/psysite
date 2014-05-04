@@ -3,24 +3,17 @@ Psysite::Application.routes.draw do
   get '/users/:akey', to: 'users#update'
   get '/buyers/:akey', to: 'buyers#update'
 
-  resources :example1s
 
-  resources :menus, :products, :posts, :pers, :abouts, :users, :buyers, :clients
-  resources :examples
-
+  resources :menus, :products, :posts, :pers, :abouts, :users, :buyers, :clients, :reviews, :news_emails, :recalls, :mentions
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'menus#index'
-
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
