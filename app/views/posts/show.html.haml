@@ -1,11 +1,16 @@
+- @menu_up_item = 'post'
+
 #block
-  = render partial: 'layouts/menu_up'
+
+  = render partial: 'menus/menu_up'
+
   = image_tag(@post.image, alt: @post.name, id: 'position_img')
   #list_name
     = @post.name
   #list_description
     = @post.description.html_safe
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+  -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   -##list_date.half_of_width
     = @post.date.to_s(:ru_datetime)
   -##list_price
@@ -16,8 +21,16 @@
       = t(:monetary_unit)
   -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
+  - if $success_msg
+    = javascript_include_tag 'auto_focus'
+    #errors_style
+
   - $addresser ||= NewsEmail.new
   = render partial: 'layouts/content/form_pay'
+  = render partial: 'posts/comments'
+
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  = render partial: 'menus/menu_down'
 
 
 

@@ -18,6 +18,7 @@ class NewsEmailsController < ApplicationController
   def create
     @news_email = NewsEmail.new(news_email_params)
     $addresser = @news_email
+    $addresser.use_for_news = true
 
 
     if @news_email.save
@@ -28,9 +29,11 @@ class NewsEmailsController < ApplicationController
           $success_msg = 'Вы успешно подписались на рассылку материалов сайта. Спасибо за доверие'
           redirect_to posts_path
         when 'products'
-          redirect_to products_path
+          ProductsEmailMailer.product_pay_email(@news_email).deliver
+          redirect_to payments_path
         when 'pers'
-          redirect_to menus_path($menu_id)
+          PersEmailMailer.per_pay_email(@news_email).deliver
+          redirect_to payments_path
         else
         redirect_to menus_path
       end

@@ -12,6 +12,16 @@ HTML, BODY {
   width: auto;
   height: 100%;
   background-color: $my_green;
+  color: black;
+
+}
+
+.white_text_shadow {
+  text-shadow: 1px 1px 1px white;
+}
+
+.big_bold_color {
+  color: $dark_brown;
 }
 
 @import "fond";
@@ -23,16 +33,22 @@ HTML, BODY {
 
 @import "menus";
 @import "products";
+@import "products_comments";
+@import "posts_comments";
 @import "posts";
 @import "pers";
 @import "abouts";
 @import "menu_up";
+@import "instruction";
+@import "payments";
 
-@import "bootstrap_adds";
+
 
 @import "clients";
 
 @import "content/form";
+
+@import "bootstrap_adds";
 
 
 

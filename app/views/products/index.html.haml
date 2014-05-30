@@ -1,11 +1,12 @@
 - @menu_up_item = 'products'
 
 #block
-  = render partial: 'layouts/menu_up'
+  = render partial: 'menus/menu_up'
 
-  - if $success_msg
+  -# if $success_msg
     #top_field
       = $success_msg
+    - $success_msg = nil
 
   #list
     - @products.each do |product|
@@ -19,3 +20,4 @@
             = truncate(strip_tags(product.description), length: 150, separator: ' ')
           = link_to 'Подробнее...', product, id: 'link_under_description'
           = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  = render partial: 'menus/menu_down'

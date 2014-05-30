@@ -1,16 +1,23 @@
 Psysite::Application.routes.draw do
 
-  get '/users/:akey', to: 'users#update'
-  get '/buyers/:akey', to: 'buyers#update'
+  get '/payments/:end', to: 'payments#index'
 
 
-  resources :menus, :products, :posts, :pers, :abouts, :users, :buyers, :clients, :reviews, :news_emails, :recalls, :mentions
+  resources :menus, :products, :posts, :pers, :abouts, :users, :buyers, :clients, :reviews, :news_emails, :recalls, :mentions, :payments
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  resources :posts do
+    resources :posts_comments
+  end
+
+  resources :products do
+    resources :products_comments
+  end
 
   # You can have the root of your site routed with "root"
   root 'menus#index'

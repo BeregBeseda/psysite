@@ -48,19 +48,22 @@
     - $top_field_text = nil
     - $addresser = nil
 
-    %div
-      = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '30', spellcheck: 'false'}
-      = f.text_field :surname, {class: 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '30', spellcheck: 'false'}
-      = f.text_field :nation, {class: 'input-address' ' input-xlarge' " #{@nation_class}", type: 'text', placeholder: 'Страна', 'data-maxsize' => '30', spellcheck: 'false'}
-      = f.text_field :place, {class: 'input-address' ' input-xlarge' " #{@place_class}", type: 'text', placeholder: 'Город', 'data-maxsize' => '30', spellcheck: 'false'}
-      = f.text_field :age, {class: 'input-address' ' input-xlarge' " #{@age_class}", type: 'text', placeholder: 'Возраст', 'data-maxsize' => '3', spellcheck: 'false'}
-      = f.text_field :profession, {class: 'input-address' ' input-xlarge' " #{@profession_class}", type: 'text', placeholder: 'Профессия', 'data-maxsize' => '60', spellcheck: 'false'}
-      = f.text_field :mention, {class: 'input-address' ' input-xlarge' " #{@mention_class}", type: 'text', placeholder: 'Отзыв', 'data-maxsize' => '2000', spellcheck: 'false'}
-      = f.text_field :video_url, {class: 'input-address' ' input-xlarge' " #{@video_url_class}", type: 'text', placeholder: 'Ссылка на видео отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
-      = f.text_field :audio_url, {class: 'input-address' ' input-xlarge' " #{@audio_url_class}", type: 'text', placeholder: 'Ссылка на аудио отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
-      = f.text_field :online_address, {class: 'input-address' ' input-xlarge' " #{@online_address_class}", type: 'text', placeholder: 'Как можно с Вами связаться (E-mail, Skype...)', 'data-maxsize' => '500', spellcheck: 'false'}
-      = f.text_field :site, {class: 'input-address' ' input-xlarge' " #{@site_class}", type: 'text', placeholder: 'Ваш сайт (если есть)', 'data-maxsize' => '200', spellcheck: 'false'}
-      = f.text_field :img_url, {class: 'input-address' ' input-xlarge' " #{@img_url_class}", type: 'text', placeholder: 'Ссылка на Ваше фото (необязательно)', 'data-maxsize' => '300', spellcheck: 'false'}
+    .row-fluid
+      .span6
+        = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '30', spellcheck: 'false'}
+        = f.text_field :surname, {class: 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '30', spellcheck: 'false'}
+        = f.text_field :nation, {class: 'input-address' ' input-xlarge' " #{@nation_class}", type: 'text', placeholder: 'Страна', 'data-maxsize' => '30', spellcheck: 'false'}
+        = f.text_field :place, {class: 'input-address' ' input-xlarge' " #{@place_class}", type: 'text', placeholder: 'Город', 'data-maxsize' => '30', spellcheck: 'false'}
+        = f.text_field :age, {class: 'input-address' ' input-xlarge' " #{@age_class}", type: 'text', placeholder: 'Возраст', 'data-maxsize' => '3', spellcheck: 'false'}
+        = f.text_field :profession, {class: 'input-address' ' input-xlarge' " #{@profession_class}", type: 'text', placeholder: 'Профессия', 'data-maxsize' => '60', spellcheck: 'false'}
+
+      .span6
+        = f.text_field :mention, {class: 'input-address' ' input-xlarge' " #{@mention_class}", type: 'text', placeholder: 'Отзыв', 'data-maxsize' => '2000', spellcheck: 'false'}
+        = f.text_field :video_url, {class: 'input-address' ' input-xlarge' " #{@video_url_class}", type: 'text', placeholder: 'или сылка на видео отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
+        = f.text_field :audio_url, {class: 'input-address' ' input-xlarge' " #{@audio_url_class}", type: 'text', placeholder: 'или сылка на аудио отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
+        = f.text_field :online_address, {class: 'input-address' ' input-xlarge' " #{@online_address_class}", type: 'text', placeholder: 'E-mail или Skype...', 'data-maxsize' => '500', spellcheck: 'false'}
+        = f.text_field :site, {class: 'input-address' ' input-xlarge' " #{@site_class}", type: 'text', placeholder: 'Ваш сайт (если есть)', 'data-maxsize' => '200', spellcheck: 'false'}
+        = f.text_field :img_url, {class: 'input-address' ' input-xlarge' " #{@img_url_class}", type: 'text', placeholder: 'Ссылка на Ваше фото (необязательно)', 'data-maxsize' => '300', spellcheck: 'false'}
 
       - @name_class = nil
       - @surname_class = nil

@@ -10,9 +10,7 @@
   line-height: 17px;
 }
 
-.input-xlarge {
-  width: 98%;
-}
+
 
 #button INPUT, TEXTAREA {
   background-color: rgb(255, 249, 234);
@@ -29,6 +27,18 @@
 
 .btn {
   padding: 6px 6px 9px 6px !important;
+}
+
+.input-address {
+
+
+}
+
+.input-xlarge {
+  width: 98%;
+  border: rgba(40, 136, 215, 0.5);
+  margin: 0 !important;
+
 }
 
 

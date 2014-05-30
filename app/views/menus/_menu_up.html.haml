@@ -1,0 +1,46 @@
+.menu_up
+  %ul
+    - if @menu_up_item != 'mentions'
+      %li
+        = link_to mentions_path do
+          %p
+            = image_tag 'fond/square.png'
+            %b Отзывы
+
+    - if @menu_up_item != 'products'
+      %li
+        = link_to products_path do
+          %p
+            = image_tag 'fond/square.png'
+            %b Видеозаписи&nbsp;семинаров
+
+    - if @menu_up_item != 'posts'
+      %li
+        = link_to posts_path do
+          %p
+            = image_tag 'fond/square.png'
+            %b Статьи
+
+    - if @menu_up_item != 'menus' and @menu_up_item != 'mention' and @menu_up_item != 'mentions'
+      %li
+        = link_to mentions_path do
+          %p
+            = image_tag 'fond/square.png'
+            Оставить отзыв
+
+    - if @menu_up_item != 'pers'
+      %li
+        = link_to pers_path do
+          %p
+            = image_tag 'fond/square.png'
+            Личная&nbsp;консультация
+
+    - if @menu_up_item != 'abouts' && @menu_up_item != 'post' && @menu_up_item != 'product'
+      %li
+        = link_to abouts_path do
+          %p
+            = image_tag 'fond/square.png'
+            -#Обо&nbsp;мне
+            Контакты
+
+= image_tag('products/separator.png', alt: '--------------------------', id: 'separator')

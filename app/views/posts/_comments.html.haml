@@ -1,0 +1,76 @@
+= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+#comment_block
+
+  .comment_title
+    Комментарии
+    %b :
+
+  - if $success_msg
+    #top_field{style: 'font-weight: 400; margin-top:5px;'}
+      = $success_msg
+    - $success_msg = nil
+
+
+  - @post.posts_comments.each do |comment|
+    .comment
+      = comment.email
+
+  - #$comment =
+  -# $addresser = PostsComment.new
+  -#= form_for($addresser) do |f|
+
+  - $comment = @post.posts_comments.build
+
+  .comment_title
+    Оставьте свой комментарий
+    %b :
+
+  -#= form_for([@post, @post.posts_comments.build]) do |f|
+  = form_for([@post, $comment]) do |f|
+    -# if $comment_js
+      = javascript_include_tag 'auto_focus_comment'
+      = $comment_js.html_safe
+
+    - if $comment && $comment.errors.any?
+      = javascript_include_tag 'auto_focus'
+      :css
+        #button INPUT {
+          margin-bottom: 4px !important;
+        }
+        #button {
+          margin-top: 30px !important;
+        }
+
+      #errors_style
+        - $comment.errors.each do |attribute, msg|
+          - if attribute == :name
+            - @name_class = 'errors_field'
+          - if attribute == :surname
+            - @surname_class = 'errors_field'
+          - if attribute == :email
+            - @email_class = 'errors_field'
+          - if attribute == :soc_url
+            - @soc_url_class = 'errors_field'
+          - if attribute == :comment
+            - @comment_class = 'errors_field'
+          %li
+            = msg
+
+    %div
+      = f.text_field :name, {style: 'font-weight:600; font-size:150%; height: 30px; width:98%; ', class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше Имя', 'data-maxsize' => '60', spellcheck: 'false'}
+      - @name_class = nil
+
+      = f.text_field :surname, {style: 'font-weight:600; font-size:150%; height: 30px; width:98%; ', class: 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '60', spellcheck: 'false'}
+      - @surname_class = nil
+
+      = f.text_field :email, {style: 'font-weight:600; font-size:150%; height: 30px; width:98%;', class: 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
+      - @email_class = nil
+
+      = f.text_field :soc_url, {style: 'font-weight:600; font-size:150%; height: 30px; width:98%;', class: 'input-address' ' input-xlarge' " #{@soc_url_class}", type: 'text', placeholder: 'Страница в Соц сети, Skype...', 'data-maxsize' => '60', spellcheck: 'false'}
+      - @soc_url_class = nil
+
+      = f.text_field :comment, {style: 'font-weight:600; font-size:150%; height: 30px; width:89%;', class: 'input-address' ' input-xlarge' " #{@comment_class}", rows: '15', type: 'text', placeholder: 'Комментарий', 'data-maxsize' => '3000', spellcheck: 'false'}
+      - @comment_class = nil
+
+      = f.submit 'Ok', {class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; margin-top: 0; font-weight:600;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }

@@ -11,10 +11,22 @@ class PostsController < ApplicationController
   def show
     I18n.locale = :ru
     @post = Post.find(params[:id])
+
+
     $redirect_news = 'posts'
     $post_id = @post.id
     $event_name = @post.name
     $top_field_text = 'Чтобы получать по почте новые статьи и подборки лучших статей, введите свой E-mail:'
+  end
+
+  def create
+
+    #if $comment.save
+    #  $success_msg = 'post_comment-cool'
+    #  redirect_to posts_path
+    #else
+    #  redirect_to post_path($post_id)
+    #end
   end
 
 

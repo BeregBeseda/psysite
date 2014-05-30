@@ -1,5 +1,9 @@
+- @menu_up_item = 'product'
+
 #block
-  = render partial: 'layouts/menu_up'
+
+  = render partial: 'menus/menu_up'
+
   = image_tag(@product.image, alt: @product.name, id: 'position_img')
   #list_name
     = @product.name
@@ -17,6 +21,16 @@
       = t(:monetary_unit)
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
+  -#= render partial: 'layouts/instruction/products'
+
+  - if $success_msg
+    = javascript_include_tag 'auto_focus'
+    #errors_style
+
   - $addresser ||= NewsEmail.new
   = render partial: 'layouts/content/form_pay'
+  = render partial: 'products/comments'
+
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  = render partial: 'menus/menu_down'
 

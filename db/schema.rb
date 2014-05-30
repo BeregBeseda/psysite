@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140503215917) do
+ActiveRecord::Schema.define(version: 20140506153721) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -121,6 +121,19 @@ ActiveRecord::Schema.define(version: 20140503215917) do
     t.text     "description"
   end
 
+  create_table "posts_comments", force: true do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.string   "soc_url"
+    t.string   "email"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "post_id"
+  end
+
+  add_index "posts_comments", ["post_id"], name: "index_posts_comments_on_post_id"
+
   create_table "products", force: true do |t|
     t.string   "name"
     t.datetime "date"
@@ -132,6 +145,19 @@ ActiveRecord::Schema.define(version: 20140503215917) do
     t.text     "short"
     t.text     "description"
   end
+
+  create_table "products_comments", force: true do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.string   "soc_url"
+    t.string   "email"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "product_id"
+  end
+
+  add_index "products_comments", ["product_id"], name: "index_products_comments_on_product_id"
 
   create_table "recalls", force: true do |t|
     t.string   "name"

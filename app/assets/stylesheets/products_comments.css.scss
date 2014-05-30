@@ -1,0 +1,27 @@
+#comment_block{
+  padding: 5px;
+  text-shadow: 1px 1px 1px white;
+}
+
+.comment_title {
+  font-size: 150%;
+  color: rgb(0, 6, 82);
+  text-shadow: 2px 2px 1px white, 0 0 1em white;
+  margin: 5px 0;
+}
+
+.comment {
+  /*border: 3px #df7800 !important;*/
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px ridge rgba(40, 136, 215, 0.5);
+
+  color: rgb(11, 29, 82);
+  text-align: justify;
+  font-size: 140%;
+  padding: 5px 4px;
+  box-shadow: 0 0 5px $blue_shadow;
+  border-radius: 4px;
+  margin: 0 0;
+  /*margin-bottom: 0px;*/
+}

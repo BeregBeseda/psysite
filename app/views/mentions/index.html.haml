@@ -1,7 +1,7 @@
 - @menu_up_item = 'mentions'
 
 #block
-  = render partial: 'layouts/menu_up'
+  = render partial: 'menus/menu_up'
 
   - if $success_msg
     #top_field
@@ -19,7 +19,6 @@
             = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
           = link_to 'Подробнее...', mention, id: 'link_under_description'
           = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  = render partial: 'menus/menu_down'
 
-  - $addresser ||= Mention.new
-  = render partial: 'layouts/forms/mention_form'
 

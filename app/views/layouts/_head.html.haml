@@ -1,3 +1,4 @@
+%meta{content: 'vitalina.liane@gmail.com', name: 'author'}/
 %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
 %meta{content: 'all', name: 'robots'}/
 %meta{content: 'index, follow', name: 'robots'}/
@@ -22,7 +23,7 @@
 
 %title
   ● Психолог по Skype и E-mail -
-  - unless @title == nil
+  - if @title
     = @title
   - else
     Хочу счастья

@@ -26,7 +26,12 @@
 
 #block
 
-  = render partial: 'layouts/menu/menu1_2_n'
+  - if $success_msg
+    #top_field
+      = $success_msg
+    - $success_msg = nil
+
+  = render partial: 'menus/menu1_2_n'
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 

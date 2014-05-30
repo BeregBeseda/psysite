@@ -1,5 +1,7 @@
+- @menu_up_item = 'mention'
+
 #block
-  = render partial: 'layouts/menu_up'
+  = render partial: 'menus/menu_up'
   = image_tag(@mention.img_url, alt: @mention.name, id: 'position_img')
   #list_name
     = @mention.name
@@ -18,6 +20,9 @@
 
   - $addresser ||= Mention.new
   = render partial: 'layouts/forms/mention_form'
+
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  = render partial: 'menus/menu_down'
 
 
 
