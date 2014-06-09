@@ -1,4 +1,4 @@
-#button
+#button.margin_bottom.margin_top
   = form_for $addresser do |f|
     - if $addresser.errors.any?
       = javascript_include_tag 'auto_focus'
@@ -14,6 +14,10 @@
         - $addresser.errors.each do |attribute, msg|
           - if attribute == :email
             - @email_class = 'errors_field'
+          - if attribute == :name
+            - @name_class = 'errors_field'
+          - if attribute == :word
+            - @word_class = 'errors_field'
           %li
             = msg
     - unless $addresser.errors.any?
@@ -23,7 +27,11 @@
     - $addresser = nil
 
     %div
+      = f.text_field :name, {style: 'font-weight:600; font-size:150%; height: 30px; width:90%;', class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '60', spellcheck: 'false'}
+      - @name_class = nil
       = f.text_field :email, {style: 'font-weight:600; font-size:150%; height: 30px; width:90%;', class: 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'Ваш E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
       - @email_class = nil
+      = f.text_field :word, {style: 'font-weight:600; font-size:150%; height: 30px; width:89% !important;', class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '60', spellcheck: 'false'}
+      - @word_class = nil
       = f.submit 'Ok', {class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; font-weight:600;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
 

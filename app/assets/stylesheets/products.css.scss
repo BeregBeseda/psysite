@@ -30,10 +30,19 @@
 }
 
 #position_img {
+  width: 50%;
+  height: auto;
+  min-width: 80px;
+  min-height: auto;
+  margin:  0 5px 5px 0;
+  float:left;
+}
+
+#position_img_min {
   width: 20%;
   height: auto;
   min-width: 80px;
-  min-height: 80px;
+  min-height: auto;
   margin:  0 5px 5px 0;
   float:left;
 }

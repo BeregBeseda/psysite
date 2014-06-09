@@ -4,10 +4,15 @@ class ProductsCommentsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @products_comment = @product.products_comments.create(permit_params)
+    $comment = @products_comment
+
+    $success_msg = nil
 
     if @products_comment.save
       $comment = nil
       $success_msg = 'Вы успешно оставили свой комментарий. Благодарю Вас за уделенное время'
+    else
+      $fail_msg = 'Чтобы оставить комментарий, пожалуйста, введите Ваши имя, фамилию, E-mail и комментарий:'
     end
 
     redirect_to product_path(@product)
@@ -17,7 +22,7 @@ class ProductsCommentsController < ApplicationController
   private
 
     def permit_params
-      params.require(:products_comment).permit(:name, :surname, :soc_url, :email, :comment, :product_id)
+      params.require(:products_comment).permit(:name, :surname, :soc_url, :email, :comment, :product_id, :word)
     end
 
 end

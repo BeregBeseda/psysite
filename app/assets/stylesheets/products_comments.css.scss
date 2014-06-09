@@ -10,6 +10,10 @@
   margin: 5px 0;
 }
 
+
+
+
+
 .comment {
   /*border: 3px #df7800 !important;*/
   padding: 3px;
@@ -24,4 +28,36 @@
   border-radius: 4px;
   margin: 0 0;
   /*margin-bottom: 0px;*/
+  A {
+    opacity: .2;
+    font-size: 130%;
+    color: $blue_shadow;
+  }
+  &:hover A {
+    opacity: 1;
+    /*color: rgb(3, 118, 255);*/
+  }
+}
+
+.c_name_surname {
+  opacity: .7;
+
+}
+
+.c_comment {
+  font-size: 140%;
+  color: $dark_blue;
+}
+
+.c_soc_url {
+  opacity: .7;
+}
+
+.c_date {
+
+}
+
+.comment_answer {
+
+
 }

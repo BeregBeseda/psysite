@@ -32,7 +32,7 @@ class MentionsController < ApplicationController
 
 
   def mention_params
-    params.require(:mention).permit(:name, :surname, :place, :nation, :age, :profession, :mention, :video_url, :audio_url, :online_address, :site, :img_url, :visible)
+    params.require(:mention).permit(:name, :surname, :place, :nation, :age, :profession, :mention, :video_url, :audio_url, :online_address, :site, :img_url, :visible, :word)
   end
 
 

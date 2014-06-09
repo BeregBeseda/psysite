@@ -3,7 +3,7 @@
 #block
   = render partial: 'menus/menu_up'
 
-  -# if $success_msg
+  -if $success_msg
     #top_field
       = $success_msg
     - $success_msg = nil
@@ -11,13 +11,14 @@
   #list
     - @posts.each do |post|
 
-      = link_to post do
-        .list_position
-          = image_tag(post.image, alt: post.name, id: 'position_img')
-          #list_name
-            = post.name
-          #list_description
-            = truncate(strip_tags(post.description), length: 150, separator: ' ')
-          = link_to 'Подробнее...', post, id: 'link_under_description'
+      .list_position
+        = link_to post do
+          %p
+            = image_tag(post.image, alt: post.name, id: 'position_img_min')
+            #list_name
+              = post.name
+            #list_description{style: 'font-size: 150%'}
+              = truncate(strip_tags(post.description), length: 150, separator: ' ')
+            = link_to 'Подробнее...', post, id: 'link_under_description'
           = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   = render partial: 'menus/menu_down'

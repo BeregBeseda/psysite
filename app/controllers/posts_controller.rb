@@ -11,8 +11,6 @@ class PostsController < ApplicationController
   def show
     I18n.locale = :ru
     @post = Post.find(params[:id])
-
-
     $redirect_news = 'posts'
     $post_id = @post.id
     $event_name = @post.name

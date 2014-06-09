@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506153721) do
+ActiveRecord::Schema.define(version: 20140608193636) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20140506153721) do
     t.string   "site"
     t.string   "img_url"
     t.boolean  "visible"
+    t.string   "word"
   end
 
   create_table "menus", force: true do |t|
@@ -107,7 +108,11 @@ ActiveRecord::Schema.define(version: 20140506153721) do
     t.boolean  "use_for_news"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "word"
   end
+
+  add_index "news_emails", ["email"], name: "index_news_emails_on_email", unique: true
 
   create_table "posts", force: true do |t|
     t.string   "name"
@@ -130,6 +135,7 @@ ActiveRecord::Schema.define(version: 20140506153721) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "post_id"
+    t.string   "word"
   end
 
   add_index "posts_comments", ["post_id"], name: "index_posts_comments_on_post_id"
@@ -155,6 +161,7 @@ ActiveRecord::Schema.define(version: 20140506153721) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "product_id"
+    t.string   "word"
   end
 
   add_index "products_comments", ["product_id"], name: "index_products_comments_on_product_id"

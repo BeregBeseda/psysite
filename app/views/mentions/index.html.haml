@@ -6,18 +6,25 @@
   - if $success_msg
     #top_field
       = $success_msg
+      - $success_msg = nil
 
   #list
     - @mentions.each do |mention|
 
-      = link_to mention do
-        .list_position
-          = image_tag(mention.img_url, alt: mention.name, id: 'position_img')
-          #list_name
-            = mention.name
-          #list_description
-            = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
-          = link_to 'Подробнее...', mention, id: 'link_under_description'
+      .list_position
+        = link_to mention do
+          %p
+            -#= image_tag(mention.img_url, alt: mention.name, id: 'position_img')
+            #list_name{style: 'font-size:150%;'}
+              = mention.name
+              = mention.surname
+              ,
+              = mention.nation
+            %p
+              #list_description
+                .big_bold_color{style: 'font-size:110%; line-height:110%;'}
+                  = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
+            = link_to 'Подробнее...', mention, id: 'link_under_description'
           = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   = render partial: 'menus/menu_down'
 

@@ -16,7 +16,7 @@ ActiveAdmin.register ProductsComment do
 
   controller do
     def permitted_params
-      params.permit products_comment: [:name, :surname, :soc_url, :email, :comment, :product_id]
+      params.permit products_comment: [:name, :surname, :soc_url, :email, :comment, :product_id, :word]
     end
   end
 

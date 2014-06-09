@@ -4,7 +4,8 @@
 
   = render partial: 'menus/menu_up'
 
-  = image_tag(@post.image, alt: @post.name, id: 'position_img')
+  - if @post.image != ''
+    = image_tag(@post.image, alt: @post.name, id: 'position_img')
   #list_name
     = @post.name
   #list_description

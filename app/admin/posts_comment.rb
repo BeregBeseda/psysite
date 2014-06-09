@@ -16,7 +16,7 @@ ActiveAdmin.register PostsComment do
 
   controller do
     def permitted_params
-      params.permit posts_comment: [:name, :surname, :soc_url, :email, :comment, :post_id]
+      params.permit posts_comment: [:name, :surname, :soc_url, :email, :comment, :post_id, :word]
     end
   end
 

@@ -26,5 +26,6 @@ class ProductsComment < ActiveRecord::Base
 
 
   validates_format_of :email, with: /@/, message: 'Проверьте E-mail на правильность', if: :email?
+  validates_format_of :word, with: /8/, message: 'Введите число "8" в последнее поле'
 
 end

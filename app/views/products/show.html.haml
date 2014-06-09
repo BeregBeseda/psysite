@@ -4,7 +4,8 @@
 
   = render partial: 'menus/menu_up'
 
-  = image_tag(@product.image, alt: @product.name, id: 'position_img')
+  - if @product.image != ''
+    = image_tag(@product.image, alt: @product.name, id: 'position_img')
   #list_name
     = @product.name
   #list_description

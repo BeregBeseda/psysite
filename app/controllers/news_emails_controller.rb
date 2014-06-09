@@ -40,9 +40,9 @@ class NewsEmailsController < ApplicationController
     else
       case $redirect_news
         when 'posts'
-          redirect_to posts_path($post_id)
+          redirect_to post_path($post_id)
         when 'products'
-          redirect_to products_path($product_id)
+          redirect_to product_path($product_id)
         when 'pers'
           redirect_to pers_path
         else
@@ -53,7 +53,7 @@ class NewsEmailsController < ApplicationController
 
 
   def news_email_params
-    params.require(:news_email).permit(:email, :use_for_news)
+    params.require(:news_email).permit(:email, :use_for_news, :name, :word)
   end
 
   private
