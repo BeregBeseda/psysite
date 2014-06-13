@@ -12,6 +12,7 @@ class Mention < ActiveRecord::Base
   validates :profession, presence: { message: 'Введите свой возраст' }
   validates :mention, presence: { message: 'Введите свой возраст', unless: :video_url? }
   validates :video_url, presence: { message: 'Введите свой E-mail', unless: :mention? }
+  validates :word, presence: { message: 'Введите число "8" в последнее поле' }
 
 
 
@@ -49,7 +50,7 @@ class Mention < ActiveRecord::Base
   validates :img_url, length: { maximum: 1000, message: 'Максимальная длина Комментария - 3000 символов' }
 
 
-  #validates :word, presence: { message: 'Введите свое имя' }
-  validates_format_of :word, with: /8/, message: 'Введите число "8" в последнее поле'
+  validates :email, format: { with: /@/, message: 'Проверьте E-mail на правильность', if: :email? }
+  validates :word, format: { with: /8/, message: 'Введите число "8" в последнее поле', if: :word? }
 
 end

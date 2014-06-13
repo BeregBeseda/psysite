@@ -12,7 +12,7 @@ class PostsCommentsController < ApplicationController
       $comment = nil
       $success_msg = 'Вы успешно оставили свой комментарий. Благодарю Вас за уделенное время'
     else
-      $success_msg = 'Чтобы оставить комментарий, пожалуйста, введите Ваши имя, фамилию, E-mail и комментарий'
+      $fail_msg = 'Чтобы оставить комментарий, пожалуйста, введите Ваши имя, фамилию, E-mail и комментарий:'
     end
 
     redirect_to post_path(@post)

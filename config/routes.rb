@@ -1,9 +1,12 @@
 Psysite::Application.routes.draw do
 
   get '/payments/:end', to: 'payments#index'
+  get '/news_emails/confirmation/:akey', to: 'news_emails#update'
+  get '/news_emails/end_delivery/:id/:email', to: 'news_emails#update'
+  get '/products_pays/:email/:product_name', to: 'products_pays#index'
 
 
-  resources :menus, :products, :posts, :pers, :abouts, :users, :buyers, :clients, :reviews, :news_emails, :recalls, :mentions, :payments
+  resources :menus, :products, :posts, :pers, :abouts, :users, :buyers, :clients, :reviews, :news_emails, :recalls, :mentions, :payments, :products_pays
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

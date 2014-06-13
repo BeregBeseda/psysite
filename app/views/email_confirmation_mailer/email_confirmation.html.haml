@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %p
+      Email confirmation!
+      = link_to 'НАжми сюда', "http://happy-vita.com/news_emails/confirmation/#{@news_email.akey}"
+
+      Чтобы отказаться от рассылки
+      = link_to 'НАжми сюда', "http://happy-vita.com/news_emails/end_delivery/#{@news_email.id}/#{@news_email.email}"

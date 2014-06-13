@@ -1,6 +1,6 @@
-= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+= image_tag('posts/separator.png', alt: '--------------------', id: 'separator')
+= image_tag('posts/separator.png', alt: '--------------------', id: 'separator')
+= image_tag('posts/separator.png', alt: '--------------------', id: 'separator')
 
 #comment_block.margin_bottom
 
@@ -10,6 +10,7 @@
       %b :
     - else
       Комментариев ещё нет
+
 
 
   - @post.posts_comments.each do |comment|
@@ -31,11 +32,15 @@
           Страница в соц сети или Skype...
           %b
             = comment.soc_url
-      = link_to products_path do
+      = link_to posts_path do
         %p
           .comment_answer
             %b
               Ответить
+
+      -#.c_date
+        Комментарий оставлен
+        = comment.created_at
 
   - #$comment =
   -# $addresser = PostsComment.new
@@ -59,6 +64,7 @@
         = $fail_msg
     - $fail_msg = nil
     - @errors_f = 'errors_field '
+
 
 
   -#= form_for([@post, @post.posts_comments.build]) do |f|

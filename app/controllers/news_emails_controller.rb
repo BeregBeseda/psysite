@@ -15,45 +15,82 @@ class NewsEmailsController < ApplicationController
     $top_field_text = 'Чтобы получать по почте новые статьи и подборки лучших статей, введите свой E-mail:'
   end
 
+
+
   def create
     @news_email = NewsEmail.new(news_email_params)
     $addresser = @news_email
-    $addresser.use_for_news = true
 
+    if @news_email.valid?
+      key_int = 10.times.map{rand(1..99)}
+      key_str = 10.times.map{('a'..'z').to_a[rand(26)]}
+      key_int.concat(key_str)
+      key_int.shuffle!
+      @news_email.akey = key_int.join
 
-    if @news_email.save
-      $addresser = nil
+      if $redirect_news == 'posts'
+        EmailConfirmationMailer.email_confirmation(@news_email).deliver
+        @news_email.use_for_news = false
+        @news_email.save
+        $success_msg = 'Чтобы получать новости сайта, проверьте свой E-mail. Спасибо'
+        redirect_to posts_path
+      end
 
-      case $redirect_news
-        when 'posts'
-          $success_msg = 'Вы успешно подписались на рассылку материалов сайта. Спасибо за доверие'
-          redirect_to posts_path
-        when 'products'
+      if $redirect_news == 'pers'
+        PersEmailMailer.per_pay_email(@news_email).deliver
+        redirect_to payments_path
+      end
+
+      if $redirect_news == 'products'
+        if @news_email.use_for_news
+          @news_email.use_for_news = false
+          unless NewsEmail.find_by_email(@news_email.email)
+            @news_email.save
+          end
+          EmailConfirmationMailer.email_confirmation(@news_email).deliver
           ProductsEmailMailer.product_pay_email(@news_email).deliver
           redirect_to payments_path
-        when 'pers'
-          PersEmailMailer.per_pay_email(@news_email).deliver
+        else
+          ProductsEmailMailer.product_pay_email(@news_email).deliver
           redirect_to payments_path
-        else
-        redirect_to menus_path
-      end
-    else
-      case $redirect_news
-        when 'posts'
-          redirect_to post_path($post_id)
-        when 'products'
-          redirect_to product_path($product_id)
-        when 'pers'
-          redirect_to pers_path
-        else
-          redirect_to menus_path
         end
+      end
+    end
+
+    if $redirect_news != 'posts' and $redirect_news != 'products' and $redirect_news != 'pers'
+      redirect_to menus_path
     end
   end
 
 
+
+  def update
+    if params[:akey]
+      @news_email = NewsEmail.find(:first, conditions: { akey: params[:akey]} )
+      if @news_email.akey == params[:akey]
+        @news_email.use_for_news = true
+        @news_email.save
+        $success_msg = 'Вы подтвердили своё желание получать новости с сайта психолога Татьяны Вакульчик. Спасибо за доверие'
+        redirect_to products_path
+      end
+    end
+
+    if params[:id]
+      @news_email = NewsEmail.find(:first, conditions: { id: params[:id]} )
+      if @news_email.email == params[:email]
+        @news_email.use_for_news = false
+        @news_email.save
+        $success_msg = 'Вы отписались от получения новостей сайта. Очень жаль. Пожалуйста, если у Вас есть свободная минутка, оставьте свой отзыв о деятельности психолога и укажите причину отказа от рассылки'
+        redirect_to mentions_path
+      end
+    end
+
+  end
+
+
+
   def news_email_params
-    params.require(:news_email).permit(:email, :use_for_news, :name, :word)
+    params.require(:news_email).permit(:email, :use_for_news, :name, :word, :akey)
   end
 
   private

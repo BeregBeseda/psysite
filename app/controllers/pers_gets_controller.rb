@@ -1,0 +1,2 @@
+class PersGetsController < ApplicationController
+end

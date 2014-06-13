@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608193636) do
+ActiveRecord::Schema.define(version: 20140613121329) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -104,15 +104,25 @@ ActiveRecord::Schema.define(version: 20140608193636) do
   end
 
   create_table "news_emails", force: true do |t|
-    t.string   "email"
-    t.boolean  "use_for_news"
+    t.boolean  "use_for_news", default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.string   "word"
+    t.boolean  "delivery"
+    t.string   "email"
+    t.string   "akey"
   end
 
-  add_index "news_emails", ["email"], name: "index_news_emails_on_email", unique: true
+  create_table "pers_pays", force: true do |t|
+    t.string   "email"
+    t.integer  "sum"
+    t.string   "account"
+    t.string   "when"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "number"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "name"
@@ -165,6 +175,25 @@ ActiveRecord::Schema.define(version: 20140608193636) do
   end
 
   add_index "products_comments", ["product_id"], name: "index_products_comments_on_product_id"
+
+  create_table "products_gets", force: true do |t|
+    t.string   "email"
+    t.string   "product_name"
+    t.string   "link_of_product"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products_pays", force: true do |t|
+    t.string   "email"
+    t.string   "product_name"
+    t.integer  "sum"
+    t.string   "account"
+    t.string   "when"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "number"
+  end
 
   create_table "recalls", force: true do |t|
     t.string   "name"
