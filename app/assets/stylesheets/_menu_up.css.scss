@@ -13,7 +13,7 @@
   A {
     color: $link_dark_green;
     display: inline-block;
-    text-decoration: none;
+    text-decoration: underline !important;
     &:hover {
       color: $dark_brown;
     }
@@ -27,7 +27,6 @@
     padding-bottom: 2px;
     opacity: .9;
   }
-
 }
 
 .icon_opacity {

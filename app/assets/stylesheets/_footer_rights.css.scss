@@ -1,0 +1,22 @@
+#footer_rights {
+  /*color: #c06142; */
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 15px;
+  margin-bottom: 1px;
+  @include transition_color;
+  margin-bottom: 20px;
+  &:hover {
+    color: $form_text;
+  }
+  &:hover A {
+    color: $form_text;
+  }
+}
+
+#footer_link {
+  color: white;
+  text-decoration: underline !important;
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613121329) do
+ActiveRecord::Schema.define(version: 20140614190436) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20140613121329) do
   end
 
   create_table "news_emails", force: true do |t|
-    t.boolean  "use_for_news", default: true
+    t.boolean  "use_for_news",        default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 20140613121329) do
     t.boolean  "delivery"
     t.string   "email"
     t.string   "akey"
+    t.string   "delivery_agree_date"
+    t.string   "delivery_off_date"
   end
 
   create_table "pers_pays", force: true do |t|
@@ -132,7 +134,6 @@ ActiveRecord::Schema.define(version: 20140613121329) do
     t.string   "social_link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "short"
     t.text     "description"
   end
 
@@ -158,7 +159,6 @@ ActiveRecord::Schema.define(version: 20140613121329) do
     t.string   "social_link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "short"
     t.text     "description"
   end
 

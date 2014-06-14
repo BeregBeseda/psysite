@@ -32,6 +32,13 @@
     opacity: .2;
     font-size: 130%;
     color: $blue_shadow;
+    text-decoration: underline !important;
+    &:hover {
+      color: $dark_blue;
+    }
+    &:active, &:focus {
+      color: $blue_shadow;
+    }
   }
   &:hover A {
     opacity: 1;

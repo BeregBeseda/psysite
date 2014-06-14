@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   def show
     I18n.locale = :ru
     @product = Product.find(params[:id])
+    $now_post_product = @product
     $redirect_news = 'products'
     $product_id = @product.id
     $event_name = @product.name

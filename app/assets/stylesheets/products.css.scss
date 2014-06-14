@@ -13,7 +13,8 @@
 #link_under_description {
   font-weight: 600;
   letter-spacing: 120%;
-  font-size: 140%;
+  font-size: 170% !important;
+  text-decoration: underline !important;
 }
 
 #list_name {
@@ -25,7 +26,7 @@
 
 #list_description {
   color: black;
-  font-size: 140%;
+  font-size: 170% !important;
   text-align: justify;
 }
 

@@ -1,0 +1,23 @@
+#footer_rights
+  .row-fluid
+    .span4
+      %p
+        Адрес автора сайта/Design by:
+        %br/
+        vitalina.liane@gmail.com
+        %br/
+        &#169; 2013-#{Time.now.year}
+
+    .span4
+      %p
+        Копирование контента сайта
+        %br/
+        преследуется по закону
+        %br/
+        <<Об авторском праве>>
+
+    .span4
+      %p
+        Все права принадлежат владельцу сайта - психологу
+        = link_to pers_path, id: 'footer_link' do
+          Татьяне Вакульчик
