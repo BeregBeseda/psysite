@@ -66,9 +66,17 @@ class NewsEmailsController < ApplicationController
         end
       end
     else
-      if $now_post_product
-        redirect_to product_path($now_post_product)
-        $now_post_product = nil
+      if $redirect_news == 'posts'
+        redirect_to posts_path
+      elsif $redirect_news == 'pers'
+        redirect_to pers_path
+      elsif $redirect_news == 'products'
+        if $now_post_product
+          redirect_to product_path($now_post_product)
+          $now_post_product = nil
+        else
+          redirect_to products_path
+        end
       else
         redirect_to menus_path
       end
@@ -82,35 +90,30 @@ class NewsEmailsController < ApplicationController
 
 
   def update
-    if params[:akey]
-      @news_email = NewsEmail.find(:first, conditions: { akey: params[:akey]} )
-      if @news_email.akey == params[:akey]
+    if params[:id] and @news_email = NewsEmail.find(:first, conditions: { id: params[:id]} ) and @news_email.email == params[:email]
         @news_email.use_for_news = true
         if @news_email.delivery_agree_date == nil
           @news_email.delivery_agree_date = ''
         end
         @news_email.delivery_agree_date = @news_email.delivery_agree_date + Time.now.to_s + ', '
+        @news_email.save
+        $success_msg = 'Вы подтвердили своё желание получать новости с сайта психолога Татьяны Вакульчик. Спасибо за доверие'
+        redirect_to products_path
+    elsif params[:akey] and @news_email = NewsEmail.find(:first, conditions: { akey: params[:akey]} )
+        @news_email.use_for_news = false
+        if @news_email.delivery_off_date == nil
+          @news_email.delivery_off_date = ''
+        end
+        @news_email.delivery_off_date = @news_email.delivery_off_date + Time.now.to_s + ', '
         key_int = 10.times.map{rand(1..99)}
         key_str = 10.times.map{('a'..'z').to_a[rand(26)]}
         key_int.concat(key_str)
         key_int.shuffle!
         @news_email.akey = key_int.join
         @news_email.save
-        $success_msg = 'Вы подтвердили своё желание получать новости с сайта психолога Татьяны Вакульчик. Спасибо за доверие'
-        redirect_to products_path
-      end
-    elsif params[:id]
-      @news_email = NewsEmail.find(:first, conditions: { id: params[:id]} )
-      if @news_email.email == params[:email]
-        @news_email.use_for_news = false
-        if @news_email.delivery_off_date == nil
-          @news_email.delivery_off_date = ''
-        end
-        @news_email.delivery_off_date = @news_email.delivery_off_date + Time.now.to_s + ', '
-        @news_email.save
         $success_msg = 'Вы отписались от получения новостей сайта. Очень жаль. Пожалуйста, если у Вас есть свободная минутка, оставьте свой отзыв о деятельности психолога и укажите причину отказа от рассылки'
+        $delivery_off_now = true
         redirect_to mentions_path
-      end
     else
       redirect_to menus_path
     end

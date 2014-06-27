@@ -8,6 +8,12 @@
       = $success_msg
       - $success_msg = nil
 
+  - if $delivery_off_now == true
+    - $addresser ||= Mention.new
+    = render partial: 'layouts/forms/mention_form'
+    = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+    - $delivery_off_now = nil
+
   #list
     - @mentions.each do |mention|
 

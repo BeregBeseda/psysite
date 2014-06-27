@@ -16,6 +16,7 @@
     text-decoration: underline !important;
     &:hover {
       color: $dark_brown;
+      text-decoration: none !important;
     }
     &:active, &:focus {
       color: $light_brown;

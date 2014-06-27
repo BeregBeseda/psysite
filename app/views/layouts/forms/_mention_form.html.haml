@@ -65,12 +65,12 @@
 
       .span6
         = f.text_field :age, {class: 'input-address' ' input-xlarge' " #{@age_class}", type: 'text', placeholder: 'Возраст', 'data-maxsize' => '3', spellcheck: 'false'}
-        = f.text_field :online_address, {class: 'input-address' ' input-xlarge' " #{@online_address_class}", type: 'text', placeholder: 'E-mail или Skype...', 'data-maxsize' => '500', spellcheck: 'false'}
+        = f.text_field :online_address, {class: 'input-address' ' input-xlarge' " #{@online_address_class}", type: 'text', placeholder: 'E-mail, Skype и т.д.', 'data-maxsize' => '500', spellcheck: 'false'}
         = f.text_field :site, {class: 'input-address' ' input-xlarge' " #{@site_class}", type: 'text', placeholder: 'Ваш сайт (если есть)', 'data-maxsize' => '200', spellcheck: 'false'}
         = f.text_field :img_url, {class: 'input-address' ' input-xlarge' " #{@img_url_class}", type: 'text', placeholder: 'Ссылка на Ваше фото (необязательно)', 'data-maxsize' => '300', spellcheck: 'false'}
 
     = f.text_field :profession, {class: 'input-address' ' input-xlarge' " #{@profession_class}", style: 'width:99%;', type: 'text', placeholder: 'Профессия', 'data-maxsize' => '60', spellcheck: 'false'}
-    = f.text_field :mention, {class: 'input-address' ' input-xlarge' " #{@mention_class}", style: 'width:99%;', type: 'text', placeholder: 'Отзыв', 'data-maxsize' => '2000', spellcheck: 'false'}
+    = f.text_area :mention, {id: 'textarea', class: 'input-address' ' input-xlarge' 'input-comment' " #{@mention_class}", rows:3, type: 'text', placeholder: 'Отзыв', 'data-maxsize' => '3000', spellcheck: 'false'}
 
     .row-fluid
       .span6
@@ -94,5 +94,5 @@
     - @img_url_class = nil
     - @word_class = nil
 
-    = f.submit 'Ok', { class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+    = f.submit 'Оставить отзыв', { class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; font-weight:600; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
 

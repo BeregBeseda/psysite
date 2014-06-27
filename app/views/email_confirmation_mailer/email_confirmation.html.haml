@@ -4,8 +4,28 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
     %p
-      Email confirmation!
-      = link_to 'НАжми сюда', "http://happy-vita.com/news_emails/confirmation/#{@news_email.akey}"
+      Доброго времени суток,
+      = @news_email.name
+      Вы выразили желание получать новости сайта психолога Татьяны Вакульчик на свою почту (например, новые статьи и новости о видеозаписях семинаров)
+
+      Чтобы подтвердить подписку
+      = link_to "http://psysite.herokuapp.com/news_emails/confirmation/#{@news_email.id}/#{@news_email.email}", id: 'email_activation_button' do
+        Кликните на эту кнопку
+      Желаю эффективного и увлекательного премяприпровождения на сайте. Добро пожаловать
+
+      Если это не Вы ввели свой E-mail на сайте, чтобы подписаться на рассылку, то Вам не нужно нажимать на кнопку выше.
+      Если это не Вы ввели свой E-mail на сайте, чтобы подписаться на рассылку, то, похоже, кто-то другой использовал Ваш E-mail. Чтобы обеспечить безопасность Вашей личной информации, рекомендую сменить пароль от Вашей почты.
+
+
+      Сайт психолога Татьяны Вакульчик
+      = link_to 'http://psysite.herokuapp.com' do
+        Happy-Vita.com
+      All rights reserved &#169; 2013-#{Time.now.year}
+
+      Счастливо и до встречи
+
+
+
 
       Чтобы отказаться от рассылки
-      = link_to 'НАжми сюда', "http://happy-vita.com/news_emails/end_delivery/#{@news_email.id}/#{@news_email.email}"
+      = link_to 'НАжми сюда', "http://psysite.herokuapp.com/news_emails/end_delivery/#{@news_email.akey}"

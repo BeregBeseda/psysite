@@ -31,7 +31,7 @@
 
       - if comment.soc_url != ''
         .c_soc_url
-          Страница в соц сети или Skype...
+          Страница в соц сети, Skype и т.д.
           %b
             = comment.soc_url
       = link_to posts_path do
@@ -114,13 +114,13 @@
       = f.text_field :email, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
       - @email_class = nil
 
-      = f.text_field :soc_url, {class: 'input-address' ' input-xlarge' " #{@soc_url_class}", type: 'text', placeholder: 'Страница в Соц сети, Skype...', 'data-maxsize' => '60', spellcheck: 'false'}
+      = f.text_field :soc_url, {class: 'input-address' ' input-xlarge' " #{@soc_url_class}", type: 'text', placeholder: 'Страница в Соц сети, Skype и т.д.', 'data-maxsize' => '60', spellcheck: 'false'}
       - @soc_url_class = nil
 
-      = f.text_field :comment, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@comment_class}", rows: '15', type: 'text', placeholder: 'Комментарий', 'data-maxsize' => '3000', spellcheck: 'false'}
+      = f.text_area :comment, {id: 'textarea', class: "#{@errors_f}" 'input-address' ' input-xlarge' 'input-comment' " #{@comment_class}", rows:3, type: 'text', placeholder: 'Комментарий', 'data-maxsize' => '3000', spellcheck: 'false'}
       - @comment_class = nil
 
-      = f.text_field :word, {style: 'width:89% !important;', class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '3000', spellcheck: 'false'}
+      = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '3000', spellcheck: 'false'}
       - @word_class = nil
 
-      = f.submit 'Ok', {class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; margin-top: 0; font-weight:600;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+      = f.submit 'Оставить комментарий', {class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; margin-top: 0; font-weight:600;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }

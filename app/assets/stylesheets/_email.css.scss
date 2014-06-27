@@ -1,0 +1,27 @@
+.email {
+  width: 340px;
+  height: auto;
+}
+
+.email_top_field A {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.email_footer A {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.email_not_you {
+  color: $email_footer_not-for-you;
+  padding: 5px;
+  font-size: 14px;
+  line-height: 15px;
+  margin-bottom: 20px;
+  text-align: justify;
+}

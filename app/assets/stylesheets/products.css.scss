@@ -4,6 +4,7 @@
   }
   &:hover A {
     color: $link_green;
+    text-decoration: none !important;
   }
   &:active A {
     color: $dark_blue;

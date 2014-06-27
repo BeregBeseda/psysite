@@ -33,8 +33,11 @@
     font-size: 130%;
     color: $blue_shadow;
     text-decoration: underline !important;
+    display: inline-block;
     &:hover {
-      color: $dark_blue;
+      /*color: $dark_blue;*/
+      text-decoration: none !important;
+      color: $blue;
     }
     &:active, &:focus {
       color: $blue_shadow;

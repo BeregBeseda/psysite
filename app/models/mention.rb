@@ -50,7 +50,6 @@ class Mention < ActiveRecord::Base
   validates :img_url, length: { maximum: 1000, message: 'Максимальная длина Комментария - 3000 символов' }
 
 
-  validates :email, format: { with: /@/, message: 'Проверьте E-mail на правильность', if: :email? }
   validates :word, format: { with: /8/, message: 'Введите число "8" в последнее поле', if: :word? }
 
 end
