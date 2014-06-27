@@ -7,6 +7,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string   "image"
       t.string   "social_link"
       t.text     "description"
+      t.string     "short"
 
       t.timestamps
     end
