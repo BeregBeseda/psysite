@@ -1,4 +1,5 @@
 .list_position {
+  margin: 20px auto;
   A {
     text-decoration: none;
   }
@@ -20,15 +21,21 @@
 
 #list_name {
   color: $dark_brown;
-  font-size: 140%;
+  font-size: 150%;
   font-weight: 600;
   text-align: justify;
+  margin-top: 25px;
 }
 
 #list_description {
-  color: black;
-  font-size: 170% !important;
+  color: $dark_brown;
+  font-size: 160% !important;
   text-align: justify;
+  margin-bottom: 10px;
+  line-height:105%;
+  P {
+    margin-top: 15px;
+  }
 }
 
 #position_img {

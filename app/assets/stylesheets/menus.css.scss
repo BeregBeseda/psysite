@@ -1,3 +1,4 @@
+
 .underline {
   text-decoration: underline !important;
   &:hover {
@@ -30,7 +31,7 @@
     color: $dark_blue;
     text-align: justify;
     padding: 5px;
-    background: transparent url(menu_main/main_menu_section_yellow_shadow.png) no-repeat;
+
     @include background-size;
   }
   IMG {
@@ -42,11 +43,12 @@
 
 #menu_description {
   P {
-    margin-top: 15px;
-    color: $dark_brown;
-    font-size: 140%;
-    font-weight: 600;
+    color: black;
+    font-size: 160% !important;
     text-align: justify;
+    margin-top: 15px;
+    /*color: $dark_brown;*/
+    /*font-weight: 600;*/
   }
 }
 

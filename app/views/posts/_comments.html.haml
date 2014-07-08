@@ -6,11 +6,16 @@
 
   .comment_title
     - if @post.posts_comments.any?
-      Комментарии
+      Комментарии:
       %b :
     - else
       Комментариев ещё нет
 
+
+  - if $success_msg
+    #top_field{style: 'font-weight: 600; margin-top:5px;'}
+      = $success_msg
+    - $success_msg = nil
 
 
   - @post.posts_comments.each do |comment|
@@ -31,7 +36,7 @@
 
       - if comment.soc_url != ''
         .c_soc_url
-          Страница в соц сети, Skype и т.д.
+          Страница в соц сети, Skype и т.д:
           %b
             = comment.soc_url
       = link_to posts_path do
@@ -52,13 +57,11 @@
   - $comment = @post.posts_comments.build
 
   .comment_title
+    %p
     Вы можете оставить свой комментарий
     %b :
 
-  - if $success_msg
-    #top_field{style: 'font-weight: 600; margin-top:5px;'}
-      = $success_msg
-    - $success_msg = nil
+
 
   - if $fail_msg
     %p
@@ -123,4 +126,4 @@
       = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '3000', spellcheck: 'false'}
       - @word_class = nil
 
-      = f.submit 'Оставить комментарий', {class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; margin-top: 0; font-weight:600;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+      = f.submit 'Добавить комментарий', {class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; margin-top: 0; font-weight:600;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }

@@ -10,7 +10,7 @@
 HTML, BODY {
   width: auto;
   height: 100%;
-  background-color: $my_green;
+  background-color: $background_green;
   color: black;
 }
 
@@ -30,13 +30,14 @@ HTML, BODY {
 
 @import "responsive";
 
-@import "menus";
+@import "abouts";
+@import "mentions";
+@import "menus.css.scss";
 @import "products";
 @import "products_comments";
 @import "posts_comments";
 @import "posts";
 @import "pers";
-@import "abouts";
 @import "menu_up";
 @import "instruction";
 @import "payments";

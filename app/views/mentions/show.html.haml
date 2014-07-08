@@ -40,7 +40,7 @@
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   %p.margin_top
     Контакты (E-mail, Skype...):
-  %p{style: 'font-size:120%;'}
+  %p.margin_bottom{style: 'font-size:120%;'}
     = @mention.online_address
   - if @mention.site != ''
     = link_to 'Нажмите, чтобы посмотреть сайт автора отзыва', @mention.site
@@ -61,7 +61,7 @@
   -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
   - $addresser ||= Mention.new
-  = render partial: 'layouts/forms/mention_form'
+  = render partial: 'mentions/mentions_form'
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   = render partial: 'menus/menu_down'

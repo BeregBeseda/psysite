@@ -1,37 +1,75 @@
+-#>>> page with REVIEWS (mentions)
+
+-# NAME of page (e.g. is used for menu_up partial)
 - @menu_up_item = 'mentions'
 
+-# title is used at HTML > HEAD > TITLE
+- @title='Отзывы (почувствовать счастье)'
+
+
+-####### FOND
+=render partial: 'mentions/mentions_fond'
+
+
 #block
+  -##### UP
   = render partial: 'menus/menu_up'
 
+
+  -##### MAIN __________________________________________________________________________________________________________
+
+  -# if review added successfully - puts SUCCESSFULLY MESSAGE
   - if $success_msg
     #top_field
       = $success_msg
       - $success_msg = nil
 
-  - if $delivery_off_now == true
-    - $addresser ||= Mention.new
-    = render partial: 'layouts/forms/mention_form'
-    = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-    - $delivery_off_now = nil
+  -# if there are no reviews - puts FORM FOR NEW REVIEW
+  - if @mentions.count == 0
+    #list_description
+      Пока никто не оставил отзыв
 
+    - $addresser ||= Mention.new
+    = render partial: 'mentions/mentions_form'
+
+    = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+  -# puts ALL EXISTING REVIEWS
   #list
     - @mentions.each do |mention|
 
+      -# REVIEWS
       .list_position
         = link_to mention do
+
           %p
-            -#= image_tag(mention.img_url, alt: mention.name, id: 'position_img')
-            #list_name{style: 'font-size:150%;'}
-              = mention.name
-              = mention.surname
-              ,
-              = mention.nation
+            -# PHOTO of the reviewer
+            - if mention.img_url != ''
+              = image_tag(mention.img_url, alt: mention.name, id: 'position_img_min')
             %p
-              #list_description
-                .big_bold_color{style: 'font-size:110%; line-height:110%;'}
-                  = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
-            = link_to 'Подробнее...', mention, id: 'link_under_description'
+              -# NAME, SURNAME, COUNTRY of the reviewer
+              #list_name
+                = mention.name
+                = mention.surname
+                ,
+                = mention.nation
+
+              -# short REVIEW of the reviewer
+              %p
+                #list_description
+                  .big_bold_color
+                    = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
+
+              -# LINK to full review
+              %p
+                = link_to 'Подробнее...', mention, id: 'link_under_description'
+
           = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+
+  -##### DOWN __________________________________________________________________________________________________________
+
   = render partial: 'menus/menu_down'
+  = render partial: 'layouts/footer_rights'
 
 
