@@ -1,0 +1,67 @@
+INPUT:-moz-placeholder {
+  color: $form_text;
+}
+
+INPUT::-moz-placeholder {
+  color: $form_text;
+}
+
+INPUT::-webkit-input-placeholder {
+  color: $form_text;
+}
+
+#redex {
+  resize: none;
+}
+
+#save_text_in_textfield {
+  width: 100%;
+  height: 270px;
+  overflow: auto;
+  margin-bottom: 10px;
+  &:focus {
+    outline: none;
+  }
+  P {
+    color: $dark_brown;
+    font-size: 150%;
+    font-weight: 700;
+    text-align: justify;
+  }
+}
+
+#form_pay_checkbox_label {
+  font-size: 130%;
+  margin-top: 2px;
+}
+
+#form_pay_checkbox {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+#errors_style {
+  color: $error_pink;
+  display: inline-block;
+  font-size: 150%;
+  font-weight: 700;
+  text-shadow: 3px 3px 3px white;
+  padding: 6px 0 0 0;
+  margin-bottom: 2px;
+  LI {
+    margin-left: 17px;
+    padding-bottom: 5px;
+  }
+}
+
+.errors_field {
+  box-shadow: 0 0 9px $error_pink !important;
+  padding-left: 4px !important;
+  background: white url(form/input_field_error_left_img.png) left no-repeat;
+  background-size: 4px 30px;
+  -webkit-background-size: 4px 30px;
+  -o-background-size: 4px 30px;
+  -moz-background-size: 4px 30px;
+  border: 2px red !important;
+  margin: 4px 0 !important;
+}

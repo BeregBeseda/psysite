@@ -36,7 +36,7 @@
 
   -# puts ALL EXISTING REVIEWS
   #list
-    - @mentions.each do |mention|
+    - @mentions.reverse_order.each do |mention|
 
       -# REVIEWS
       .list_position
@@ -57,8 +57,7 @@
               -# short REVIEW of the reviewer
               %p
                 #list_description
-                  .big_bold_color
-                    = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
+                  = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
 
               -# LINK to full review
               %p

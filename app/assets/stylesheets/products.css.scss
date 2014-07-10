@@ -13,7 +13,7 @@
 }
 
 #link_under_description {
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 120%;
   font-size: 170% !important;
   text-decoration: underline !important;
@@ -21,8 +21,8 @@
 
 #list_name {
   color: $dark_brown;
-  font-size: 150%;
-  font-weight: 600;
+  font-size: 160%;
+  font-weight: 700;
   text-align: justify;
   margin-top: 25px;
 }
@@ -36,8 +36,26 @@
   P {
     margin-top: 15px;
   }
+  LI {
+    margin: 15px 0;
+  }
 }
 
+#list_date_price {
+
+}
+
+#list_date {
+  color: black;
+  float: left;
+}
+
+#list_price {
+  color: $dark_brown;
+  font-size: 120%;
+}
+
+/* product_full_IMG */
 #position_img {
   width: 50%;
   height: auto;
@@ -47,6 +65,7 @@
   float:left;
 }
 
+/* product_min_IMG */
 #position_img_min {
   width: 20%;
   height: auto;
@@ -56,7 +75,4 @@
   float:left;
 }
 
-#separator {
-  width: 100%;
-  height: auto;
-}
+

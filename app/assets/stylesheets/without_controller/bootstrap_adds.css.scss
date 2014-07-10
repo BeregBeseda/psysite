@@ -11,8 +11,6 @@
 
 }
 
-
-
 #button INPUT, TEXTAREA {
   background-color: rgb(255, 249, 234);
   color: $form_text;
@@ -32,11 +30,10 @@
 
 .input-xlarge {
   width: 98% !important;
-  margin: 2px 0 !important;
-  font-weight: 600 !important;
+  margin: 3px 0 !important;
+  font-weight: 700 !important;
   font-size: 130% !important;
   height: 30px !important;
-
 }
 
 #textarea {
@@ -44,7 +41,7 @@
   width: 98%;
   padding: 4px;
   margin: 3px 0px 3px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 

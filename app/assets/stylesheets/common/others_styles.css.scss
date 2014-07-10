@@ -1,0 +1,43 @@
+.big_bold_color {
+  color: $dark_brown;
+}
+
+.white_text_shadow {
+  text-shadow: 1px 1px 1px white;
+}
+
+.half_of_width {
+  width: 50%;
+  height: auto;
+}
+
+#separator {
+  width: 100%;
+  height: auto;
+}
+
+.half_white_string {
+  color:$half_white;
+}
+
+
+
+#top_field {
+  color: $form_text_dark;
+  width: 98%;
+  height: auto;
+  border: 1px ridge rgba(40, 136, 215, 0.5);
+
+  display: inline-block;
+  margin: 0;
+  text-align: justify;
+  font-size: 140%;
+  text-shadow: 1px 1px 1px white;
+  background-color: rgba(255, 225, 80, 0.25);
+  padding: 5px 4px;
+
+  font-weight: 700;
+  box-shadow: 0 0 9px $blue_shadow;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}

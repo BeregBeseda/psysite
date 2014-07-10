@@ -9,7 +9,7 @@
     - $success_msg = nil
 
   #list
-    - @posts.each do |post|
+    - @posts.reverse_order.each do |post|
 
       .list_position
         = link_to post do

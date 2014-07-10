@@ -16,7 +16,6 @@ tmp/*
 test/**/*
 test/*
 /test
-/public
 doc/api
 doc/app
 *.swp

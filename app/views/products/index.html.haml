@@ -9,7 +9,7 @@
     - $success_msg = nil
 
   #list
-    - @products.each do |product|
+    - @products.reverse_order.each do |product|
 
       .list_position
         = link_to product do

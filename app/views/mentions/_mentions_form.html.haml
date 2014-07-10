@@ -1,24 +1,26 @@
+-#>>> NEW REVIEW FORM
+
 #button.margin_top
   = form_for $addresser do |f|
 
+    -# if there was errors while new review saved - puts ERROR MESSAGE
     - if $addresser.errors.any?
-
-      -#%div{style: 'color:red;'}
-        HELLO!!!
-
       = javascript_include_tag 'auto_focus'
+      -# if there was errors while new review saved - add INDENT
       :css
         #button INPUT {
           margin-bottom: 4px !important;
         }
-
         #button {
           margin-top: 30px !important;
         }
 
+      -# in fact, the ERROR MESSAGE
       %p
-        #errors_style{style: 'font-size: 150%;'}
+        #errors_style
           Чтобы оставить свой отзыв, заполните все обязательные поля:
+
+          -# add VISUAL DIFFERENCES to fields with errors
           - $addresser.errors.each do |attribute, msg|
             - if attribute == :name
               - @name_class = 'errors_field'
@@ -47,39 +49,53 @@
             - if attribute == :word
               - @word_class = 'errors_field'
 
+            -# puts ERROR MESSAGE
             -#%li
               = msg
 
+    -# if there was not errors while new review saved - puts SIMPLE TEXT before new review form
     - unless $addresser.errors.any?
       #top_field
         = $top_field_text
+
+    -# CLEAN VAR to remove the intermediate simple text before new review form
     - $top_field_text = nil
+
+    -# CLEAN VAR to remove the intermediate information about new review
     - $addresser = nil
 
+    -# place fields in 2 columns
     .row-fluid
+      -# the first column
       .span6
         = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '30', spellcheck: 'false'}
         = f.text_field :surname, {class: 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '30', spellcheck: 'false'}
         = f.text_field :nation, {class: 'input-address' ' input-xlarge' " #{@nation_class}", type: 'text', placeholder: 'Страна', 'data-maxsize' => '30', spellcheck: 'false'}
         = f.text_field :place, {class: 'input-address' ' input-xlarge' " #{@place_class}", type: 'text', placeholder: 'Город', 'data-maxsize' => '30', spellcheck: 'false'}
-
+      -# the second column
       .span6
         = f.text_field :age, {class: 'input-address' ' input-xlarge' " #{@age_class}", type: 'text', placeholder: 'Возраст', 'data-maxsize' => '3', spellcheck: 'false'}
         = f.text_field :online_address, {class: 'input-address' ' input-xlarge' " #{@online_address_class}", type: 'text', placeholder: 'E-mail, Skype и т.д.', 'data-maxsize' => '500', spellcheck: 'false'}
         = f.text_field :site, {class: 'input-address' ' input-xlarge' " #{@site_class}", type: 'text', placeholder: 'Ваш сайт (если есть)', 'data-maxsize' => '200', spellcheck: 'false'}
         = f.text_field :img_url, {class: 'input-address' ' input-xlarge' " #{@img_url_class}", type: 'text', placeholder: 'Ссылка на Ваше фото (необязательно)', 'data-maxsize' => '300', spellcheck: 'false'}
 
+    -# place fields in 1 column
     = f.text_field :profession, {class: 'input-address' ' input-xlarge' " #{@profession_class}", style: 'width:99%;', type: 'text', placeholder: 'Профессия', 'data-maxsize' => '60', spellcheck: 'false'}
     = f.text_area :mention, {id: 'textarea', class: 'input-address' ' input-xlarge' 'input-comment' " #{@mention_class}", rows:3, type: 'text', placeholder: 'Отзыв', 'data-maxsize' => '3000', spellcheck: 'false'}
 
+    -# place fields in 2 columns
     .row-fluid
+      -# the first column
       .span6
         = f.text_field :video_url, {class: 'input-address' ' input-xlarge' " #{@video_url_class}", type: 'text', placeholder: 'или сылка на YouTube видео отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
+      -# the second column
       .span6
         = f.text_field :audio_url, {class: 'input-address' ' input-xlarge' " #{@audio_url_class}", type: 'text', placeholder: 'или сылка на аудио отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
-    = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", style: 'width:99%;', type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '2000', spellcheck: 'false'}
+    -# place fields in 1 column
+    = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '60', spellcheck: 'false'}
 
 
+    -# CLEAN VARS to remove the intermediate information about new review
     - @name_class = nil
     - @surname_class = nil
     - @nation_class = nil
@@ -94,5 +110,6 @@
     - @img_url_class = nil
     - @word_class = nil
 
+    =# SUBMIT BUTTON
     = f.submit 'Добавить отзыв', { class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; font-weight:600; ', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
 

@@ -1,70 +1,90 @@
+-#>>> page with REVIEW (mention)
+
+-# NAME of page (e.g. is used for menu_up partial)
 - @menu_up_item = 'mention'
 
+-# title is used at HTML > HEAD > TITLE
+- @title='Отзыв (почувствовать счастье)'
+
+
+-####### FOND
+=render partial: 'mentions/mentions_fond'
+
+
 #block
+  -##### UP
   = render partial: 'menus/menu_up'
 
 
+  -##### MAIN __________________________________________________________________________________________________________
+
+  -# if reviewer added photo - puts REVIEWER PHOTO
   - if @mention.img_url != ''
     = image_tag(@mention.img_url, alt: @mention.name, id: 'position_img')
+
+  -# NAME, SURNAME, AGE, COUNTRY, CITY of the reviewer
   #list_name
 
     = @mention.name
     = @mention.surname
 
-    (
-    = @mention.age
-
-    лет
-    )
-    ,
-
+    (#{@mention.age} лет),
+    %br/
+  #mention_country_city
     = @mention.place
     = @mention.nation
 
-    .margin_bottom{style: 'font-size:110%; opacity: .7;'}
+    -# REVIEW
+  %p
+    #mention_word.margin_bottom
       Отзыв:
 
+  -# if reviewer added video review - puts VIDEO REVIEW
   - if @mention.video_url != ''
     .margin_bottom
       %iframe{allowfullscreen: "", frameborder: "0", height: "315", src: "//www.youtube.com/embed/#{@mention.video_url}", width: "560"}
 
+  -# if reviewer added audio review - puts AUDIO REVIEW
   - if @mention.audio_url != ''
     .margin_bottom
       = link_to 'Нажмите здесь, чтобы прослушать аудио отзыв', @mention.audio_url
 
+  -# if reviewer added text review - puts TEXT REVIEW
   - if @mention.mention != ''
     #list_description
-      .big_bold_color{style: 'font-size:140%; line-height:110%;'}
-        = @mention.mention.html_safe
+      = @mention.mention.html_safe
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+  -# REVIEWER`S CONTACTS
   %p.margin_top
     Контакты (E-mail, Skype...):
   %p.margin_bottom{style: 'font-size:120%;'}
+    -# REVIEWER`S E-MAIL or SKYPE or ANOTHER CONTACTS
     = @mention.online_address
-  - if @mention.site != ''
-    = link_to 'Нажмите, чтобы посмотреть сайт автора отзыва', @mention.site
+
+    -# if reviewer added own site - puts REVIEWER SITE
+    - if @mention.site != ''
+      = link_to 'Нажмите, чтобы посмотреть сайт автора отзыва', @mention.site
 
 
-
+  -# BIG SEPARATOR between review & form for new review
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-  -##list_date.half_of_width
-    = @post.date.to_s(:ru_datetime)
-  -##list_price
-    %span
-      Цена:
-    = @post.price
-    %span
-      = t(:monetary_unit)
-  -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
+
+  -# FORM FOR NEW REVIEW
   - $addresser ||= Mention.new
   = render partial: 'mentions/mentions_form'
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+
+  -##### DOWN __________________________________________________________________________________________________________
+
   = render partial: 'menus/menu_down'
+  = render partial: 'layouts/footer_rights'
 
 
 

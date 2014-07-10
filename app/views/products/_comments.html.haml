@@ -13,12 +13,12 @@
 
 
   - if $success_msg
-    #top_field{style: 'font-weight: 600; margin-top:5px;'}
+    #top_field{style: 'margin-top:5px;'}
       = $success_msg
     - $success_msg = nil
 
 
-  - @product.products_comments.each do |comment|
+  - @product.products_comments.reverse_order.each do |comment|
     .comment
       %p
         .big_bold_color.c_comment.white_text_shadow

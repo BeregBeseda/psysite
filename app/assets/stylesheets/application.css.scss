@@ -1,12 +1,14 @@
+/* from gems */
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-@import "vars";
-@import "mixins";
+/* common */
+@import "common/colorful_vars";
+@import "common/image_in_input_label";
+@import "common/mixins";
+@import "common/others_styles";
 
-@import "clients/table_number";
-@import "clients/selects";
-
+/* HTML, BODY */
 HTML, BODY {
   width: auto;
   height: 100%;
@@ -14,42 +16,43 @@ HTML, BODY {
   color: black;
 }
 
-.white_text_shadow {
-  text-shadow: 1px 1px 1px white;
-}
+/* styles_for_templates */
+@import "styles_for_templates/table_number";
 
-.big_bold_color {
-  color: $dark_brown;
-}
+/* with_controller */
+@import "with_controller/main_menu";
+@import "with_controller/menu_up";
 
-@import "fond";
-@import "content/content";
-@import "content/main_menu";
-@import "angle";
-@import "footer_rights";
+/* without_controller */
+@import "without_controller/angle";
+@import "without_controller/content";
+@import "without_controller/email";
+@import "without_controller/fond";
+@import "without_controller/footer_rights";
+@import "without_controller/form";
+@import "without_controller/instruction";
+@import "without_controller/bootstrap_adds";
 
-@import "responsive";
-
+/* controller */
 @import "abouts";
 @import "mentions";
-@import "menus.css.scss";
+@import "menus";
+@import "news_emails";
+@import "payments";
+@import "payments";
+@import "pers";
+@import "pers_gets";
+@import "pers_pays";
+@import "posts";
+@import "posts_comments";
 @import "products";
 @import "products_comments";
-@import "posts_comments";
-@import "posts";
-@import "pers";
-@import "menu_up";
-@import "instruction";
-@import "payments";
-@import "email";
+@import "products_gets";
+@import "products_pays";
+@import "templates";
 
-
-
-@import "clients";
-
-@import "content/form";
-
-@import "bootstrap_adds";
+/* cross_platform */
+@import "cross_platform/responsive";
 
 
 
@@ -76,16 +79,4 @@ HTML, BODY {
 
 
 
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to index a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+

@@ -12,7 +12,7 @@ class ProductsCommentsController < ApplicationController
       $comment = nil
       $success_msg = 'Вы успешно оставили свой комментарий. Благодарю Вас за уделенное время'
     else
-      $fail_msg = 'Чтобы оставить комментарий, пожалуйста, введите Ваши имя, фамилию, E-mail и комментарий:'
+      $fail_msg = 'Чтобы оставить комментарий, пожалуйста, заполните все обязательные поля:'
     end
 
     redirect_to product_path(@product)

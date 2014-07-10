@@ -13,12 +13,12 @@
 
 
   - if $success_msg
-    #top_field{style: 'font-weight: 600; margin-top:5px;'}
+    #top_field{style: 'font-weight: 700; margin-top:5px;'}
       = $success_msg
     - $success_msg = nil
 
 
-  - @post.posts_comments.each do |comment|
+  - @post.posts_comments.reverse_order.each do |comment|
     .comment
       %p
         .big_bold_color.c_comment.white_text_shadow
@@ -65,7 +65,7 @@
 
   - if $fail_msg
     %p
-      #errors_style{style: 'font-weight: 600; margin-top:5px; font-size:150%;'}
+      #errors_style{style: 'font-weight: 700; margin-top:5px; font-size:150%;'}
         = $fail_msg
     - $fail_msg = nil
     - @errors_f = 'errors_field '
