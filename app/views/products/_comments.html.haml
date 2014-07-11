@@ -49,11 +49,6 @@
         Комментарий оставлен
         = comment.created_at
 
-  - #$comment =
-  -# $addresser = PostsComment.new
-  -#= form_for($addresser) do |f|
-
-
   - $comment = @product.products_comments.build
 
   .comment_title
@@ -71,7 +66,7 @@
 
 
 
-  -#= form_for([@post, @post.posts_comments.build]) do |f|
+  -#= form_for([@product, @product.product_comments.build]) do |f|
   = form_for([@product, $comment]) do |f|
     -# if $comment_js
       = javascript_include_tag 'auto_focus_comment'
@@ -107,21 +102,44 @@
             = msg
 
     #input_hey
+      /[if IE]
+        #list_description
+          Ваше Имя :
       = f.text_field :name, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше Имя', 'data-maxsize' => '60', spellcheck: 'false'}
       - @name_class = nil
 
+      /[if IE]
+        #list_description
+          Фамилия :
       = f.text_field :surname, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '60', spellcheck: 'false'}
       - @surname_class = nil
 
+      #email_security
+        Для Вашей безопасности
+        %br/
+        Ваш E-mail не будет виден посетителям сайта
+
+      /[if IE]
+        #list_description
+          E-mail :
       = f.text_field :email, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
       - @email_class = nil
 
+      /[if IE]
+        #list_description
+          Страница в Соц сети, Skype и т.д. :
       = f.text_field :soc_url, {class: 'input-address' ' input-xlarge' " #{@soc_url_class}", type: 'text', placeholder: 'Страница в Соц сети, Skype и т.д.', 'data-maxsize' => '60', spellcheck: 'false'}
       - @soc_url_class = nil
 
+      /[if IE]
+        #list_description
+          Комментарий :
       = f.text_area :comment, {id: 'textarea', class: "#{@errors_f}" 'input-address' ' input-xlarge' 'input-comment' " #{@comment_class}", rows:3, type: 'text', placeholder: 'Комментарий', 'data-maxsize' => '3000', spellcheck: 'false'}
       - @comment_class = nil
 
+      /[if IE]
+        #list_description
+          Введите сюда число '8' :
       = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '3000', spellcheck: 'false'}
       - @word_class = nil
 

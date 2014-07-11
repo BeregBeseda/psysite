@@ -68,30 +68,80 @@
     .row-fluid
       -# the first column
       .span6
+        /[if IE]
+          #list_description
+            Ваше имя :
         = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '30', spellcheck: 'false'}
+      -# the second column
+      .span6
+        /[if IE]
+          #list_description
+            Возраст :
+        = f.text_field :age, {class: 'input-address' ' input-xlarge' " #{@age_class}", type: 'text', placeholder: 'Возраст', 'data-maxsize' => '3', spellcheck: 'false'}
+
+    #email_security
+      Для Вашей безопасности
+      %br/
+      Ваш E-mail не будет виден посетителям сайта
+    -# place fields in 2 columns
+    .row-fluid
+      -# the first column
+      .span6
+        /[if IE]
+          #list_description
+            Фамилия :
         = f.text_field :surname, {class: 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '30', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            Страна :
         = f.text_field :nation, {class: 'input-address' ' input-xlarge' " #{@nation_class}", type: 'text', placeholder: 'Страна', 'data-maxsize' => '30', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            Город :
         = f.text_field :place, {class: 'input-address' ' input-xlarge' " #{@place_class}", type: 'text', placeholder: 'Город', 'data-maxsize' => '30', spellcheck: 'false'}
       -# the second column
       .span6
-        = f.text_field :age, {class: 'input-address' ' input-xlarge' " #{@age_class}", type: 'text', placeholder: 'Возраст', 'data-maxsize' => '3', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            E-mail :
         = f.text_field :online_address, {class: 'input-address' ' input-xlarge' " #{@online_address_class}", type: 'text', placeholder: 'E-mail, Skype и т.д.', 'data-maxsize' => '500', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            Ваш сайт (если есть) :
         = f.text_field :site, {class: 'input-address' ' input-xlarge' " #{@site_class}", type: 'text', placeholder: 'Ваш сайт (если есть)', 'data-maxsize' => '200', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            Ссылка на Ваше фото (необязательно) :
         = f.text_field :img_url, {class: 'input-address' ' input-xlarge' " #{@img_url_class}", type: 'text', placeholder: 'Ссылка на Ваше фото (необязательно)', 'data-maxsize' => '300', spellcheck: 'false'}
 
     -# place fields in 1 column
+    /[if IE]
+      #list_description
+        Профессия :
     = f.text_field :profession, {class: 'input-address' ' input-xlarge' " #{@profession_class}", style: 'width:99%;', type: 'text', placeholder: 'Профессия', 'data-maxsize' => '60', spellcheck: 'false'}
+    /[if IE]
+      #list_description
+        Отзыв :
     = f.text_area :mention, {id: 'textarea', class: 'input-address' ' input-xlarge' 'input-comment' " #{@mention_class}", rows:3, type: 'text', placeholder: 'Отзыв', 'data-maxsize' => '3000', spellcheck: 'false'}
 
     -# place fields in 2 columns
     .row-fluid
       -# the first column
       .span6
+        /[if IE]
+          #list_description
+            или сылка на YouTube видео отзыв :
         = f.text_field :video_url, {class: 'input-address' ' input-xlarge' " #{@video_url_class}", type: 'text', placeholder: 'или сылка на YouTube видео отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
       -# the second column
       .span6
+        /[if IE]
+          #list_description
+            или сылка на аудио отзыв :
         = f.text_field :audio_url, {class: 'input-address' ' input-xlarge' " #{@audio_url_class}", type: 'text', placeholder: 'или сылка на аудио отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
     -# place fields in 1 column
+    /[if IE]
+      #list_description
+        Введите сюда число '8' :
     = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '60', spellcheck: 'false'}
 
 

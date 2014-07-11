@@ -14,6 +14,21 @@ INPUT::-webkit-input-placeholder {
   resize: none;
 }
 
+#email_security {
+  color: $dark_brown;
+  opacity: .8;
+  font-size: 130%;
+  font-weight: 700;
+  text-align: justify;
+  margin: 2px 0;
+  padding-left: 40px;
+  background: transparent url(form/form_security.png) left top no-repeat;
+  background-size: 35px auto;
+  -webkit-background-size: 35px auto;
+  -o-background-size: 35px auto;
+  -moz-background-size: 35px auto;
+}
+
 #save_text_in_textfield {
   width: 100%;
   height: 270px;
@@ -57,11 +72,11 @@ INPUT::-webkit-input-placeholder {
 .errors_field {
   box-shadow: 0 0 9px $error_pink !important;
   padding-left: 4px !important;
-  background: white url(form/input_field_error_left_img.png) left no-repeat;
-  background-size: 4px 30px;
-  -webkit-background-size: 4px 30px;
-  -o-background-size: 4px 30px;
-  -moz-background-size: 4px 30px;
+  background: white url(form/input_field_error_left_img.jpg) left no-repeat;
+  background-size: 4px 100%;
+  -webkit-background-size: 4px 100%;
+  -o-background-size: 4px 100%;
+  -moz-background-size: 4px 100%;
   border: 2px red !important;
   margin: 4px 0 !important;
 }

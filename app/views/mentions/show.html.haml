@@ -36,13 +36,13 @@
 
     -# REVIEW
   %p
-    #mention_word.margin_bottom
+    #mention_word.margin_bottom{style: 'opacity: .6;'}
       Отзыв:
 
   -# if reviewer added video review - puts VIDEO REVIEW
   - if @mention.video_url != ''
     .margin_bottom
-      %iframe{allowfullscreen: "", frameborder: "0", height: "315", src: "//www.youtube.com/embed/#{@mention.video_url}", width: "560"}
+      %iframe{allowfullscreen: "", frameborder: "0", src: "//www.youtube.com/embed/#{@mention.video_url}", width: "450", height: "257"}
 
   -# if reviewer added audio review - puts AUDIO REVIEW
   - if @mention.audio_url != ''
@@ -57,11 +57,12 @@
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
   -# REVIEWER`S CONTACTS
-  %p.margin_top
-    Контакты (E-mail, Skype...):
-  %p.margin_bottom{style: 'font-size:120%;'}
-    -# REVIEWER`S E-MAIL or SKYPE or ANOTHER CONTACTS
-    = @mention.online_address
+  #mention_contacts.white_text_shadow
+    %p.margin_top
+      Контакты (E-mail, Skype...):
+    %p.margin_bottom{style: 'font-size:120%;'}
+      -# REVIEWER`S E-MAIL or SKYPE or ANOTHER CONTACTS
+      = @mention.online_address
 
     -# if reviewer added own site - puts REVIEWER SITE
     - if @mention.site != ''
