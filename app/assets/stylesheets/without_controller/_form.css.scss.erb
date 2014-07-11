@@ -22,7 +22,7 @@ INPUT::-webkit-input-placeholder {
   text-align: justify;
   margin: 2px 0;
   padding-left: 40px;
-  background: transparent url(form/form_security.png) left top no-repeat;
+  background: transparent url(<%=asset_path 'form/form_security.png'%>) left top no-repeat;
   background-size: 35px auto;
   -webkit-background-size: 35px auto;
   -o-background-size: 35px auto;
@@ -72,7 +72,7 @@ INPUT::-webkit-input-placeholder {
 .errors_field {
   box-shadow: 0 0 9px $error_pink !important;
   padding-left: 4px !important;
-  background: white url(form/input_field_error_left_img.jpg) left no-repeat;
+  background: white url(<%=asset_path 'form/input_field_error_left_img.jpg'%>) left no-repeat;
   background-size: 4px 100%;
   -webkit-background-size: 4px 100%;
   -o-background-size: 4px 100%;
