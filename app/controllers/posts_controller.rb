@@ -9,6 +9,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    if $form_control_digit == nil
+      $form_control_digit = rand(1..9)
+    end
     I18n.locale = :ru
     @post = Post.find(params[:id])
     $now_post_product = @post

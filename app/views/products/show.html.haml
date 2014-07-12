@@ -20,6 +20,8 @@
     = @product.price
     %span
       = t(:monetary_unit)
+    = link_to mentions_path, target: "_blank", class: ' btn ' ' btn-success ' 'btn-small' do
+      Посмотреть отзывы
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
   -#= render partial: 'layouts/instruction/products'

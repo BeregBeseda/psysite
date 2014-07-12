@@ -9,6 +9,8 @@ class ProductsCommentsController < ApplicationController
     $success_msg = nil
 
     if @products_comment.save
+      # CHANGE FORM CONTROL DIGIT after every successfully save
+      $form_control_digit = rand(1..9)
       $comment = nil
       $success_msg = 'Вы успешно оставили свой комментарий. Благодарю Вас за уделенное время'
     else

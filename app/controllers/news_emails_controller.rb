@@ -28,11 +28,15 @@ class NewsEmailsController < ApplicationController
       key_int.shuffle!
       @news_email.akey = key_int.join
 
+      # CHANGE FORM CONTROL DIGIT after every successfully save
+      $form_control_digit = rand(1..9)
+
       if $redirect_news == 'posts'
         EmailConfirmationMailer.email_confirmation(@news_email).deliver
         @news_email.use_for_news = false
         @news_email.save
         $success_msg = 'Чтобы получать новости сайта, проверьте свой E-mail. Спасибо'
+        $addresser = nil
         redirect_to posts_path
       end
 
@@ -44,9 +48,11 @@ class NewsEmailsController < ApplicationController
           end
           EmailConfirmationMailer.email_confirmation(@news_email).deliver
           PersEmailMailer.per_pay_email(@news_email).deliver
+          $addresser = nil
           redirect_to payments_path
         else
           PersEmailMailer.per_pay_email(@news_email).deliver
+          $addresser = nil
           redirect_to payments_path
         end
       end
@@ -59,17 +65,27 @@ class NewsEmailsController < ApplicationController
           end
           EmailConfirmationMailer.email_confirmation(@news_email).deliver
           ProductsEmailMailer.product_pay_email(@news_email).deliver
+          $addresser = nil
           redirect_to payments_path
         else
           ProductsEmailMailer.product_pay_email(@news_email).deliver
+          $addresser = nil
           redirect_to payments_path
         end
       end
     else
+
       if $redirect_news == 'posts'
-        redirect_to posts_path
+        if $now_post_product
+          redirect_to post_path($now_post_product)
+          $now_post_product = nil
+        else
+          redirect_to posts_path
+        end
+
       elsif $redirect_news == 'pers'
         redirect_to pers_path
+
       elsif $redirect_news == 'products'
         if $now_post_product
           redirect_to product_path($now_post_product)

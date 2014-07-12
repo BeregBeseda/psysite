@@ -38,32 +38,33 @@
   #list
     - @mentions.reverse_order.each do |mention|
 
-      -# REVIEWS
-      .list_position
-        = link_to mention do
+      -if mention.visible == true
+        -# REVIEWS
+        .list_position
+          = link_to mention do
 
-          %p
-            -# PHOTO of the reviewer
-            - if mention.img_url != ''
-              = image_tag(mention.img_url, alt: mention.name, id: 'position_img_min')
             %p
-              -# NAME, SURNAME, COUNTRY of the reviewer
-              #list_name
-                = mention.name
-                = mention.surname
-                ,
-                = mention.nation
-
-              -# short REVIEW of the reviewer
+              -# PHOTO of the reviewer
+              - if mention.img_url != ''
+                = image_tag(mention.img_url, alt: mention.name, id: 'position_img_min')
               %p
-                #list_description
-                  = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
+                -# NAME, SURNAME, COUNTRY of the reviewer
+                #list_name
+                  = mention.name
+                  = mention.surname
+                  ,
+                  = mention.nation
 
-              -# LINK to full review
-              %p
-                = link_to 'Подробнее...', mention, id: 'link_under_description'
+                -# short REVIEW of the reviewer
+                %p
+                  #list_description
+                    = truncate(strip_tags(mention.mention), length: 150, separator: ' ')
 
-          = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+                -# LINK to full review
+                %p
+                  = link_to 'Подробнее...', mention, id: 'link_under_description'
+
+            = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
 
   -##### DOWN __________________________________________________________________________________________________________

@@ -16,40 +16,40 @@ class Mention < ActiveRecord::Base
 
 
 
-  validates :name, length: { minimum: 3, message: 'Минимальная длина Имени - 5 символов', if: :name? }
+  validates :name, length: { minimum: 3, message: 'Минимальная длина Имени - 3 символов', if: :name? }
   validates :name, length: { maximum: 61, message: 'Максимальная длина Имени - 60 символов' }
 
-  validates :surname, length: { minimum: 3, message: 'Минимальная длина Фамилии - 5 символов', if: :surname? }
+  validates :surname, length: { minimum: 3, message: 'Минимальная длина Фамилии - 3 символов', if: :surname? }
   validates :surname, length: { maximum: 61, message: 'Максимальная длина Фамилии - 60 символов' }
 
-  validates :nation, length: { minimum: 3, message: 'Минимальная длина E-mail - 5 символов', if: :nation? }
+  validates :nation, length: { minimum: 3, message: 'Минимальная длина E-mail - 3 символов', if: :nation? }
   validates :nation, length: { maximum: 51, message: 'Максимальная длина E-mail - 50 символов' }
 
-  validates :place, length: { minimum: 3, message: 'Минимальная длина E-mail - 5 символов', if: :place? }
+  validates :place, length: { minimum: 3, message: 'Минимальная длина E-mail - 3 символов', if: :place? }
   validates :place, length: { maximum: 51, message: 'Максимальная длина E-mail - 50 символов' }
 
-  validates :age, length: { minimum: 2, message: 'Минимальная длина E-mail - 5 символов', if: :age? }
-  validates :age, length: { maximum: 2, message: 'Максимальная длина E-mail - 50 символов' }
+  validates :age, length: { minimum: 2, message: 'Минимальная длина E-mail - 2 символов', if: :age? }
+  validates :age, length: { maximum: 2, message: 'Максимальная длина E-mail - 2 символов' }
 
   validates :online_address, length: { minimum: 5, message: 'Минимальная длина E-mail - 5 символов', if: :online_address? }
-  validates :online_address, length: { maximum: 500, message: 'Максимальная длина E-mail - 50 символов' }
+  validates :online_address, length: { maximum: 500, message: 'Максимальная длина E-mail - 500 символов' }
 
   validates :profession, length: { minimum: 3, message: 'Минимальная длина E-mail - 5 символов', if: :profession? }
-  validates :profession, length: { maximum: 100, message: 'Максимальная длина E-mail - 50 символов' }
+  validates :profession, length: { maximum: 100, message: 'Максимальная длина E-mail - 100 символов' }
 
   validates :mention, length: { minimum: 5, message: 'Минимальная длина E-mail - 5 символов', if: :mention? }
-  validates :mention, length: { maximum: 3000, message: 'Максимальная длина E-mail - 50 символов' }
+  validates :mention, length: { maximum: 3000, message: 'Максимальная длина E-mail - 3000 символов' }
 
   validates :video_url, length: { minimum: 5, message: 'Минимальная длина E-mail - 5 символов', if: :video_url? }
-  validates :video_url, length: { maximum: 1000, message: 'Максимальная длина E-mail - 50 символов' }
+  validates :video_url, length: { maximum: 1000, message: 'Максимальная длина E-mail - 1000 символов' }
 
-  validates :audio_url, length: { maximum: 1000, message: 'Максимальная длина E-mail - 50 символов' }
+  validates :audio_url, length: { maximum: 1000, message: 'Максимальная длина E-mail - 1000 символов' }
 
-  validates :site, length: { maximum: 1000, message: 'Максимальная длина E-mail - 50 символов' }
+  validates :site, length: { maximum: 1000, message: 'Максимальная длина E-mail - 1000 символов' }
 
-  validates :img_url, length: { maximum: 1000, message: 'Максимальная длина Комментария - 3000 символов' }
+  validates :img_url, length: { maximum: 1000, message: 'Максимальная длина Комментария - 1000 символов' }
 
 
-  validates :word, format: { with: /8/, message: 'Введите число "8" в последнее поле', if: :word? }
+  validates :word, format: { with: /[1234567890]/, message: "Введите число '#{$form_control_digit}' в последнее поле", if: :word? }
 
 end

@@ -19,35 +19,36 @@
 
 
   - @post.posts_comments.reverse_order.each do |comment|
-    .comment
-      %p
-        .big_bold_color.c_comment.white_text_shadow
-          %b
-            = comment.comment
-
-      .c_name_surname.white_text_shadow
-        ■
-        %b
-          = comment.name
-          = comment.surname
-        ,
-
-        = comment.created_at
-
-      - if comment.soc_url != ''
-        .c_soc_url
-          Страница в соц сети, Skype и т.д:
-          %b
-            = comment.soc_url
-      = link_to posts_path do
+    -if comment.visible == true
+      .comment
         %p
-          .comment_answer
+          .big_bold_color.c_comment.white_text_shadow
             %b
-              Ответить
+              = comment.comment
 
-      -#.c_date
-        Комментарий оставлен
-        = comment.created_at
+        .c_name_surname.white_text_shadow
+          ■
+          %b
+            = comment.name
+            = comment.surname
+          ,
+
+          = comment.created_at
+
+        - if comment.soc_url != ''
+          .c_soc_url
+            Страница в соц сети, Skype и т.д:
+            %b
+              = comment.soc_url
+        = link_to posts_path do
+          %p
+            .comment_answer
+              %b
+                Ответить
+
+        -#.c_date
+          Комментарий оставлен
+          = comment.created_at
 
   - #$comment =
   -# $addresser = PostsComment.new
@@ -145,8 +146,8 @@
 
       /[if IE]
         #list_description
-          Введите сюда число '8' :
-      = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '3000', spellcheck: 'false'}
+          Введите сюда число '#{$form_control_digit}' :
+      = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '3000', spellcheck: 'false'}
       - @word_class = nil
 
-      = f.submit 'Добавить комментарий', {class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; margin-top: 0; font-weight:600;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+      = f.submit 'Добавить комментарий', {class: 'btn' ' btn-large' ' btn-primary' }

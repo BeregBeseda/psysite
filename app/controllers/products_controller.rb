@@ -10,6 +10,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    if $form_control_digit == nil
+      $form_control_digit = rand(1..9)
+    end
     I18n.locale = :ru
     @product = Product.find(params[:id])
     $now_post_product = @product

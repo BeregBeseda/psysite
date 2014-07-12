@@ -48,13 +48,14 @@
 
       /[if IE]
         #list_description
-          Введите сюда число '8' :
-      = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '8'", 'data-maxsize' => '60', spellcheck: 'false'}
+          Введите сюда число '#{$form_control_digit}' :
+      = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '60', spellcheck: 'false'}
       - @word_class = nil
 
       = label_tag :use_for_news, id: 'form_pay_checkbox_label' do
         = f.check_box :use_for_news, {id: 'form_pay_checkbox', checked: true}
         Да, я хочу получать новые статьи на свой E-mail
 
-      = f.submit 'Ok', {class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 160%; font-family: Verdana, "Bitstream Vera Sans"; margin-top: 0; font-weight:600;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'" }
+      = f.submit 'Ok', {class: 'btn' ' btn-large' ' btn-primary'}
+      -# onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'"
 

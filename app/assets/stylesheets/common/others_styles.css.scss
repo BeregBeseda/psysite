@@ -29,9 +29,9 @@
   border: 1px ridge rgba(40, 136, 215, 0.5);
 
   display: inline-block;
-  margin: 0;
   text-align: justify;
-  font-size: 140%;
+  font-size: 160%;
+  line-height: 110%;
   text-shadow: 1px 1px 1px white;
   background-color: rgba(255, 225, 80, 0.25);
   padding: 5px 4px;
@@ -39,5 +39,6 @@
   font-weight: 700;
   box-shadow: 0 0 9px $blue_shadow;
   border-radius: 4px;
+  margin: 0;
   margin-bottom: 10px;
 }

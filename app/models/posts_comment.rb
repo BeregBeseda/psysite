@@ -12,10 +12,10 @@ class PostsComment < ActiveRecord::Base
   validates :word, presence: { message: 'Введите число "8" в последнее поле' }
 
 
-  validates :name, length: { minimum: 5, message: 'Минимальная длина Имени - 5 символов', if: :name? }
+  validates :name, length: { minimum: 3, message: 'Минимальная длина Имени - 3 символов', if: :name? }
   validates :name, length: { maximum: 61, message: 'Максимальная длина Имени - 60 символов' }
 
-  validates :surname, length: { minimum: 5, message: 'Минимальная длина Фамилии - 5 символов', if: :surname? }
+  validates :surname, length: { minimum: 3, message: 'Минимальная длина Фамилии - 3 символов', if: :surname? }
   validates :surname, length: { maximum: 61, message: 'Максимальная длина Фамилии - 60 символов' }
 
   validates :email, length: { minimum: 5, message: 'Минимальная длина E-mail - 5 символов', if: :email? }
@@ -26,9 +26,6 @@ class PostsComment < ActiveRecord::Base
 
 
   validates :email, format: { with: /@/, message: 'Проверьте E-mail на правильность', if: :email? }
-  validates :word, format: { with: /8/, message: 'Введите число "8" в последнее поле', if: :word? }
-
-  #validates_format_of :email, with: /@/, message: 'Проверьте E-mail на правильность', if: :email?
-  #validates_format_of :word, with: /8/, message: 'Введите число "8" в последнее поле'
+  validates :word, format: { with: /[1234567890]/, message: "Введите число '#{$form_control_digit}' в последнее поле", if: :word? }
 
 end
