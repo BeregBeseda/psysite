@@ -36,17 +36,17 @@
 
     -# REVIEW
   %p
-    #mention_word.margin_bottom{style: 'opacity: .6;'}
+    #mention_word
       Отзыв:
 
   -# if reviewer added video review - puts VIDEO REVIEW
   - if @mention.video_url != ''
-    .margin_bottom
+    .margin_bottom.margin_top
       %iframe{allowfullscreen: "", frameborder: "0", src: "//www.youtube.com/embed/#{@mention.video_url}", width: "450", height: "257"}
 
   -# if reviewer added audio review - puts AUDIO REVIEW
   - if @mention.audio_url != ''
-    .margin_bottom
+    .margin_bottom.margin_top
       = link_to 'Нажмите здесь, чтобы прослушать аудио отзыв', @mention.audio_url
 
   -# if reviewer added text review - puts TEXT REVIEW

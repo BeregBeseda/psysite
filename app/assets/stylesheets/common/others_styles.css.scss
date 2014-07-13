@@ -3,7 +3,8 @@
 }
 
 .white_text_shadow {
-  text-shadow: 1px 1px 1px white;
+  text-shadow: 2px 2px 1px white, 0 0 1em white;
+  /* little - text-shadow: 1px 1px 1px white;*/
 }
 
 .half_of_width {
@@ -20,19 +21,27 @@
   color:$half_white;
 }
 
+.margin_top {
+  margin-top: 25px;
+}
+
+.margin_bottom {
+  margin-bottom: 25px;
+}
+
 
 
 #top_field {
-  color: $form_text_dark;
+  color: $dark_blue;
   width: 98%;
   height: auto;
   border: 1px ridge rgba(40, 136, 215, 0.5);
 
   display: inline-block;
   text-align: justify;
-  font-size: 160%;
+  font-size: 165%;
   line-height: 110%;
-  text-shadow: 1px 1px 1px white;
+  text-shadow: 2px 2px 1px white, 0 0 1em white;
   background-color: rgba(255, 225, 80, 0.25);
   padding: 5px 4px;
 

@@ -10,32 +10,29 @@
         #button {
           margin-top: 30px !important;
         }
-      #errors_style
-        - $addresser.errors.each do |attribute, msg|
-          - if attribute == :email
-            - @email_class = 'errors_field'
-          - if attribute == :name
-            - @name_class = 'errors_field'
-          - if attribute == :word
-            - @word_class = 'errors_field'
-          %li
-            = msg
+      %p
+        #errors_style
+          Заполните все поля:
+
+          - $addresser.errors.each do |attribute, msg|
+            - if attribute == :email
+              - @email_class = 'errors_field'
+            - if attribute == :name
+              - @name_class = 'errors_field'
+            - if attribute == :word
+              - @word_class = 'errors_field'
+            -#%li
+              = msg
+
     - unless $addresser.errors.any?
       #top_field
         = $top_field_text
+
     - $top_field_text = nil
     - $addresser = nil
 
 
     %div
-      /[if IE]
-        #list_description
-          Ваше имя :
-      = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '60', spellcheck: 'false'}
-      - @name_class = nil
-
-
-
       /[if IE]
         #list_description
           Ваш E-mail :
@@ -46,11 +43,20 @@
       = f.text_field :email, {class: 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'Ваш E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
       - @email_class = nil
 
-      /[if IE]
-        #list_description
-          Введите сюда число '#{$form_control_digit}' :
-      = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '60', spellcheck: 'false'}
-      - @word_class = nil
+      .row-fluid
+        .span6
+          /[if IE]
+            #list_description
+              Ваше имя :
+          = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '60', spellcheck: 'false'}
+          - @name_class = nil
+
+        .span6
+          /[if IE]
+            #list_description
+              Введите сюда число '#{$form_control_digit}' :
+          = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '60', spellcheck: 'false'}
+          - @word_class = nil
 
       = label_tag :use_for_news, id: 'form_pay_checkbox_label' do
         = f.check_box :use_for_news, {id: 'form_pay_checkbox', checked: true}

@@ -14,14 +14,23 @@
 
 /[if IE]
   %script{type: 'text/javascript', src: 'html5'}
-  :css
-    #main_block {
-      padding-bottom: 50px;
-    }
+
 /[if lt IE 9]
   :css
     #block {
       background: #ffe190;
+    }
+    #main_block {
+      background: #ffe190;
+    }
+    #list_description {
+      margin-bottom: 2px;
+    }
+    #top_field {
+      font-size: 190%;
+    }
+    A:hover {
+      cursor: pointer;
     }
 
 

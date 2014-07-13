@@ -57,12 +57,11 @@
 
   - $comment = @post.posts_comments.build
 
-  .comment_title
-    %p
-    Вы можете оставить свой комментарий
-    %b :
-
-
+  - unless $fail_msg
+    .comment_title
+      %p
+      Вы можете оставить свой комментарий
+      %b :
 
   - if $fail_msg
     %p
@@ -109,34 +108,20 @@
             = msg
 
     #input_hey
-      /[if IE]
-        #list_description
-          Ваше Имя :
-      = f.text_field :name, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше Имя', 'data-maxsize' => '60', spellcheck: 'false'}
-      - @name_class = nil
+      .row-fluid
+        .span6
+          /[if IE]
+            #list_description
+              Ваше Имя :
+          = f.text_field :name, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше Имя', 'data-maxsize' => '60', spellcheck: 'false'}
+          - @name_class = nil
 
-      /[if IE]
-        #list_description
-          Фамилия :
-      = f.text_field :surname, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '60', spellcheck: 'false'}
-      - @surname_class = nil
-
-      #email_security
-        Для Вашей безопасности
-        %br/
-        Ваш E-mail не будет виден посетителям сайта
-
-      /[if IE]
-        #list_description
-          E-mail :
-      = f.text_field :email, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
-      - @email_class = nil
-
-      /[if IE]
-        #list_description
-          Страница в Соц сети, Skype и т.д. :
-      = f.text_field :soc_url, {class: 'input-address' ' input-xlarge' " #{@soc_url_class}", type: 'text', placeholder: 'Страница в Соц сети, Skype и т.д.', 'data-maxsize' => '60', spellcheck: 'false'}
-      - @soc_url_class = nil
+        .span6
+          /[if IE]
+            #list_description
+              Фамилия :
+          = f.text_field :surname, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '60', spellcheck: 'false'}
+          - @surname_class = nil
 
       /[if IE]
         #list_description
@@ -146,8 +131,29 @@
 
       /[if IE]
         #list_description
-          Введите сюда число '#{$form_control_digit}' :
-      = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '3000', spellcheck: 'false'}
-      - @word_class = nil
+          Страница в Соц сети, Skype и т.д. :
+      = f.text_field :soc_url, {class: 'input-address' ' input-xlarge' " #{@soc_url_class}", type: 'text', placeholder: 'Страница в Соц сети, Skype и т.д.', 'data-maxsize' => '60', spellcheck: 'false'}
+      - @soc_url_class = nil
 
-      = f.submit 'Добавить комментарий', {class: 'btn' ' btn-large' ' btn-primary' }
+      #email_security
+        Для Вашей безопасности
+        %br/
+        Ваш E-mail не будет виден посетителям сайта
+
+      .row-fluid
+        .span6
+          /[if IE]
+            #list_description
+              E-mail :
+          = f.text_field :email, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
+          - @email_class = nil
+
+        .span6
+          /[if IE]
+            #list_description
+              -# CONTROL DIGIT for form regenerate after every success save in DataBase or generate if have not exist already and puts in var
+              Введите сюда число '#{$form_control_digit}' :
+          = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '3000', spellcheck: 'false'}
+          - @word_class = nil
+
+      = f.submit 'Добавить комментарий', {class: 'btn' ' btn-large' ' btn-primary'}

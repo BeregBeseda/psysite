@@ -1,7 +1,23 @@
+#link_under_description {
+  font-weight: 700;
+  letter-spacing: 120%;
+  font-size: 170% !important;
+  text-decoration: underline !important;
+  text-shadow: 2px 2px 1px white, 0 0 1em white;
+  &:active {
+    color: $dark_blue;
+  }
+  &:focus {
+    color: $dark_blue;
+  }
+}
+
 .list_position {
   margin: 20px auto;
+  display: block;
   A {
     text-decoration: none;
+    display: block;
   }
   &:hover A {
     color: $link_green;
@@ -9,14 +25,16 @@
   }
   &:active A {
     color: $dark_blue;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
   }
-}
-
-#link_under_description {
-  font-weight: 700;
-  letter-spacing: 120%;
-  font-size: 170% !important;
-  text-decoration: underline !important;
+  &:active #list_name {
+    color: $dark_blue;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }
+  &:active #list_description {
+    color: $dark_blue;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }
 }
 
 #list_name {
@@ -31,7 +49,7 @@
   color: $dark_brown;
   font-size: 160% !important;
   text-align: justify;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   line-height:105%;
   P {
     margin-top: 15px;

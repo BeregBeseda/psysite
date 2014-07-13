@@ -34,10 +34,13 @@
 
     = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
-  -# puts ALL EXISTING REVIEWS
+  -# REVIEWS
   #list
+    .comment_title
+      Отзывы :
     - @mentions.reverse_order.each do |mention|
 
+      -# puts ALL AGREED REVIEWS that agreed by admin and site rules
       -if mention.visible == true
         -# REVIEWS
         .list_position
@@ -62,7 +65,7 @@
 
                 -# LINK to full review
                 %p
-                  = link_to 'Подробнее...', mention, id: 'link_under_description'
+                  = link_to 'Читать весь отзыв...', mention, id: 'link_under_description'
 
             = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
