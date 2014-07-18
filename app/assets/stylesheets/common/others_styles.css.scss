@@ -32,22 +32,28 @@
 
 
 #top_field {
-  color: $dark_blue;
+  color: $dark_blue_spring;
   width: 98%;
   height: auto;
-  border: 1px ridge rgba(40, 136, 215, 0.5);
+  /*border: 1px ridge rgba(40, 136, 215, 0.5);*/
 
   display: inline-block;
   text-align: justify;
   font-size: 165%;
-  line-height: 110%;
-  text-shadow: 2px 2px 1px white, 0 0 1em white;
-  background-color: rgba(255, 225, 80, 0.25);
+  line-height: 120%;
+  text-shadow: 2px 2px 3px white, 0 0 1em white;
+  /*background-color: rgba(255, 225, 80, 0.25);*/
   padding: 5px 4px;
 
   font-weight: 700;
-  box-shadow: 0 0 9px $blue_shadow;
-  border-radius: 4px;
+  /*box-shadow: 0 0 9px $blue_shadow;*/
+  /*border-radius: 4px;*/
   margin: 0;
   margin-bottom: 10px;
+}
+
+#top_field::before{
+  width: 30px;
+  height: 15px;
+  float: left;
 }
