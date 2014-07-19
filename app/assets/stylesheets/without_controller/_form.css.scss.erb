@@ -22,10 +22,7 @@ INPUT::-webkit-input-placeholder {
   margin: 2px 0 5px;
   padding-left: 50px;
   background: transparent url(<%=asset_path 'form/form_security.png'%>) left top no-repeat;
-  background-size: 35px auto;
-  -webkit-background-size: 35px auto;
-  -o-background-size: 35px auto;
-  -moz-background-size: 35px auto;
+  @include background-size(35px auto);
 }
 
 #save_text_in_textfield {
@@ -59,7 +56,7 @@ INPUT::-webkit-input-placeholder {
   display: inline-block;
   font-size: 170%;
   font-weight: 700;
-  text-shadow: 3px 3px 3px white;
+  @include text-light(2px, 2px, 2px);
   padding: 6px 0 0 0;
   margin-bottom: 2px;
   LI {
@@ -69,13 +66,10 @@ INPUT::-webkit-input-placeholder {
 }
 
 .errors_field {
-  box-shadow: 0 0 9px $error_pink !important;
+  @include box-shadow(0, 0, 9px, $error_pink);
   padding-left: 4px !important;
   background: white url(<%=asset_path 'form/input_field_error_left_img.jpg'%>) left no-repeat;
-  background-size: 4px 100%;
-  -webkit-background-size: 4px 100%;
-  -o-background-size: 4px 100%;
-  -moz-background-size: 4px 100%;
+  @include background-size(4px 100%);
   border: 2px red !important;
   margin: 4px 0 !important;
 }

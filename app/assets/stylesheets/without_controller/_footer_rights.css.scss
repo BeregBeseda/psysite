@@ -5,8 +5,9 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 15px;
-  @include transition_color;
+  @include transition(color);
   margin-bottom: 20px;
+  text-align: center;
   &:hover {
     color: $dark_blue_spring;
   }

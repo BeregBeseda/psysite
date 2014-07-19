@@ -3,7 +3,7 @@
 }
 
 .white_text_shadow {
-  text-shadow: 2px 2px 1px white, 0 0 1em white;
+  @include text-light(2px, 2px, 2px);
   /* little - text-shadow: 1px 1px 1px white;*/
 }
 

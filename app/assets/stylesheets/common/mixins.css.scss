@@ -1,32 +1,41 @@
-@mixin transition_b {
-  -webkit-transition: background .5s ease;
-  -moz-transition: background .5s ease;
-  -o-transition: background .5s ease;
-  transition: background .5s ease;
+@mixin transition($arg) {
+  -webkit-transition: $arg .5s ease;
+  -moz-transition: $arg .5s ease;
+  -o-transition: $arg .5s ease;
+  transition: $arg .5s ease;
 }
 
-@mixin transition_o {
-  -webkit-transition: opacity .5s ease;
-  -moz-transition: opacity .5s ease;
-  -o-transition: opacity .5s ease;
-  transition: opacity .5s ease;
+@mixin background-size($bs) {
+  -moz-background-size: $bs;
+  -webkit-background-size: $bs;
+  -o-background-size: $bs;
+  -khtml-background-size: $bs;
+  background-size: $bs;
 }
 
-@mixin transition_color {
-  -webkit-transition: color .5s ease;
-  -moz-transition: color .5s ease;
-  -o-transition: color .5s ease;
-  transition: color .5s ease;
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color !important;
+  -webkit-box-shadow: $x $y $blur $color !important;
+  -moz-box-shadow: $x $y $blur $color !important;
+  filter: progid:DXImageTransform.Microsoft.dropshadow(offX=$x, offY=$y, color=$color);
+  filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=$color, strength=10);
 }
 
-@mixin background-size {
-  -moz-background-size: 100% 100%;
-  -webkit-background-size: 100% 100%;
-  -o-background-size: 100% 100%;
-  -khtml-background-size: 100% 100%;
-  background-size: 100% 100%;
+@mixin border-radius-one-arg($arg) {
+  border-radius: $arg;
+  -webkit-border-radius: $arg;
+  -moz-border-radius: $arg;
+  border-top-left-radius: $arg;
+  border-top-right-radius: $arg;
+  border-bottom-left-radius: $arg;
+  border-bottom-right-radius: $arg;
+}
+
+@mixin text-light($x, $y, $blur) {
+  text-shadow: $x $y $blur white, 0 0 1em white;
 }
 
 @mixin text-shadow {
   text-shadow: black 1px 0 2px, black 0 1px 2px, black -1px 0 2px, black 0 -1px 2px;
 }
+

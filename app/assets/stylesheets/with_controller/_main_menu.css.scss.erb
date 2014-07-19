@@ -8,7 +8,7 @@
   width: 350px;
   /*min-width: 350px;*/
   height: auto;
-  @include background-size;
+  @include background-size(100% 100%);
   padding: 39px 65px 38px 60px;
   margin-top: 20%;
   margin-right: 20px;
@@ -27,7 +27,7 @@
 
 #life {
   background: transparent url(<%=asset_path 'menu_main/life_text1.png'%>) no-repeat;
-  @include transition_b;
+  @include transition(background);
 
   width: 350px;
   height: 76px;
@@ -38,7 +38,7 @@
 
 #creation {
   background: transparent url(<%=asset_path 'menu_main/creation_text1.png'%>) no-repeat;
-  @include transition_b;
+    @include transition(background);
 
   width: 350px;
   height: 131px;
@@ -49,7 +49,7 @@
 
 #habit {
   background: transparent url(<%=asset_path 'menu_main/habit_text1.png'%>) no-repeat;
-  @include transition_b;
+    @include transition(background);
 
   width: 350px;
   height: 136px;

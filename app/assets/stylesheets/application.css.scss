@@ -5,19 +5,10 @@
 /* common */
 @import "common/colorful_vars";
 @import "common/mixins";
-@import "common/image_in_input_label";
 @import "common/others_styles";
 
 /* HTML, BODY */
-HTML, BODY {
-  width: auto;
-  height: 100%;
-  background-color: $background_green;
-  color: black;
-  /*font-size: small;*/
-  /*font-family: "Lucida Grande","Lucida Sans Unicode",Tahoma,sans-serif;
-  letter-spacing: .01em;      */
-}
+@import "without_controller/html_body_style";
 
 /* styles_for_templates */
 @import "styles_for_templates/table_number";
@@ -30,6 +21,7 @@ HTML, BODY {
 @import "without_controller/angle";
 @import "without_controller/content";
 @import "without_controller/email";
+@import "without_controller/image_in_input_label";
 @import "without_controller/fond";
 @import "without_controller/footer_rights";
 @import "without_controller/form";

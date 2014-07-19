@@ -6,7 +6,7 @@
 .comment_title {
   font-size: 200%;
   color: $dark_brown;
-  text-shadow: 2px 2px 1px white, 0 0 1em white;
+  /*text-shadow: 2px 2px 1px white, 0 0 1em white;*/
   margin: 20px 0 10px;
 }
 
@@ -21,8 +21,8 @@
   text-align: justify;
   font-size: 140%;
   padding: 5px 4px;
-  box-shadow: 0 0 5px $blue_shadow;
-  border-radius: 4px;
+  @include box-shadow(0, 0, 5px, $blue_shadow);
+  @include border-radius-one-arg(4px);
   margin: 0 0;
   /*margin-bottom: 0px;*/
   A {

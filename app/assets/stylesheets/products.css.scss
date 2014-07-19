@@ -52,6 +52,10 @@
   margin-bottom: 5px;
   padding: 50px;
   padding-top: 25px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   /*line-height:105%;*/
   P {
     margin-top: 20px;
@@ -67,6 +71,11 @@
   LI {
     margin: 15px 0;
   }
+}
+
+#list_description::before {
+  content: '■';
+  float: left;
 }
 
 #list_date_price {
