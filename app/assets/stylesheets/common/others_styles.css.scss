@@ -52,7 +52,8 @@
   margin-bottom: 10px;
 }
 
-#top_field::before{
+#top_field::before {
+  content: '';
   width: 30px;
   height: 15px;
   float: left;

@@ -8,6 +8,7 @@
     = render partial: 'layouts/fond/imgs_min'
 
 #fond_green
-= image_tag 'forest.jpg', id: 'forest_img', alt: 'Умиротворяющий лес'
-/[if lt IE 9]
-  = image_tag 'forest_ie.jpg', id: 'forest_img', alt: 'Умиротворяющий лес'
+- if @menu_up_item == 'menus_main'
+  = image_tag 'forest/forest_original.jpg', id: 'forest_img', alt: 'Умиротворяющий лес'
+- else
+  = image_tag 'forest/forest_blur.jpg', id: 'forest_img', alt: 'Умиротворяющий лес'
