@@ -31,11 +31,9 @@
       = $success_msg
     - $success_msg = nil
 
-  = render partial: 'menus/menu1_2_n'
-
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-
   #list_description
     = @menu.description.html_safe
+
+  = render partial: 'menus/menu1_2_n'
 
   = render partial: 'layouts/footer_rights'
