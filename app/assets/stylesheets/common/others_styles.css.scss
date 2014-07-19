@@ -53,15 +53,15 @@
 }
 
 #top_field {
-  #the_first_paragraph::before {
+  /*#the_first_paragraph::before {
     content: '';
     width: 30px;
     height: 15px;
     float: left;
-    }
+    }*/
   #the_second_paragraph::before {
     content: '';
-    width: 15px;
+    width: 20px;
     height: 15px;
     float: left;
   }

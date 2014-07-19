@@ -8,10 +8,10 @@
   @include transition_color;
   margin-bottom: 20px;
   &:hover {
-    color: $form_text;
+    color: $dark_blue_spring;
   }
   &:hover A {
-    color: $form_text;
+    color: $dark_blue_spring;
   }
 }
 
