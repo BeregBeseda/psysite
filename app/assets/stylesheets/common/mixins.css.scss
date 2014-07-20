@@ -31,6 +31,12 @@
   border-bottom-right-radius: $arg;
 }
 
+@mixin user-select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 @mixin text-light($x, $y, $blur) {
   text-shadow: $x $y $blur white, 0 0 1em white;
 }

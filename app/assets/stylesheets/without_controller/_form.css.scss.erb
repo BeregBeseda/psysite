@@ -18,11 +18,15 @@ INPUT::-webkit-input-placeholder {
   color: $dark_brown_70_per;
   font-size: 130%;
   font-weight: 700;
-  text-align: justify;
+  text-align: center;
   margin: 2px 0 5px;
   padding-left: 50px;
-  background: transparent url(<%=asset_path 'form/form_security.png'%>) left top no-repeat;
+  /*background: transparent url(<%#=asset_path 'form/form_security.png'%>) left top no-repeat;*/
   @include background-size(35px auto);
+    IMG {
+        width: 38px;
+        height: auto;
+    }
 }
 
 #save_text_in_textfield {

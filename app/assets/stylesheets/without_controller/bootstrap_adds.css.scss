@@ -16,20 +16,24 @@
   padding: 0;
 }
 
-.btn {
-  color: white !important;
-  padding: 5px 5px 5px 5px !important;
-  font-size: 160%;
-  font-family: Verdana, "Bitstream Vera Sans";
+.my-btn {
   margin-top: 0;
+
+  color: white !important;
   font-weight:700;
+  font-family: Verdana, "Bitstream Vera Sans";
 }
 
-.btn-large {
-  margin: 0;
-  width: 98%;
-  text-align: left;
-  line-height: 17px;
+.my-btn-large {
+  width: 70% !important;
+  min-width: 100px !important;
+  min-height: 20px !important;
+  margin: 0 auto !important;
+  padding: 5px 10px !important;
+
+  font-size: 160% !important;
+  text-align: center;
+  /*line-height: 17px !important;*/
 }
 
 .btn-small {

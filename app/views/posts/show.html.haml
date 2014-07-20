@@ -2,10 +2,11 @@
 
 - @prerender = 'http://www.psysite.herokuapp.com/pers'
 
-#block
+.block.block_with_menu_up
 
   = render partial: 'menus/menu_up'
 
+.block.block_with_description
   - if @post.image != ''
     = image_tag(@post.image, alt: @post.name, id: 'position_img')
   #list_name
@@ -30,9 +31,12 @@
 
   - $addresser ||= NewsEmail.new
   = render partial: 'layouts/content/form_pay'
+
+.block.block_with_comments
   = render partial: 'posts/comments'
 
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+.block
   = render partial: 'menus/menu_down'
   = render partial: 'layouts/footer_rights'
 

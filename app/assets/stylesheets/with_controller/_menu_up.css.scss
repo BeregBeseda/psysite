@@ -1,5 +1,6 @@
 .menu_up {
   display: block;
+  text-align: center;
   UL {
     list-style: none outside none;
     margin: 0;
@@ -13,14 +14,14 @@
   A {
     color: $link_dark_green;
     display: inline-block;
-    text-decoration: underline !important;
+    text-decoration: none !important;
     &:hover {
       color: $dark_brown;
-      text-decoration: none !important;
+      /*text-decoration: underline !important;*/
     }
-    &:active, &:focus {
+    /*&:active, &:focus {
       color: $light_brown;
-    }
+    }             */
   }
   IMG {
     width: 16px;
