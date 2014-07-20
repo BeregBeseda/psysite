@@ -62,6 +62,7 @@
         = f.check_box :use_for_news, {id: 'form_pay_checkbox', checked: true}
         Да, я хочу получать новые статьи на свой E-mail
 
-      = f.submit 'Отправить', {class: ' btn-primary ' ' btn ' ' btn-large ' ' my-btn ' ' my-btn-large ' }
+      .div_around_submit_button
+        = f.submit 'Отправить', {class: ' btn-primary ' ' btn ' ' btn-large ' ' my-btn ' ' my-btn-large ' }
       -# onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'"
 

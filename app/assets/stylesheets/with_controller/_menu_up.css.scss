@@ -19,9 +19,9 @@
       color: $dark_brown;
       /*text-decoration: underline !important;*/
     }
-    /*&:active, &:focus {
-      color: $light_brown;
-    }             */
+    &:active, &:focus {
+      color: $dark_blue_spring;
+    }
   }
   IMG {
     width: 16px;
