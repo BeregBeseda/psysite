@@ -4,11 +4,13 @@
 }
 
 #button INPUT, TEXTAREA {
-  background-color: rgb(255, 249, 234);
-  color: $form_text;
-  padding: 2px;
-  margin: 0 0;
   height: 93%;
+  margin: 0;
+  padding: 2px;
+
+  color: $form_text;
+
+  background-color: rgb(255, 249, 234);
 }
 
 .my_p {
@@ -25,35 +27,41 @@
 }
 
 .my-btn-large {
-  width: 80% !important;
+  width: 70% !important;
   height: auto !important;
   min-width: 100px !important;
   min-height: 20px !important;
   margin: 0 auto !important;
-  padding: 5px 10px !important;
+  padding: 9px 10px 14px !important;
 
-  font-size: 160% !important;
+  font-size: 180% !important;
   text-align: center;
-  /*line-height: 17px !important;*/
 }
 
 .btn-small {
   font-size: 120%;
 }
 
-.input-xlarge {
+.my-input-xlarge {
   width: 98% !important;
-  margin: 3px 0 !important;
-  font-weight: 700 !important;
-  font-size: 130% !important;
   height: 30px !important;
+  margin: 0 !important;
+  margin-bottom: 10px !important;
+
+  color: $dark_blue_spring !important;
+  font-size: 165% !important;
+  font-weight: 700 !important;
+
+  background: transparent !important;
+  border-bottom: $dark_brown !important;
 }
 
 #textarea {
-  font-size: 130%;
   width: 98%;
-  padding: 4px;
   margin: 3px 0px 3px;
+  padding: 4px;
+
+  font-size: 130%;
   font-weight: 700;
 }
 

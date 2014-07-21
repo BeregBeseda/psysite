@@ -12,7 +12,7 @@ class NewsEmailsController < ApplicationController
   def show
     I18n.locale = :ru
     @news_email = NewsEmail.find(params[:id])
-    $top_field_text = 'Чтобы получать по почте новые статьи и подборки лучших статей, введите свой E-mail:'
+    $top_field_text = 'Чтобы получать по почте новые и лучшие статьи, напишите'
   end
 
 

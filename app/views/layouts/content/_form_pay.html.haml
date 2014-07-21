@@ -12,7 +12,7 @@
         }
       %p
         #errors_style
-          Заполните все поля:
+          Напишите:
 
           - $addresser.errors.each do |attribute, msg|
             - if attribute == :email
@@ -24,43 +24,55 @@
             -#%li
               = msg
 
-    - unless $addresser.errors.any?
-      #top_field
-        ■ #{$top_field_text}
-
-    - $top_field_text = nil
-    - $addresser = nil
-
 
     %div
-      /[if IE]
-        #list_description
-          Ваш E-mail :
-      #email_security
-        #{image_tag ('form/form_security.png')} Для Вашей безопасности
-        %br/
-        Ваш E-mail не будет виден посетителям сайта
-      = f.text_field :email, {class: 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'Ваш E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
-      - @email_class = nil
+      - unless $addresser.errors.any?
+        .row-fluid
+          .span6
+            .label_words
+              Напишите
+      .row-fluid
+        .span6
+          .label_words
+            Ваше имя:
+        .span6{style: 'margin-top: -3px;'}
+          = f.text_field :name, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@name_class}", type: 'text', value: 'сюда', 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
+          - @name_class = nil
 
       .row-fluid
         .span6
-          /[if IE]
-            #list_description
-              Ваше имя :
-          = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '60', spellcheck: 'false'}
-          - @name_class = nil
-
-        .span6
-          /[if IE]
-            #list_description
-              Введите сюда число '#{$form_control_digit}' :
-          = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '60', spellcheck: 'false'}
+          .label_words
+            Число '#{$form_control_digit}':
+        .span6{style: 'margin-top: -3px;'}
+          = f.text_field :word, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@word_class}", type: 'text', value: 'сюда', 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
           - @word_class = nil
 
-      = label_tag :use_for_news, id: 'form_pay_checkbox_label' do
-        = f.check_box :use_for_news, {id: 'form_pay_checkbox', checked: true}
-        Да, я хочу получать новые статьи на свой E-mail
+      .row-fluid
+        .span6
+          .label_words
+            Ваш E-mail:
+        .span6{style: 'margin-top: -3px;'}
+          = f.text_field :email, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@email_class}", type: 'text', value: 'сюда', 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
+          - @email_class = nil
+
+      - unless $addresser.errors.any?
+        .div_around_submit_button
+          #top_field{style: 'width: 70%;'}
+            =$top_field_text
+
+      - $top_field_text = nil
+      - $addresser = nil
+
+      .div_around_submit_button{style: 'width: 70%;'}
+        #email_security
+          #{image_tag ('form/form_security.png')} Для Вашей безопасности
+          %br/
+          Ваш E-mail не будет виден посетителям сайта
+
+      .div_around_submit_button{style: 'width: 70%;'}
+        = label_tag :use_for_news, id: 'form_pay_checkbox_label' do
+          = f.check_box :use_for_news, {id: 'form_pay_checkbox', checked: true}
+          Да, я хочу получать новые статьи и видео семинары на свой E-mail
 
       .div_around_submit_button
         = f.submit 'Отправить', {class: ' btn-primary ' ' btn ' ' btn-large ' ' my-btn ' ' my-btn-large ' }

@@ -1,28 +1,50 @@
 INPUT:-moz-placeholder {
-  color: $form_text;
+  color: $dark_blue_spring;
 }
 
 INPUT::-moz-placeholder {
-  color: $form_text;
+  color: $dark_blue_spring;
 }
 
 INPUT::-webkit-input-placeholder {
-  color: $form_text;
+  color: $dark_blue_spring;
+}
+
+INPUT:-ms-input-placeholder {
+  color: $dark_blue_spring;
 }
 
 #redex {
   resize: none;
 }
 
+#buton {
+    padding-right: 40px;
+}
+
+.label_words {
+    width: 98%;
+    height: auto;
+    display: inline-block;
+    margin: 0;
+
+    color: $dark_blue_spring;
+    text-align: right;
+    font-weight: 700;
+    font-size: 165%;
+    line-height: 120%;
+    text-shadow: 2px 2px 3px white, 0 0 1em white;
+}
+
 #email_security {
+    margin: 2px 0 15px;
+
   color: $dark_brown_70_per;
   font-size: 130%;
   font-weight: 700;
   text-align: center;
-  margin: 2px 0 5px;
-  padding-left: 50px;
   /*background: transparent url(<%#=asset_path 'form/form_security.png'%>) left top no-repeat;*/
-  @include background-size(35px auto);
+
     IMG {
         width: 38px;
         height: auto;
@@ -30,14 +52,16 @@ INPUT::-webkit-input-placeholder {
 }
 
 #save_text_in_textfield {
-  width: 100%;
-  height: 270px;
-  overflow: auto;
-  margin-bottom: 10px;
+    width: 100%;
+    height: 270px;
+    overflow: auto;
+    margin-bottom: 10px;
+
   &:focus {
     outline: none;
   }
-  P {
+  P
+  {
     color: $dark_brown;
     font-size: 150%;
     font-weight: 700;
@@ -46,23 +70,29 @@ INPUT::-webkit-input-placeholder {
 }
 
 #form_pay_checkbox_label {
-  font-size: 130%;
-  margin-top: 2px;
+    margin-top: 2px;
+    margin-bottom: 15px;
+
+    color: $dark_brown;
+    font-size: 130%;
+    text-align: center;
 }
 
 #form_pay_checkbox {
-  width: 15px !important;
-  height: 15px !important;
+    width: 15px !important;
+    height: 15px !important;
 }
 
 #errors_style {
-  color: $error_pink;
-  display: inline-block;
-  font-size: 170%;
-  font-weight: 700;
-  @include text-light(2px, 2px, 2px);
-  padding: 6px 0 0 0;
-  margin-bottom: 2px;
+    margin-bottom: 2px;
+    padding: 6px 0 0 0;
+    display: inline-block;
+
+    color: $error_pink;
+    font-size: 170%;
+    font-weight: 700;
+    @include text-light(2px, 2px, 2px);
+
   LI {
     margin-left: 17px;
     padding-bottom: 5px;
@@ -70,15 +100,17 @@ INPUT::-webkit-input-placeholder {
 }
 
 .errors_field {
-  @include box-shadow(0, 0, 9px, $error_pink);
-  padding-left: 4px !important;
-  background: white url(<%=asset_path 'form/input_field_error_left_img.jpg'%>) left no-repeat;
-  @include background-size(4px 100%);
-  border: 2px red !important;
-  margin: 4px 0 !important;
+    margin: 4px 0 !important;
+    padding-left: 4px !important;
+
+    background: white url(<%=asset_path 'form/input_field_error_left_img.jpg'%>) left no-repeat;
+    @include box-shadow(0, 0, 9px, $error_pink);
+    @include background-size(4px 100%);
+
+    border: 2px red !important;
 }
 
 .div_around_submit_button {
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto !important;
 }

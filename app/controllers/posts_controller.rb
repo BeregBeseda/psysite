@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     $redirect_news = 'posts'
     $post_id = @post.id
     $event_name = @post.name
-    $top_field_text = 'Чтобы получать по почте новые статьи и подборки лучших статей, заполните следующие поля:'
+    $top_field_text = 'и я буду присылать Вам свежие, а также любимые читателями статьи и видео семинары'
   end
 
   def create

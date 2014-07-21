@@ -11,6 +11,28 @@
   }
 }
 
+@media (max-width: 798px) {
+  .block {
+    padding-right: 20px;
+  }
+
+  #button {
+    padding-right: 40px;
+  }
+
+  .label_words {
+    text-align: center;
+  }
+
+  .span6 {
+    margin-top: 0;
+
+    INPUT{
+      text-align: center;
+    }
+  }
+}
+
 @media (max-width: 479px) {
   #psychologist1 {
     padding-top: 35px;
