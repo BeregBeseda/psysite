@@ -53,19 +53,22 @@
   font-weight: 700 !important;
 
   background: transparent !important;
-  border-bottom: $dark_brown !important;
   outline: none;
+  -moz-outline-style: none;
 
   &:hover {
     outline: none;
+    -moz-outline-style: none;
   }
 
   &:active {
     outline: none;
+    -moz-outline-style: none;
   }
 
   &:focus {
     outline: none;
+    -moz-outline-style: none;
   }
 }
 

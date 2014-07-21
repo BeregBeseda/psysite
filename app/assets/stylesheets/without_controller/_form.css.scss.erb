@@ -88,8 +88,8 @@ INPUT:-ms-input-placeholder {
     padding: 6px 0 0 0;
     display: inline-block;
 
-    color: $error_pink;
-    font-size: 130%;
+    color: $error_pink !important;
+    /*font-size: 130% !important;*/
     font-weight: 700;
     @include text-light(2px, 2px, 2px);
 
@@ -97,6 +97,17 @@ INPUT:-ms-input-placeholder {
     margin-left: 17px;
     padding-bottom: 5px;
   }
+}
+
+.errors_style {
+    margin-bottom: 2px;
+    padding: 6px 0 0 0;
+    display: inline-block;
+
+    color: $error_pink;
+    font-size: 130%;
+    font-weight: 700;
+    @include text-light(2px, 2px, 2px);
 }
 
 .errors_field {
@@ -107,7 +118,7 @@ INPUT:-ms-input-placeholder {
     @include box-shadow(0, 0, 9px, $error_pink);
     /*@include background-size(4px 100%);*/
 
-    border: 2px red !important;
+    border: 2px $error_pink !important;
 }
 
 .div_around_submit_button {

@@ -17,8 +17,8 @@
   box-shadow: $x $y $blur $color !important;
   -webkit-box-shadow: $x $y $blur $color !important;
   -moz-box-shadow: $x $y $blur $color !important;
-  filter: progid:DXImageTransform.Microsoft.dropshadow(offX=$x, offY=$y, color=$color);
-  filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=$color, strength=10);
+  /*filter: progid:DXImageTransform.Microsoft.dropshadow(offX=$x, offY=$y, color=$color);
+  filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=$color, strength=10); */
 }
 
 @mixin border-radius-one-arg($arg) {
