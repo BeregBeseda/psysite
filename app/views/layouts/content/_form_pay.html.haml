@@ -10,9 +10,17 @@
         #button {
           margin-top: 30px !important;
         }
+
+        .my-input-xlarge {
+          color: #ef0041 !important;
+        }
+
       %p
-        #errors_style
-          Напишите:
+        .row-fluid
+          .span6
+            .label_words
+              #errors_style
+                Напишите:
 
           - $addresser.errors.each do |attribute, msg|
             - if attribute == :email
@@ -27,16 +35,20 @@
 
     %div
       - unless $addresser.errors.any?
+        - $input_value_name = 'сюда'
+        - $input_value_word = 'сюда'
+        - $input_value_email = 'сюда'
         .row-fluid
           .span6
             .label_words
               Напишите
+
       .row-fluid
         .span6
           .label_words
             Ваше имя:
         .span6{style: 'margin-top: -3px;'}
-          = f.text_field :name, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@name_class}", type: 'text', value: 'сюда', 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
+          = f.text_field :name, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@word_class}", type: 'text', value: "#{$input_value_name}", 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
           - @name_class = nil
 
       .row-fluid
@@ -44,7 +56,7 @@
           .label_words
             Число '#{$form_control_digit}':
         .span6{style: 'margin-top: -3px;'}
-          = f.text_field :word, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@word_class}", type: 'text', value: 'сюда', 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
+          = f.text_field :word, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@word_class}", type: 'text', value: "#{$input_value_word}", 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
           - @word_class = nil
 
       .row-fluid
@@ -52,7 +64,7 @@
           .label_words
             Ваш E-mail:
         .span6{style: 'margin-top: -3px;'}
-          = f.text_field :email, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@email_class}", type: 'text', value: 'сюда', 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
+          = f.text_field :email, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@email_class}", type: 'text', value: "#{$input_value_email}", 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
           - @email_class = nil
 
       - unless $addresser.errors.any?

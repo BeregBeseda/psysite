@@ -76,6 +76,21 @@ class NewsEmailsController < ApplicationController
     else
 
       if $redirect_news == 'posts'
+        if @news_email.name != ''
+          $input_value_name = @news_email.name
+        else
+          $input_value_name = 'сюда'
+        end
+        if @news_email.word != ''
+          $input_value_word = @news_email.word
+        else
+          $input_value_word = 'сюда'
+        end
+        if @news_email.word != ''
+          $input_value_email = @news_email.email
+        else
+          $input_value_email = 'сюда'
+        end
         if $now_post_product
           redirect_to post_path($now_post_product)
           $now_post_product = nil

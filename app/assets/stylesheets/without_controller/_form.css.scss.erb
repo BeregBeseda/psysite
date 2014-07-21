@@ -29,7 +29,7 @@ INPUT:-ms-input-placeholder {
     margin: 0;
 
     color: $dark_blue_spring;
-    text-align: right;
+    text-align: right !important;
     font-weight: 700;
     font-size: 165%;
     line-height: 120%;
@@ -89,7 +89,7 @@ INPUT:-ms-input-placeholder {
     display: inline-block;
 
     color: $error_pink;
-    font-size: 170%;
+    font-size: 130%;
     font-weight: 700;
     @include text-light(2px, 2px, 2px);
 
@@ -103,9 +103,9 @@ INPUT:-ms-input-placeholder {
     margin: 4px 0 !important;
     padding-left: 4px !important;
 
-    background: white url(<%=asset_path 'form/input_field_error_left_img.jpg'%>) left no-repeat;
+    /*background: url(<%#=asset_path 'form/input_field_error_left_img.jpg'%>) left no-repeat !important;*/
     @include box-shadow(0, 0, 9px, $error_pink);
-    @include background-size(4px 100%);
+    /*@include background-size(4px 100%);*/
 
     border: 2px red !important;
 }
