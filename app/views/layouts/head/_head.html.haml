@@ -7,39 +7,17 @@
 <meta name="interkassa-verification" content="becf6957ba9d4519dcc2633c24ec215a" />
 %meta{content: @keys, name: 'keywords'}/
 %meta{content: 'vitalina.liane@gmail.com', name: 'author'}/
+= render partial: 'layouts/head/ie_preview_meta'
 
 = render partial: 'layouts/ie_link_prerender_prefetch'
 
 = csrf_meta_tags
 = stylesheet_link_tag    'application', media: 'all'
+= render partial: 'layouts/head/head_css'
 = javascript_include_tag 'application'
 
 /[if IE]
   %script{type: 'text/javascript', src: 'html5'}
-
-/[if lt IE 9]
-  :css
-    #block {
-      background: #ffe190;
-    }
-    #main_block {
-      background: #ffe190;
-    }
-    #list_description {
-      margin-bottom: 2px;
-    }
-    #top_field {
-      font-size: 190%;
-    }
-    A:hover {
-      cursor: pointer;
-    }
-    .my-input-xlarge {
-      border: 0;
-      ie-dummy: expression(this.hidefocus=true);
-    }
-
-
 
 %title
   ■ Психолог по Skype и E-mail -
