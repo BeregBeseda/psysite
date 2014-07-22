@@ -75,6 +75,16 @@
   float: left;
 }
 
+#list_description::selection {
+  color: $dark_blue_spring;
+  background-color: $my_green;
+}
+
+#list_description::-moz-selection {
+  color: $dark_blue_spring;
+  background-color: $my_green;
+}
+
 #list_date_price {
 
 }
