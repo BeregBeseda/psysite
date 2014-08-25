@@ -2,7 +2,13 @@
   -#= image_tag 'psychologist.png', alt: 'Фото психолога', class: 'span4' ' offset2', id: 'psychologist', title: 'Психолог', alt: 'Психолог : <<Приглашаю присесть рядом>>'
   = image_tag 'psychologist.png', alt: 'Фото психолога', class: 'span4' ' offset2', id: 'psychologist', title: 'Психолог', alt: 'Психолог : <<Приглашаю присесть рядом>>'
   -##button_and_menu.span5
-  #button_and_menu.span6.offset6
-    =yield
+
+  - if @menu_up_item == 'menus_main'
+    #button_and_menu.span6.offset5
+      =yield
+
+  - if @menu_up_item != 'menus_main'
+    #button_and_menu.span6.offset6
+      =yield
 
 

@@ -18,7 +18,9 @@ class ProductsController < ApplicationController
     $now_post_product = @product
     $redirect_news = 'products'
     $product_id = @product.id
+    $product_name = @product.name
     $event_name = @product.name
+    $product_price = @product.price
     $pay_instr_end_first = 'после оплаты на карточку, отправьте на E-mail способ оплаты, последние 4 цифры Вашей кредитной карты, сумму, время оплаты и название семинара'
     $pay_instr_end1 = 'на E-mail высылаете этот код, выбранный способ оплаты, сумму, время оплаты и название семинара'
     $pay_instr_end2 = 'в течении суток на Ваш E-mail придет ссылка на скачивание семинара'

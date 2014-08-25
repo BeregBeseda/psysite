@@ -21,7 +21,7 @@ class NewsEmailsController < ApplicationController
     @news_email = NewsEmail.new(news_email_params)
     $addresser = @news_email
 
-    if @news_email.valid?
+    if @news_email.valid? #and @news_email.name != 'сюда'
       key_int = 10.times.map{rand(1..99)}
       key_str = 10.times.map{('a'..'z').to_a[rand(26)]}
       key_int.concat(key_str)
@@ -29,7 +29,7 @@ class NewsEmailsController < ApplicationController
       @news_email.akey = key_int.join
 
       # CHANGE FORM CONTROL DIGIT after every successfully save
-      $form_control_digit = rand(1..9)
+      #$form_control_digit = rand(1..9)
 
       if $redirect_news == 'posts'
         EmailConfirmationMailer.email_confirmation(@news_email).deliver
@@ -41,6 +41,12 @@ class NewsEmailsController < ApplicationController
       end
 
       if $redirect_news == 'pers'
+        @order = Order.new(order_pers_create_params)
+        @order.type = false
+        # false == pers
+        @order.has_to_pay = 8
+        # has get attribute from DIFFERENT MODEL (not exist yet) 
+        @order.save
         if @news_email.use_for_news
           @news_email.use_for_news = false
           unless NewsEmail.find_by_email(@news_email.email)
@@ -57,7 +63,14 @@ class NewsEmailsController < ApplicationController
         end
       end
 
-      if $redirect_news == 'products'
+      if $redirect_news == 'products' 
+        @order = Order.new(order_product_create_params)
+        @order.news_email_id = @news_email.id 
+        @order.type = true
+        # true == product
+        @order.title = $product_name
+        @order.has_to_pay = $product_price
+        @order.save        
         if @news_email.use_for_news
           @news_email.use_for_news = false
           unless NewsEmail.find_by_email(@news_email.email)
@@ -156,6 +169,15 @@ class NewsEmailsController < ApplicationController
   def news_email_params
     params.require(:news_email).permit(:email, :use_for_news, :name, :word, :akey)
   end
+
+  def order_pers_create_params
+    params.require(:order).permit(:type, :has_to_pay, :sum, :done, :account, :when_payed, :now_time, :want_datetime)
+  end
+
+  def order_product_create_params
+    params.require(:order).permit(:type, :has_to_pay, :title, :news_email_id, :sum, :done, :account, :when_payed, :now_time)
+  end
+
 
   private
 

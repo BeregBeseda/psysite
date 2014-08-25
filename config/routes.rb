@@ -1,13 +1,19 @@
 Psysite::Application.routes.draw do
 
-  get "templates/index"
-  get '/payments/:end', to: 'payments#index'
-  get '/news_emails/confirmation/:id/:email', to: 'news_emails#update'
-  get '/news_emails/end_delivery/:akey', to: 'news_emails#update'
-  get '/products_pays/:email/:product_name', to: 'products_pays#index'
+  # get "templates/index"
 
+  get '/orders/:akey/:id', to: 'orders#show'  
+  get '/orders/confirm/:akey/:id', to: 'orders#confirm'
+  get '/orders/fail/:akey/:id', to: 'orders#fail'
+  
+  get '/news_emails/confirm/:akey/:id', to: 'news_emails#confirm'
+  get '/news_emails/end_delivery/:akey/:id', to: 'news_emails#end_delivery'
+  
+  get '/payments/:end/:sum', to: 'payments#index'  
+  #get '/products_pays/:email/:product_name', to: 'products_pays#index'
 
-  resources :menus, :products, :posts, :pers, :abouts, :users, :buyers, :clients, :reviews, :news_emails, :recalls, :mentions, :payments, :products_pays, :products_gets, :templates
+  
+  resources :menus, :products, :posts, :pers, :abouts, :news_emails, :mentions, :payments, :products_pays, :products_gets, :templates, :orders, :for_email_orders
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

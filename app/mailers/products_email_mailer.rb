@@ -5,7 +5,8 @@ class ProductsEmailMailer < ActionMailer::Base
 
   def product_pay_email(news_email)
     @news_email = news_email
-    mail(to: "#{@news_email.email}", subject: "Так как Вы захотели приобрести видеозапись семинара #{$event_name} ...")
+    mail(to: "#{@news_email.email}", subject: "#{$event_name}")
+    # Так как Вы захотели приобрести видеозапись семинара 
   end
 
 end

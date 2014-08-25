@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711213758) do
+ActiveRecord::Schema.define(version: 20140822000015) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,32 +46,9 @@ ActiveRecord::Schema.define(version: 20140711213758) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
-  create_table "buyers", force: true do |t|
-    t.string   "email"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "akey"
-  end
-
-  add_index "buyers", ["email"], name: "index_buyers_on_email", unique: true
-
-  create_table "clients", force: true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.text     "message"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "example1s", force: true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "examples", force: true do |t|
-    t.string   "title"
+  create_table "differents", force: true do |t|
+    t.integer  "consult_price"
+    t.text     "about_psychologists"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,7 +81,7 @@ ActiveRecord::Schema.define(version: 20140711213758) do
   end
 
   create_table "news_emails", force: true do |t|
-    t.boolean  "use_for_news",        default: true
+    t.boolean  "use_for_news",           default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
@@ -112,29 +89,49 @@ ActiveRecord::Schema.define(version: 20140711213758) do
     t.boolean  "delivery"
     t.string   "email"
     t.string   "akey"
-    t.string   "delivery_agree_date"
-    t.string   "delivery_off_date"
+    t.decimal  "has_to_pay"
+    t.string   "link"
+    t.integer  "pp_id"
+    t.string   "type"
+    t.string   "title"
+    t.integer  "number_of_success_pays", default: 0
+    t.decimal  "payed_sum",              default: 0.0
+    t.string   "delivery_agree_date",    default: ""
+    t.string   "delivery_off_date",      default: ""
+    t.boolean  "active",                 default: true
   end
 
-  create_table "pers_pays", force: true do |t|
-    t.string   "email"
-    t.integer  "sum"
+  create_table "orders", force: true do |t|
+    t.boolean  "type"
+    t.boolean  "done"
+    t.string   "title"
     t.string   "account"
-    t.string   "when"
+    t.datetime "when_payed"
+    t.integer  "new_email_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "number"
+    t.string   "akey"
+    t.string   "fail_datetime",    default: ""
+    t.string   "link"
+    t.integer  "number_of_fails",  default: 0
+    t.integer  "product_id"
+    t.string   "news_email_name"
+    t.string   "news_email_email"
+    t.datetime "want_datetime"
+    t.time     "now_time"
+    t.decimal  "sum"
+    t.decimal  "has_to_pay"
+    t.boolean  "active",           default: true
   end
 
   create_table "posts", force: true do |t|
     t.string   "name"
-    t.datetime "date"
-    t.integer  "price",       limit: 5
     t.string   "image"
     t.string   "social_link"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.boolean  "visible",     default: true
   end
 
   create_table "posts_comments", force: true do |t|
@@ -155,12 +152,14 @@ ActiveRecord::Schema.define(version: 20140711213758) do
   create_table "products", force: true do |t|
     t.string   "name"
     t.datetime "date"
-    t.integer  "price",       limit: 5
     t.string   "image"
     t.string   "social_link"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.string   "link"
+    t.decimal  "price"
+    t.boolean  "visible",     default: true
   end
 
   create_table "products_comments", force: true do |t|
@@ -177,70 +176,5 @@ ActiveRecord::Schema.define(version: 20140711213758) do
   end
 
   add_index "products_comments", ["product_id"], name: "index_products_comments_on_product_id"
-
-  create_table "products_gets", force: true do |t|
-    t.string   "email"
-    t.string   "product_name"
-    t.string   "link_of_product"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "products_pays", force: true do |t|
-    t.string   "email"
-    t.string   "product_name"
-    t.integer  "sum"
-    t.string   "account"
-    t.string   "when"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "number"
-  end
-
-  create_table "recalls", force: true do |t|
-    t.string   "name"
-    t.string   "surname"
-    t.string   "my_city"
-    t.string   "my_country"
-    t.integer  "age"
-    t.string   "profession"
-    t.string   "recall"
-    t.string   "video_url"
-    t.string   "audio_url"
-    t.string   "online_address"
-    t.string   "site"
-    t.string   "img_url"
-    t.boolean  "visible"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "reviews", force: true do |t|
-    t.string   "name"
-    t.string   "surname"
-    t.string   "city"
-    t.integer  "age"
-    t.string   "profession"
-    t.text     "review"
-    t.string   "video_url"
-    t.string   "audio_url"
-    t.string   "online_address"
-    t.string   "site"
-    t.string   "img_url"
-    t.boolean  "visible"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "my_country"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "akey"
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
