@@ -239,7 +239,7 @@
   #private
 
   def set_post
-    if (Order.find(:first, conditions: { id: params[:id]} )) and (Order.find(:first, conditions: { id: params[:id]} ).akey == params[:akey])
+    if (Order.find(:first, conditions: { id: params[:id]} ) and Order.find(:first, conditions: { id: params[:id]} ).akey == params[:akey])
       @order = Order.find(params[:id])
     else
       @order = Order.New
