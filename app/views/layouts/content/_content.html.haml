@@ -1,14 +1,24 @@
 #main_content.row-fluid
-  -#= image_tag 'psychologist.png', alt: 'Фото психолога', class: 'span4' ' offset2', id: 'psychologist', title: 'Психолог', alt: 'Психолог : <<Приглашаю присесть рядом>>'
-  = image_tag 'psychologist.png', alt: 'Фото психолога', class: 'span4' ' offset2', id: 'psychologist', title: 'Психолог', alt: 'Психолог : <<Приглашаю присесть рядом>>'
-  -##button_and_menu.span5
 
-  - if @menu_up_item == 'menus_main'
-    #button_and_menu.span6.offset5
-      =yield
+  - if @menu_up_item == 'post' or @menu_up_item == 'product' or @menu_up_item == 'mention'    
 
-  - if @menu_up_item != 'menus_main'
-    #button_and_menu.span6.offset6
-      =yield
+    #button_and_menu.span12
+      =yield        
+  
+
+    -##button_and_menu.span5
+        
+
+  - else
+    = image_tag 'psychologist.png', alt: 'Фото психолога', class: 'span4' ' offset2', id: 'psychologist', title: 'Психолог', alt: 'Психолог : <<Приглашаю присесть рядом>>'
+  
+    - if @menu_up_item == 'menus_main'
+      #button_and_menu.span6.offset5
+        =yield
+
+    - if @menu_up_item != 'menus_main'
+      #button_and_menu.span6.offset6
+        =yield        
+
 
 

@@ -9,7 +9,7 @@
       Комментарии :
       %b :
     - else
-      Комментариев ещё нет
+	      Комментариев ещё нет
 
 
   - if $success_msg
@@ -156,4 +156,4 @@
           = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '3000', spellcheck: 'false'}
           - @word_class = nil
 
-      = f.submit 'Добавить комментарий', {class: 'btn' ' btn-large' ' btn-primary'}
+      = f.submit 'Добавить комментарий', {class: 'btn' ' btn-large' ' btn-primary', title: 'Нажать на кнопку'}

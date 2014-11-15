@@ -1,10 +1,8 @@
-- @menu_up_item = 'product'
+﻿- @menu_up_item = 'product'
 
 - @prerender = 'http://www.psysite.herokuapp.com/mentions/'
 
-#block
-
-  = render partial: 'menus/menu_up'
+#block{style: 'max-width: 900px; margin-left: 30px;'}
 
   - if @product.image != ''
     = image_tag(@product.image, alt: @product.name, id: 'position_img')
@@ -28,15 +26,21 @@
 
   -#= render partial: 'layouts/instruction/products'
 
-  - if $success_msg
+  - if flash[:success]
     = javascript_include_tag 'auto_focus'
     #errors_style
+    
+    
+  - @addresser ||= NewsEmail.new    
+    
 
-  - $addresser ||= NewsEmail.new
   = render partial: 'layouts/content/form_pay'
   = render partial: 'products/comments'
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  
+  = render partial: 'menus/menu_up'
+    
   = render partial: 'menus/menu_down'
   = render partial: 'layouts/footer_rights'
 

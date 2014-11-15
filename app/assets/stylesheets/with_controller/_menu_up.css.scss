@@ -1,6 +1,7 @@
 .menu_up {
   display: block;
   text-align: center;
+  margin-left: -5%;
   UL {
     list-style: none outside none;
     margin: 0;
@@ -15,9 +16,14 @@
     color: $link_dark_green;
     display: inline-block;
     text-decoration: none !important;
+    @include transition(color);
+    @include transition(text-shadow);  
+    @include transition(text-decoration);  
+    
     &:hover {
       color: $light_brown;
-      /*text-decoration: underline !important;*/
+      text-shadow: 2px 2px 1px white, 0 0 1em white;
+      text-decoration: underline !important;
     }
     &:active, &:focus {
       color: $dark_brown;

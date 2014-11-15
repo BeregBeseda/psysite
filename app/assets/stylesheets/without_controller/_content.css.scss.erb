@@ -25,13 +25,19 @@
 .block {
   background: transparent url(<%=asset_path 'bred.png'%>) no-repeat;
 
-  width: 85%;
+  width: 70%;
+  min-width: 20px;
   height: auto;
   @include background-size(100% 100%);
   padding: 22px;
   padding-right: 40px;
   padding-bottom: 15px;
-  margin-bottom: 20px;
+  margin-left: 5%;
+  margin-bottom: 10px;
+}
+
+.block_list {
+
 }
 
 .block_with_menu_up {
@@ -42,12 +48,10 @@
 }
 
 .block_with_description {
-    width: 80%;
     margin-left: 35px;
 }
 
 .block_with_comments {
-    width: 85%;
     margin-left: -30px;
 }
 

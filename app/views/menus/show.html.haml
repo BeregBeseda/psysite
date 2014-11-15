@@ -28,14 +28,25 @@
 
 #block
 
-  - if $success_msg
+  - if flash[:success]
     #top_field
-      = $success_msg
-    - $success_msg = nil
+      = flash[:success]
+    - flash[:success] = nil
+
+  .menu_down_back{style: 'margin-top: 25px;'}
+    = render partial: 'menus/menu_down_back'
+
+  .menu1_2_n_up
+    = render partial: 'menus/menu1_2_n'
 
   #list_description
+    = image_tag 'fond/square.png', align: 'left'
     = @menu.description.html_safe
 
-  = render partial: 'menus/menu1_2_n'
+  .menu1_2_n_down
+    = render partial: 'menus/menu1_2_n'
+    
+  .menu_down_back{style: 'margin-top: 0; margin-bottom: 30px;'}  
+    = render partial: 'menus/menu_down_back'    
 
   = render partial: 'layouts/footer_rights'

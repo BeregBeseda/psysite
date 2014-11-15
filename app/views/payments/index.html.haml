@@ -1,11 +1,11 @@
 - @prerender = 'http://www.psysite.herokuapp.com/mentions'
 
 - if @pay_instr_end_from_url == 'per'
-  - $pay_instr_end1 = 'желаемое время консультации в Skype (не раньше следующего дня)'
-  - $pay_instr_end2 = 'в течении суток часов на Ваш E-mail придет подтверждение встречи'
+  - @pay_instr_end1 = 'желаемое время консультации в Skype (не раньше следующего дня)'
+  - @pay_instr_end2 = 'в течении суток часов на Ваш E-mail придет подтверждение встречи'
 - if @pay_instr_end_from_url == 'prod'
-  - $pay_instr_end1 = 'название семинара'
-  - $pay_instr_end2 = 'в течении суток на Ваш E-mail придет ссылка на скачивание семинара'
+  - @pay_instr_end1 = 'название семинара'
+  - @pay_instr_end2 = 'в течении суток на Ваш E-mail придет ссылка на скачивание семинара'
 
 
 #block
@@ -36,13 +36,13 @@
           код платежа (если он будет), сумму, дату и время оплаты и
           = $pay_instr_end1
       %li
-        = $pay_instr_end2
+        = @pay_instr_end2
 
 
   %form#payment{action: "https://sci.interkassa.com/", enctype: "utf-8", method: "post", name: "payment"}
     %input{name: "ik_co_id", type: "hidden", value: "52ebcda5bf4efcf93108363c"}/
     %input{name: "ik_pm_no", type: "hidden", value: "12022014a5879215"}/
-    %input{name: "ik_am", type: "hidden", value: "1.00"}/
+    %input{name: "ik_am", type: "hidden", value: "#{@sum}"}/
     %input{name: "ik_cur", type: "hidden", value: "UAH"}/
     %input{name: "ik_desc", type: "hidden", value: "Second"}/
     %input{type: "submit", value: 'Оплатить', class: 'btn' ' btn-large' ' btn-primary' , style: ' color: white; padding: 5px 5px 5px 5px !important; font-size: 150%; font-family: Verdana, "Bitstream Vera Sans"; margin-left: 25px; font-size: 180%;', onMouseOver: "this.style.backgroundColor='rgb(0, 68, 204)'"}/
@@ -63,7 +63,7 @@
         после оплаты на карточку, зайдите на свою почту, перейдите по ссылке в письме, в открывшемся окне введите
         %b
           способ оплаты, последние 3 цифры Вашей кредитной карты (или Имя держателя карты), сумму, дату и время оплаты и
-          = $pay_instr_end1
+          = @pay_instr_end1
 
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')

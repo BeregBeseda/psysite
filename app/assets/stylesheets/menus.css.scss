@@ -8,8 +8,48 @@
 #menu {
   line-height: 160%;
   font-size: 110%;
-  padding: 50px;
-  padding-top: 0px;
+  /*padding: 50px;
+  padding-top: 0px;*/
+}
+
+.menu_down_back {
+  margin-left: -40%;
+}
+
+.menu_back_to_posts_or_products {
+  margin-left: -65%;
+}
+
+.menu1_2_n_up {
+  /*padding: 50px;
+  padding-bottom: 0;*/
+  padding: 25px 50px 0px;  
+    P {
+    color: $light_blue;
+    @include transition(text-decoration);
+  }
+    P:hover B {
+    text-decoration: none !important;
+    }
+    P:active B {
+    text-decoration: none !important;
+    }    
+}
+
+.menu1_2_n_down {
+  /*padding: 50px;
+  padding-top: 0;*/
+  padding: 0px 50px 25px;
+  P {
+    color: $dark_blue_spring;
+    @include transition(text-decoration);
+  }
+    P:hover B {
+    text-decoration: none !important;
+    }
+    P:active B {
+    text-decoration: none !important;
+    }      
 }
 
 .menu_vars {
@@ -27,7 +67,7 @@
   P {
     width: 80%;
     font-size: 130%;
-    color: $dark_blue_spring;
+    
     text-align: center;
     padding: 5px;
 

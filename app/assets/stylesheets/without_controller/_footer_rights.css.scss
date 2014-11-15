@@ -5,21 +5,31 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 15px;
-  @include transition(color);
   margin-bottom: 20px;
   text-align: center;
+  /*@include transition(color);
+  @include transition(font-weight);*/
+  
   &:hover {
-    color: $dark_blue_spring;
+    color: $dark_brown;
+    font-weight: 400;
   }
   &:hover A {
-    color: $dark_blue_spring;
+    color: $dark_brown;
+    font-weight: 400;    
   }
 }
 
 #footer_link {
   color: white;
   text-decoration: underline !important;
+  @include transition(text-decoration);
+  @include transition(text-shadow);
+  @include transition(font-weight);
+  
   &:hover {
     text-decoration: none !important;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;  
+    font-weight: 700 !important;    
   }
 }

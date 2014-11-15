@@ -1,0 +1,13 @@
+.email_footer
+  
+  = link_to 'http://psysite.herokuapp.com' do
+    Сайт психолога Татьяны Вакульчик
+  All rights reserved &#169; 
+  2008-#{Time.now.year},
+  #{(Time.now.year-2008).to_i} профессионально помогаю людям стать счастливыми
+
+  Счастливо и до встречи
+
+
+  Чтобы отказаться от рассылки
+  = link_to 'Нажмите сюда', "http://psysite.herokuapp.com/news_emails/end_delivery/#{@order.akey}/#{@order.id}"

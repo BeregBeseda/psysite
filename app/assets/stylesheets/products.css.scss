@@ -2,39 +2,64 @@
   font-weight: 700;
   letter-spacing: 120%;
   font-size: 170% !important;
-  text-decoration: underline !important;
   text-shadow: 2px 2px 1px white, 0 0 1em white;
+  
+  @include transition(color);
+  @include transition(text-shadow);
+  
+  @include transition(color);  
   &:active {
-    color: $dark_blue;
+    color: $dark_blue_spring;
   }
   &:focus {
-    color: $dark_blue;
+    color: $dark_blue_spring;
   }
 }
 
 .list_position {
   margin: 20px auto;
   display: block;
+  @include transition(color);
+  @include transition(text-shadow);
+  
   A {
     text-decoration: none;
     display: block;
+    @include transition(color);
+    @include transition(text-shadow);
   }
   &:hover A {
     color: $link_green;
     text-decoration: none !important;
   }
   &:active A {
-    color: $dark_blue;
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;   
+  }
+  &:hover #link_under_description {
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+    text-decoration: underline !important;
+  }  
+  &:active #link_under_description {
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+    text-decoration: none !important;
+  }    
+  &:hover #list_name {
+    color: $link_green;
     text-shadow: 2px 2px 1px white, 0 0 1em white;
   }
   &:active #list_name {
-    color: $dark_blue;
+    color: $dark_blue_spring;
     text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }  
+  &:hover #list_description {
+    color: $link_green;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;    
   }
   &:active #list_description {
-    color: $dark_blue;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-  }
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;    
+  }  
 }
 
 #list_name {
@@ -43,6 +68,18 @@
   font-weight: 700;
   text-align: center;
   margin-top: 25px;
+  
+  @include transition(color);
+  @include transition(text-shadow);
+  
+  &:hover {
+    color: $link_green;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }
+  &:active {
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }    
 }
 
 #list_description {
@@ -50,10 +87,15 @@
   font-size: 160% !important;
   text-align: center;
   margin-bottom: 5px;
-  padding: 50px;
-  padding-top: 25px;
+  /*padding: 50px;
+  padding-top: 25px;*/
+  padding: 0px 35px 10px;
   @include user-select-none;
   /*line-height:105%;*/
+  
+  @include transition(color);
+  @include transition(text-shadow);
+  
   P {
     margin-top: 20px;
     font-size: 100%;
@@ -68,10 +110,16 @@
   LI {
     margin: 15px 0;
   }
+  IMG {
+    width: 18px;
+    height: auto;
+    padding-bottom: 2px;
+    /*opacity: .9;*/
+  }  
 }
 
-#list_description::before {
-  content: '■';
+#list_name::before {
+  /*content: '■';*/
   float: left;
 }
 

@@ -78,7 +78,7 @@
 
 
   -# FORM FOR NEW REVIEW
-  - $addresser ||= Mention.new
+  - @addresser ||= Mention.new
   = render partial: 'mentions/mentions_form'
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')

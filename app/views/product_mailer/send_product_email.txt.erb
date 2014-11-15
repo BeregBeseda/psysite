@@ -1,0 +1,22 @@
+Поздравляю,
+<%= @order.news_email_name %>
+
+Вот видеозапись семинара 
+<%= @order.title %>, 
+которую Вы захотели приобрести:
+= link_to "http://psysite.herokuapp.com/orders/#{@order.akey}/#{@order.id}" do
+  скачать 
+			  
+Спасибо за доверие  
+
+Сайт психолога Татьяны Вакульчик
+http://psysite.herokuapp.com
+All rights reserved &#169; 
+2008-<%= Time.now.year %>,
+<%= (Time.now.year-2008).to_i %> лет профессионально помогаю людям стать счастливыми
+
+
+
+
+
+

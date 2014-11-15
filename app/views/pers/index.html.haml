@@ -1,4 +1,4 @@
-- @menu_up_item = 'pers'
+﻿- @menu_up_item = 'pers'
 
 - @prerender = 'http://www.psysite.herokuapp.com/mentions/'
 
@@ -11,14 +11,17 @@
 
 #block
   = render partial: 'menus/menu_up'
-
+  = flash[:success]
+  = flash[:fail]
   #personality.white_text_shadow
+    %p
+      = render partial: 'pers/pers_instr'
 
-    = render partial: 'pers/pers_instr'
-
-  - $addresser ||= NewsEmail.new
+  - @addresser ||= NewsEmail.new
+  - @addresser_type = 'pers'
   = render partial: 'layouts/content/form_pay'
 
   = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   = render partial: 'menus/menu_down'
   = render partial: 'layouts/footer_rights'
+  

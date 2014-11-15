@@ -18,8 +18,18 @@ INPUT:-ms-input-placeholder {
   resize: none;
 }
 
-#buton {
-    padding-right: 40px;
+.form_fond {
+  padding: 50px 0;
+  background: transparent url(<%=asset_path 'form/form_fond.png'%>) no-repeat;
+  @include background-size(100% 100%);
+}
+
+#button {
+  margin: 0 0;
+  margin-left: 10%;
+  padding-right: 20px;
+  max-width: 500px;
+  font-size: 96%;
 }
 
 .label_words {
@@ -105,7 +115,7 @@ INPUT:-ms-input-placeholder {
     display: inline-block;
 
     color: $error_pink;
-    font-size: 130%;
+    font-size: 110%;
     font-weight: 700;
     @include text-light(2px, 2px, 2px);
 }

@@ -16,7 +16,7 @@ ActiveAdmin.register Post do
 
   controller do
     def permitted_params
-      params.permit post: [:name, :short, :description, :date, :price, :image, :social_link, :post_id]
+      params.permit post: [:name, :description, :image, :social_link, :post_id, :visible]
     end
   end
   

@@ -1,6 +1,14 @@
+.email_fond {
+  background-image: url(forest/forest_blur.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;  
+}
+
 .email {
   width: 340px;
   height: auto;
+  margin-top: 70px;
+  margin-left: 20px;
 }
 
 .email_top_field A {
@@ -23,5 +31,5 @@
   font-size: 14px;
   line-height: 15px;
   margin-bottom: 20px;
-  text-align: justify;
+  text-align: center;
 }

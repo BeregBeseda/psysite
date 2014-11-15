@@ -21,17 +21,17 @@
   -##### MAIN __________________________________________________________________________________________________________
 
   -# if review added successfully - puts SUCCESSFULLY MESSAGE
-  - if $success_msg
+  - if flash[:success]
     #top_field
-      = $success_msg
-      - $success_msg = nil
+      = flash[:success]
+      - flash[:success] = nil
 
   -# if there are no reviews - puts FORM FOR NEW REVIEW
   - if @mentions.count == 0
     #list_description
       Пока никто не оставил отзыв
 
-    - $addresser ||= Mention.new
+    - @addresser ||= Mention.new
     = render partial: 'mentions/mentions_form'
 
     = image_tag('products/separator.png', alt: '--------------------', id: 'separator')

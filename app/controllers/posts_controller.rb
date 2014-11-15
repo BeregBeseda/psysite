@@ -13,12 +13,8 @@ class PostsController < ApplicationController
       $form_control_digit = rand(1..9)
     end
     I18n.locale = :ru
-    @post = Post.find(params[:id])
-    $now_post_product = @post
-    $redirect_news = 'posts'
-    $post_id = @post.id
-    $event_name = @post.name
-    $top_field_text = 'и я буду присылать Вам свежие, а также любимые читателями статьи и видео семинары'
+    #@post = Post.find(params[:id])
+    flash[:notise] = 'и я буду присылать Вам свежие, а также любимые читателями статьи и видео семинары'
   end
 
   def create

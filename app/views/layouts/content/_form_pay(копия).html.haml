@@ -1,0 +1,80 @@
+    - if @addresser.errors.any?
+      = javascript_include_tag 'auto_focus'
+      :css
+        #button INPUT {
+          margin-bottom: 4px !important;
+        }
+
+        #button {
+          margin-top: 30px !important;
+        }
+
+        .my-input-xlarge {
+          color: #ef0041 !important;
+        }
+
+      - if @addresser.name != ''  
+        - @input_value_name = @addresser.name
+      - else
+        - @input_value_name = 'сюда'
+
+      - if @addresser.word != ''  
+        - @input_value_word = @addresser.word
+      - else
+        - @input_value_word = 'сюда'
+
+      - if @addresser.email != ''  
+        - @input_value_email = @addresser.email
+      - else
+        - @input_value_email = 'сюда'
+
+      %p#errors_style
+        .row-fluid
+          .span5.offset3
+            .label_words
+              .errors_style{style: 'font-size: 110%;'}
+                Пожалуйста,
+        .row-fluid
+          .span5.offset3
+            .label_words
+              .errors_style
+                напишите
+
+          - if flash[:email]
+            - @email_class = 'errors_field'
+            - flash[:email] = nil
+          - if flash[:name]
+            - @name_class = 'errors_field'
+            - flash[:name] = nil
+          - if flash[:word] == :word
+            - flash[:word]
+            - flash[:word] = nil
+
+          -# @addresser.errors.each do |attribute, msg|
+            - if attribute == :email
+              - @email_class = 'errors_field'
+            - if attribute == :name
+              - @name_class = 'errors_field'
+            - if attribute == :word
+              - @word_class = 'errors_field'
+            -#%li
+              = msg
+          -# errors.clear    
+
+
+    .row-fluid
+      .span10.offset2
+        - unless @addresser.errors.any?
+          - @input_value_name = 'сюда'
+          - @input_value_word = 'сюда'
+          - @input_value_email = 'сюда'
+          .row-fluid
+            .span6
+              .label_words
+                Напишите
+
+        .row-fluid
+          .span6
+            .label_words
+              Ваше имя:
+

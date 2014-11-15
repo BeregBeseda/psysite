@@ -1,0 +1,32 @@
+- @menu_up_item = 'posts'
+
+- @prerender = 'http://www.psysite.herokuapp.com/products'
+
+#block
+  = render partial: 'menus/menu_up'
+  
+  -if $success_msg
+    #top_field
+      = $success_msg
+    - $success_msg = nil
+
+  #list
+    - @posts.reverse_order.each do |post|
+      - if post.visible == true
+        .list_position
+          = link_to post do
+            %p
+              = image_tag(post.image, alt: post.name, id: 'position_img_min')
+            %p
+              #list_name
+                = post.name
+            %p
+              #list_description{style: 'font-size: 150%'}
+                -#■
+                = image_tag 'fond/square.png'  
+                = truncate(strip_tags(post.description), length: 150, separator: ' ')
+            %p
+              = link_to 'Читать всю статью...', post, id: 'link_under_description'
+            = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  = render partial: 'menus/menu_down'
+  = render partial: 'layouts/footer_rights'

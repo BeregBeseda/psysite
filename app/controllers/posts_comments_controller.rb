@@ -4,23 +4,30 @@ class PostsCommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @posts_comment = @post.posts_comments.create(permit_params)
-    @posts_comment.visible = true
-    $comment = @posts_comment
 
-    $success_msg = nil
-
-    if @posts_comment.save
+    flash[:success] = nil
+	
+	@posts_comments_create = true
+	
+    unless @posts_comment.save	
+	  unless @posts_comment.save
+	    unless @posts_comment.save 
+		  @posts_comments_create = false
+		end
+      end
+    end		
+    if @posts_comments_create
       # CHANGE FORM CONTROL DIGIT after every successfully save
-      $form_control_digit = rand(1..9)
-      $comment = nil
-      $success_msg = 'Вы успешно оставили свой комментарий. Благодарю Вас за уделенное время'
+      #$form_control_digit = rand(1..9)
+      #$comment = nil
+      flash[:success] = 'Вы успешно оставили свой комментарий. Благодарю Вас за уделенное время'
     else
-      $fail_msg = 'Чтобы оставить комментарий, пожалуйста, заполните все обязательные поля:'
+      flash[:fail] = 'Чтобы оставить комментарий, пожалуйста, заполните все обязательные поля:'
     end
-
+    @posts_comments_create = nil
     redirect_to post_path(@post)
-  end
-
+  end  
+  
 
   private
 

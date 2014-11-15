@@ -1,10 +1,10 @@
 -#>>> NEW REVIEW FORM
 
 #button.margin_top
-  = form_for $addresser do |f|
+  = form_for @addresser do |f|
 
     -# if there was errors while new review saved - puts ERROR MESSAGE
-    - if $addresser.errors.any?
+    - if @addresser.errors.any?
       = javascript_include_tag 'auto_focus'
       -# if there was errors while new review saved - add INDENT
       :css
@@ -21,7 +21,48 @@
           Чтобы оставить свой отзыв, заполните все обязательные поля:
 
           -# add VISUAL DIFFERENCES to fields with errors
-          - $addresser.errors.each do |attribute, msg|
+          
+          - if flash[:name]
+            - @name_class = 'errors_field'
+            - flash[:name] = nil
+          - if flash[:surname]
+            - @surname_class = 'errors_field'
+            - flash[:surname] = nil
+          - if flash[:nation]
+            - @nation_class = 'errors_field'
+            - flash[:nation] = nil
+          - if flash[:place]
+            - @place_class = 'errors_field'
+            - flash[:place] = nil
+          - if flash[:age]
+            - @age_class = 'errors_field'
+            - flash[:age] = nil
+          - if flash[:profession]
+            - @profession_class = 'errors_field'
+            - flash[:profession] = nil
+          - if flash[:mention]
+            - @mention_class = 'errors_field'
+            - flash[:mention] = nil
+          - if flash[:video_url]
+            - @video_url_class = 'errors_field'
+            - flash[:video_url] = nil
+          - if flash[:audio_url]
+            - @audio_url_class = 'errors_field'
+            - flash[:audio_url] = nil
+          - if flash[:online_address]
+            - @online_address_class = 'errors_field'
+            - flash[:online_address] = nil
+          - if flash[:site]
+            - @site_class = 'errors_field'
+            - flash[:site] = nil
+          - if flash[:img_url]
+            - @img_url_class = 'errors_field'
+            - flash[:img_url] = nil
+          - if flash[:word]
+            - @word_class = 'errors_field'
+            - flash[:word] = nil
+          
+          -# @addresser.errors.each do |attribute, msg|
             - if attribute == :name
               - @name_class = 'errors_field'
             - if attribute == :surname
@@ -54,15 +95,18 @@
               = msg
 
     -# if there was not errors while new review saved - puts SIMPLE TEXT before new review form
-    - unless $addresser.errors.any?
+    - unless @addresser.errors.any?
       #top_field
-        = $top_field_text
+        = flash[:success]
+    - if @addresser.errors.any?
+      #top_field
+        = flash[:fail]		
 
     -# CLEAN VAR to remove the intermediate simple text before new review form
-    - $top_field_text = nil
+    - flash[:success] = nil
 
     -# CLEAN VAR to remove the intermediate information about new review
-    - $addresser = nil
+    - @addresser = nil
 
     -# place fields in 2 columns
     .row-fluid

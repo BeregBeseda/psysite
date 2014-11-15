@@ -23,6 +23,10 @@
     position: static;
     margin: -10% 0 -10% 7%;
   }
+  
+  .menu_back_to_posts_or_products {
+    margin-left: -40%;
+  }
 
   .block {
     margin-left: 15px !important;
@@ -58,6 +62,13 @@
   }
 }
 
+@media (max-width: 1278px) {
+  #button {
+    margin-left: 2%;    
+    padding-left: 10px;
+  }
+}
+
 @media (min-width: 980px) and (max-width: 1279px) {
   #psychologist1 {
     padding-top: 60px;
@@ -68,6 +79,12 @@
   #main_block{
     margin-top: 10%;
     padding: 25px;
+  }
+  .menu_up UL {
+    padding-left: 25px;
+  }
+  .block_with_menu_up {
+    min-weight: 300px;
   }
 }
 

@@ -12,10 +12,10 @@
       Комментариев ещё нет
 
 
-  - if $success_msg
+  - if flash[:success]
     #top_field{style: 'margin-top:5px;'}
-      = $success_msg
-    - $success_msg = nil
+      = flash[:success]
+    - flash[:success]
 
 
   - @product.products_comments.reverse_order.each do |comment|
@@ -50,30 +50,30 @@
           Комментарий оставлен
           = comment.created_at
 
-  - $comment = @product.products_comments.build
+  -# $comment = @product.products_comments.build
 
-  - unless $fail_msg
+  - unless flash[:fail]
     .comment_title
       %p
       Вы можете оставить свой комментарий
       %b :
 
-  - if $fail_msg
+  - if flash[:fail]
     %p
       #errors_style{style: 'font-weight: 600; margin-top:5px; font-size:150%;'}
-        = $fail_msg
-    - $fail_msg = nil
+        = flash[:fail]
+    - flash[:fail] = nil
     - @errors_f = 'errors_field '
 
 
 
   -#= form_for([@product, @product.product_comments.build]) do |f|
-  = form_for([@product, $comment]) do |f|
+  = form_for([@product, @product.products_comments.build]) do |f|
     -# if $comment_js
       = javascript_include_tag 'auto_focus_comment'
       = $comment_js.html_safe
 
-    - if $comment && $comment.errors.any?
+    - if $comment && $comment.errors.any? 
       %div{style: 'color:red;'}
         HELLO!!!
       = javascript_include_tag 'auto_focus'
@@ -86,7 +86,7 @@
         }
 
       #errors_style
-        - $comment.errors.each do |attribute, msg|
+        - @product.products_comments.errors.each do |attribute, msg|
           - if attribute == :name
             - @name_class = 'errors_field'
           - if attribute == :surname
@@ -99,7 +99,7 @@
             - @comment_class = 'errors_field'
           - if attribute == :word
             - @word_class = 'errors_field'
-          %li
+          -#%li
             = msg
 
     #input_hey

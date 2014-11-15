@@ -12,19 +12,21 @@
 
   #list
     - @products.reverse_order.each do |product|
-
-      .list_position
-        = link_to product do
-          %p
-            = image_tag(product.image, alt: product.name, id: 'position_img_min')
+      - if product.visible == true
+        .list_position
+          = link_to product do
+            %p
+              = image_tag(product.image, alt: product.name, id: 'position_img_min')
             %p
               #list_name
                 = product.name
             %p
-              #list_description
+              #list_description{style: 'font-size: 150%'}
+                -#■
+                = image_tag 'fond/square.png'  
                 = truncate(strip_tags(product.description), length: 150, separator: ' ')
             %p
               = link_to 'Посмотреть полное описание...', product, id: 'link_under_description'
-          = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+            = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   = render partial: 'menus/menu_down'
   = render partial: 'layouts/footer_rights'
