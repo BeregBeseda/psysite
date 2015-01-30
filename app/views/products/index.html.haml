@@ -1,20 +1,21 @@
 - @menu_up_item = 'products'
 
 - @prerender = 'http://www.psysite.herokuapp.com/posts/'
-
-#block
+  
+.block.block_with_menu_up
   = render partial: 'menus/menu_up'
-
+  
   -if $success_msg
     #top_field
       = $success_msg
     - $success_msg = nil
 
-  #list
-    - @products.reverse_order.each do |product|
-      - if product.visible == true
+- @products.reverse_order.each do |product|
+  - if product.visible == true
+    = link_to product do
+      #list
         .list_position
-          = link_to product do
+          .block.block_with_description{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')}"}
             %p
               = image_tag(product.image, alt: product.name, id: 'position_img_min')
             %p
@@ -26,7 +27,9 @@
                 = image_tag 'fond/square.png'  
                 = truncate(strip_tags(product.description), length: 150, separator: ' ')
             %p
-              = link_to 'Посмотреть полное описание...', product, id: 'link_under_description'
-            = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+              = link_to 'Читать всю статью...', product, id: 'link_under_description'
+            -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')               
+        
+.block        
   = render partial: 'menus/menu_down'
-  = render partial: 'layouts/footer_rights'
+  = render partial: 'layouts/footer_rights'  

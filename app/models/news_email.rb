@@ -1,6 +1,8 @@
 # encoding: utf-8
 class NewsEmail < ActiveRecord::Base
 
+  has_many :orders
+
   #before_save { self.email = email.downcase }
 
   #validates :email, presence: { message: 'Введите свой E-mail' }

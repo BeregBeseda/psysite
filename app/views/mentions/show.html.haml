@@ -13,18 +13,24 @@
 =render partial: 'mentions/mentions_fond'
 
 
-#block
+.block.block_with_menu_up
   -##### UP
   = render partial: 'menus/menu_up'
 
 
   -##### MAIN __________________________________________________________________________________________________________
 
+.block.block_with_description
+  .menu_back_to_posts_or_products
+    = render partial: 'posts/back_to_posts'
   -# if reviewer added photo - puts REVIEWER PHOTO
   - if @mention.img_url != ''
     = image_tag(@mention.img_url, alt: @mention.name, id: 'position_img')
 
+
   -# NAME, SURNAME, AGE, COUNTRY, CITY of the reviewer
+  
+  
   #list_name
 
     = @mention.name
@@ -69,25 +75,28 @@
     -# if reviewer added own site - puts REVIEWER SITE
     - if @mention.site != ''
       = link_to 'Нажмите, чтобы посмотреть сайт автора отзыва', @mention.site
-
-
-  -# BIG SEPARATOR between review & form for new review
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+    
+  - if flash[:success]
+    = javascript_include_tag 'auto_focus'
+    #errors_style      
 
 
   -# FORM FOR NEW REVIEW
   - @addresser ||= Mention.new
-  = render partial: 'mentions/mentions_form'
+  -#= render partial: 'mentions/mentions_form'
 
-  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
 
 
   -##### DOWN __________________________________________________________________________________________________________
 
   = render partial: 'menus/menu_down'
   = render partial: 'layouts/footer_rights'
+
+
+
+
+  
 
 
 

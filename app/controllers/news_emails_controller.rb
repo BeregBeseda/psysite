@@ -1,6 +1,7 @@
 ﻿# encoding: utf-8
 class NewsEmailsController < ApplicationController
 
+  
   #before_action :set_post, only: [:show]
 
   
@@ -18,7 +19,8 @@ class NewsEmailsController < ApplicationController
 
   def create
     @news_email = NewsEmail.new(news_email_params) 
-      
+    
+
     flash[:name_error] = nil
   	flash[:email_error] = nil
 	  flash[:word_error] = nil
@@ -29,7 +31,7 @@ class NewsEmailsController < ApplicationController
  	  flash[:name] = @news_email.name
 	  flash[:email] = @news_email.email
 	  flash[:word] = @news_email.word	   	      
-    @news_email.type = params[:type]    
+    #@news_email.type = params[:type]    
 		@news_email_valid = true
 		
 		if @news_email.name.size < 3 or @news_email.name.size > 60 or @news_email.name == 'сюда' or @news_email.name == nil or @news_email.name == '' or @news_email == 'сюда'
@@ -45,7 +47,12 @@ class NewsEmailsController < ApplicationController
 		if @news_email.word !~ /[1234567890]/ or @news_email.word == nil or @news_email.word == '' or @news_email.word.to_s.size < 1 or @news_email.word.to_s.size > 1
 			@news_email_valid = false
 			flash[:word_error] = 3 
-		end				
+		end		
+		
+		if @news_email.use_for_news == false
+			@news_email_valid = false
+			flash[:use_for_news_error] = 4 
+		end						
 
     if @news_email_valid    	
     	@news_email_valid = nil
@@ -55,10 +62,10 @@ class NewsEmailsController < ApplicationController
       @news_email.akey = akey
       @news_email.email = @news_email.email.downcase
     
-      case @news_email.type
+      case @news_email.typ
       
         when 'pers' then
-		      @news_email.type = nil
+		      @news_email.typ = nil
           if @news_email.use_for_news
 		    		if NewsMailer.news_delivery_confirm(@news_email).deliver
               @news_email.use_for_news = false
@@ -128,7 +135,7 @@ class NewsEmailsController < ApplicationController
 
          when 'post' then
          
-		       @news_email.type = nil  
+		       @news_email.typ = nil  
 		  		 if NewsMailer.news_delivery_confirm(@news_email).deliver?
              @news_email.use_for_news = false
              unless @news_email.save  			
@@ -149,7 +156,7 @@ class NewsEmailsController < ApplicationController
 		      	 end
 	      	 end
            @news_email.use_for_news = false
-           @news_email.type = nil 
+           @news_email.typ = nil 
            unless @news_email.save  			
           	 unless @news_email.save
           		 @news_email.save
@@ -161,9 +168,25 @@ class NewsEmailsController < ApplicationController
 		  
          when 'product' then  
          
-		       @news_email.type = nil
+           @order = Order.new
+    	  	 @order.akey = akey
+           @order.new_email_id = @news_email.id 
+    	  	 @order.news_email_name = @news_email.name
+           @order.news_email_email = @news_email.email		  
+           @order.link = params[:link]
+           @order.has_to_pay = params[:has_to_pay]
+           @order.product_id = params[:pp_id]
+           @order.title = params[:title]
+           @order.typ = @news_email.typ
+           unless @order.save  			
+          	 unless @order.save
+          	 	@order.save
+          	 end
+           end           
+         
+		       @news_email.typ = nil
            if @news_email.use_for_news
-		    		 if NewsMailer.news_delivery_confirm(@news_email).deliver?
+		    		 if NewsMailer.news_delivery_confirm(@news_email).deliver
               @news_email.use_for_news = false
 		           unless @news_email.save  			
 		          	 unless @news_email.save
@@ -171,7 +194,7 @@ class NewsEmailsController < ApplicationController
 		          	 end
 		           end
 						 else
-			  			 if NewsMailer.news_delivery_confirm(@news_email).deliver?
+			  			 if NewsMailer.news_delivery_confirm(@news_email).deliver
               	 @news_email.use_for_news = false
 			           unless @news_email.save  			
 			          	 unless @news_email.save
@@ -182,27 +205,10 @@ class NewsEmailsController < ApplicationController
 			  				 redirect_to product_path(params[:pp_id]), notise: 'Попробуйте ещё раз'  
 							 end
 						 end
-           end
-
-           @order = Order.new(order_product_create_params)
-    	  	 @order.akey = akey
-           @order.new_email_id = @news_email.id 
-    	  	 @order.news_email_name = @news_email.name
-           @order.news_email_email = @news_email.email		  
-           @order.link = params[:link]
-           @order.has_to_pay = params[:has_to_pay]
-           @order.product_id = params[:pp_id]
-           @order.title = params[:title]
-           @order.type = true
-            true == product
-           unless @order.save  			
-          	 unless @order.save
-          	 	@order.save
-          	 end
-           end     		  
+           end   		  
 
            unless NewsEmail.find_by_email(@news_email.email)
-             @news_email.type = nil 
+             @news_email.typ = nil 
 		         unless @news_email.save  			
 		        	 unless @news_email.save
 		        	 	@news_email.save
@@ -211,35 +217,39 @@ class NewsEmailsController < ApplicationController
              @news_email = nil
            end
 
-           if ProductsMailer.product_pay_email(@order).deliver?
+           if ProductEmailMailer.product_pay_email(@order).deliver
              @news_email = nil
              @addresser = nil          
              @order = nil
              redirect_to payments_path
 		  		 else
-  	         if ProductsMailer.product_pay_email(@order).deliver?
+  	         if ProductEmailMailer.product_pay_email(@order).deliver
   	           @news_email = nil
   	           @addresser = nil          
   	           @order = nil
   	           redirect_to payments_path
 			  		 else
-			    	 	redirect_to product_path(@addresser.pp_id), notise: 'Попробуйте ещё раз'  
+			    	 	redirect_to product_path(@news_email.pp_id), notise: 'Попробуйте ещё раз'  
 	           end	
            end		  
         end
 
     else
       @news_email_valid = nil
-      case(@news_email.type)
+      case(@news_email.typ)
         when 'pers' then
-          @news_email.type = nil
+          @news_email.typ = nil
           redirect_to pers_path
         when 'post' then
-          @news_email.type = nil
-          redirect_to post_path(@addresser.pp_id)
+          @news_email.typ = nil
+          #redirect_to post_path(@addresser.pp_id)
+          redirect_to post_path
         when 'product' then          
-          @news_email.type = nil
-          redirect_to product_path(@addresser.pp_id)       
+          @news_email.typ = nil
+          redirect_to product_path(@news_email.pp_id)
+          #flash[:my_product_check] = (@news_email.pp_id)          
+        else
+          redirect_to menus_path       
       end
     end
   end
@@ -284,12 +294,16 @@ class NewsEmailsController < ApplicationController
   end
 
 
-  
+  private
+   
   def news_email_params
-    params.require(:news_email).permit(:akey, :delivery_agree_date, :delivery_off_date, :email, :has_to_pay, :link, :name, :pp_id, :title, :type, :use_for_news, :word)
-  end
-
-
+    params.require(:news_email).permit(:active, :akey, :delivery, :delivery_agree_date, :delivery_off_date, :email, :has_to_pay, :link, :number_of_success_pays, :name, :payed_sum, :pp_id, :title, :typ, :use_for_news, :word) 
+  end  
+  
+  #def order_product_create_params  
+  #  params.require(:order).permit(:account, :active, :akey, :done, :fail_datetime, :has_to_pay, :link, :new_email_id, :news_email_name, :news_email_email, :now_time, :number_of_fails, :product_id, :sum, :title, :typ, :want_datetime, :when_payed)  
+  #end  
+  
   
   #private
 

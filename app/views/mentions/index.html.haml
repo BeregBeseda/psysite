@@ -13,10 +13,9 @@
 =render partial: 'mentions/mentions_fond'
 
 
-#block
+#block.block.block_with_menu_up  
   -##### UP
   = render partial: 'menus/menu_up'
-
 
   -##### MAIN __________________________________________________________________________________________________________
 
@@ -37,17 +36,12 @@
     = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
   -# REVIEWS
-  #list
-    .comment_title
-      Отзывы :
-    - @mentions.reverse_order.each do |mention|
-
-      -# puts ALL AGREED REVIEWS that agreed by admin and site rules
-      -if mention.visible == true
-        -# REVIEWS
+- @mentions.reverse_order.each do |mention|
+  - if mention.visible == true
+    = link_to mention do
+      #list
         .list_position
-          = link_to mention do
-
+          .block.block_with_description{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')}"}
             %p
               -# PHOTO of the reviewer
               - if mention.img_url != ''
@@ -69,12 +63,11 @@
                 %p
                   = link_to 'Читать весь отзыв...', mention, id: 'link_under_description'
 
-            = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
 
 
   -##### DOWN __________________________________________________________________________________________________________
 
+.block        
   = render partial: 'menus/menu_down'
-  = render partial: 'layouts/footer_rights'
-
+  = render partial: 'layouts/footer_rights' 
 

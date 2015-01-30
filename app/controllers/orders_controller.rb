@@ -1,5 +1,5 @@
 ﻿class OrdersController < ApplicationController
-
+  
   before_action :set_post, only: [:show, :confirm, :fail]
 
   def show
@@ -225,7 +225,7 @@
 
 
   def order_create_params
-    params.require(:order).permit(:account, :active, :akey, :done, :fail_datetime, :has_to_pay, :link, :new_email_id, :news_email_name, :news_email_email, :number_of_fails, :now_time, :product_id, :sum, :title, :type, :want_datetime, :when_payed)
+    params.require(:order).permit(:account, :active, :akey, :done, :fail_datetime, :has_to_pay, :link, :new_email_id, :news_email_name, :news_email_email, :number_of_fails, :now_time, :product_id, :sum, :title, :typ, :want_datetime, :when_payed)
   end
 
   #def order_pers_create_params
@@ -239,7 +239,7 @@
   #private
 
   def set_post
-    if (Order.find(:first, conditions: { id: params[:id]} ) and Order.find(:first, conditions: { id: params[:id]} ).akey == params[:akey])
+    if Order.find(:first, conditions: { id: params[:id]} ) and Order.find(:first, conditions: { id: params[:id]} ).akey == params[:akey]
       @order = Order.find(params[:id])
     else
       @order = Order.New

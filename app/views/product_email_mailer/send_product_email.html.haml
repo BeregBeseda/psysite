@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .email_fond
+      .email
+        .email_top_field
+          .big_bold_color{style: 'font-size:140%; line-height:110%;'}
+            Поздравляю,
+            = @order.news_email_name
+          .big_bold_color{style: 'font-size:140%; line-height:110%;'}
+            Вот видеозапись семинара 
+			#{@order.title}, 
+			которую Вы захотели приобрести:
+            = link_to "http://psysite.herokuapp.com/orders/#{@order.akey}/#{@order.id}" do
+              скачать 
+			  
+			Спасибо за доверие  
+
+
+        =render partial: 'layouts/email/email_not_you'
+
+        =render partial: 'layouts/email/email_footer'
+
+
+
+

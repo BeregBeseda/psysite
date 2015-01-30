@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140822000015) do
+ActiveRecord::Schema.define(version: 20141203162029) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -92,17 +92,16 @@ ActiveRecord::Schema.define(version: 20140822000015) do
     t.decimal  "has_to_pay"
     t.string   "link"
     t.integer  "pp_id"
-    t.string   "type"
     t.string   "title"
     t.integer  "number_of_success_pays", default: 0
     t.decimal  "payed_sum",              default: 0.0
     t.string   "delivery_agree_date",    default: ""
     t.string   "delivery_off_date",      default: ""
     t.boolean  "active",                 default: true
+    t.string   "typ"
   end
 
   create_table "orders", force: true do |t|
-    t.boolean  "type"
     t.boolean  "done"
     t.string   "title"
     t.string   "account"
@@ -122,6 +121,8 @@ ActiveRecord::Schema.define(version: 20140822000015) do
     t.decimal  "sum"
     t.decimal  "has_to_pay"
     t.boolean  "active",           default: true
+    t.string   "typ"
+    t.integer  "news_email_id"
   end
 
   create_table "posts", force: true do |t|

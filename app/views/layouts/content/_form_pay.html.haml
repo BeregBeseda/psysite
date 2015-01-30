@@ -1,17 +1,22 @@
 ﻿#button.margin_bottom.form_fond
   = form_for @addresser do |f|   
      
-    - @addresser.type = 'product'
-    - @addresser.link = @product.link
-    - @addresser.has_to_pay = @product.price
-    - @addresser.pp_id = @product.id
-    - @addresser.title = @product.name     
+
+    -# @addresser.link = @product.link
+    -# @addresser.has_to_pay = @product.price
+    -# @addresser.title = @product.name     
     
-    = @addresser.type or 'notype'
-    = @addresser.link or 'nolink' 
-    = @addresser.has_to_pay or 'nopay' 
-    = @addresser.pp_id or 'noid' 
-    = @addresser.title or 'notitle'    
+    -#= @addresser.typ or 'notype'
+    -#= @addresser.link or 'nolink' 
+    -#= @addresser.has_to_pay or 'nopay' 
+    -#= @addresser.pp_id or 'noid' 
+    -#= @addresser.title or 'notitle'  
+    
+    -#= f.hidden_field :typ, value: @addresser.typ    
+    -#= f.hidden_field :pp_id, value: @addresser.pp_id
+    -#= f.hidden_field :link, value: "#{@addresser.link or 'no_link'}"    
+    -#= f.hidden_field :has_to_pay, value: "#{@addresser.has_to_pay or 'no_has_to_pay'}"    
+    -#= f.hidden_field :title, value: @addresser.title
     
      
     - @input_value_name = 'сюда'
@@ -20,7 +25,7 @@
     
     - @write_word = true
      
-    - if flash[:name_error] or flash[:email_error] or flash[:word_error]
+    - if flash[:name_error] or flash[:email_error] or flash[:word_error] or flash[:use_for_news_error]
       - @write_word = false
       = javascript_include_tag 'auto_focus'                
       
@@ -37,30 +42,51 @@
       - if flash[:email] != ''  
         - @input_value_email = flash[:email]
       - else
-        - @input_value_email = 'сюда'      
+        - @input_value_email = 'сюда'           
+        
       
-      %p#errors_style
-        .row-fluid
-          .span5.offset3
-            .label_words
-              .errors_style
-                Пожалуйста,
-        .row-fluid
-          .span5.offset3
-            .label_words
-              .errors_style{style: 'font-size: 110%;'}
-                напишите
+      - if flash[:name_error] or flash[:email_error] or flash[:word_error]
+        %p#errors_style
+          .row-fluid
+            .span5.offset3
+              .label_words
+                .errors_style
+                  Пожалуйста,
+          .row-fluid
+            .span5.offset3
+              .label_words
+                .errors_style{style: 'font-size: 110%;'}
+                  напишите
+                  
+      - if flash[:use_for_news_error]
+        %p#errors_style
+          .row-fluid
+            .span5.offset3
+              .label_words
+                .errors_style
+                  Пожалуйста,
+          .row-fluid
+            .span5.offset3
+              .label_words
+                .errors_style{style: 'font-size: 100%;'}
+                  подтвердите ещё раз                  
+                  
+                  
 
-          - if flash[:name_error]
-            - @name_class = 'errors_field'
-            - flash[:name_error] = nil
-          - if flash[:email_error]
-            - @email_class = 'errors_field'
-            - flash[:email_error] = nil
-          - if flash[:word_error] 
-            - @word_class = 'errors_field'
-            - flash[:word_error] = nil
+      - if flash[:name_error]
+        - @name_class = 'errors_field'
+        - flash[:name_error] = nil
+      - if flash[:email_error]
+        - @email_class = 'errors_field'
+        - flash[:email_error] = nil
+      - if flash[:word_error] 
+        - @word_class = 'errors_field'
+        - flash[:word_error] = nil
+      - if flash[:use_for_news_error]  
+        - @use_for_news_class = 'errors_field'
+        - flash[:use_for_news_error] = nil
             
+    %div{id: "#{@use_for_news_class}"}
     .row-fluid
       .span12
         - if @write_word   
@@ -91,9 +117,11 @@
               Ваш E-mail:
           .span6{style: 'margin-top: -3px; margin-left: 1px !important;'}
             = f.text_field :email, {class: 'input-address' ' input-xlarge' ' my-input-xlarge' " #{@email_class}", type: 'text', value: "#{@input_value_email}", 'data-maxsize' => '60', spellcheck: 'false', onfocus: "if (this.value == 'сюда') {this.value = '';}", onblur: "if (this.value == '') {this.value = 'сюда';}"}
+
+
             - @email_class = nil
 
-        - unless flash[:name_error] or flash[:email_error] or flash[:word_error]
+        - unless flash[:name_error] or flash[:email_error] or flash[:word_error] or flash[:use_for_news_error]
           .div_around_submit_button
             #top_field{style: 'width: 70%;'}
               = flash[:notise]
@@ -117,17 +145,17 @@
               Да, я хочу получать новые статьи и видео семинары на свой E-mail
               
         
-        = hidden_field_tag(:type, "#{@addresser_type}")
-        -# post
-        - if @addresser_pp_id
-          = hidden_field_tag(:pp_id, "#{@addresser_pp_id}")
-        -# product   
-        - if @addresser_link
-          = hidden_field_tag(:link, "#{@addresser_link}")
-        - if @addresser_has_to_pay
-          = hidden_field_tag(:has_to_pay, "#{@addresser_has_to_pay}")
-        - if @addresser_title
-          = hidden_field_tag(:title, "#{@addresser_title}")                              
+        -#= hidden_field_tag(:type, "#{@addresser_type}")
+        -#-# post
+        -#- if @addresser_pp_id
+        -#  = hidden_field_tag(:pp_id, "#{@addresser_pp_id}")
+        -#-# product   
+        -#- if @addresser_link
+        -#  = hidden_field_tag(:link, "#{@addresser_link}")
+        -#- if @addresser_has_to_pay
+        -#  = hidden_field_tag(:has_to_pay, "#{@addresser_has_to_pay}")
+        -#- if @addresser_title
+        -#  = hidden_field_tag(:title, "#{@addresser_title}")                              
           
         - @adderesser_type = nil
         - @adderesser_pp_id = nil
@@ -141,9 +169,12 @@
         - flash[:name_error] = nil
         - flash[:email_error] = nil
         - flash[:word_error] = nil
+        - flash[:use_for_news_error] = nil
         - flash[:name] = nil
         - flash[:email] = nil
         - flash[:word] = nil
+
+
 
         .div_around_submit_button
           = f.submit 'Да, всё так', {class: ' btn-primary ' ' btn ' ' btn-large ' ' my-btn ' ' my-btn-large ', title: 'Нажать на кнопку' }
