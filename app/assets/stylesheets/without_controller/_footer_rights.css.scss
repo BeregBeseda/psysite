@@ -6,18 +6,18 @@
   line-height: 15px;
   margin-bottom: 20px;
   text-align: center;
-  text-shadow: 2px 2px 2px #000, 0px 0px 1em #FFF;
+  text-shadow: 2px 2px 2px #5F5E5E, 0px 0px 1em #FFF;
   /*@include transition(color);
   @include transition(font-weight);*/
   
   &:hover {
     color: $dark_brown;
-    font-weight: 400;
+    /*font-weight: 400;*/
     text-shadow: 2px 2px 2px #FFF, 0px 0px 1em #FFF;
   }
   &:hover A {
-    color: $dark_brown;
-    font-weight: 400;    
+    color: $rgb(9, 84, 141);
+    /*font-weight: 400;*/    
   }
 }
 
