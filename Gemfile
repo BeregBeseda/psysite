@@ -9,7 +9,8 @@ gem 'bootstrap-sass', '2.3.1.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
-gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
 
 gem 'passenger'
 gem 'heroku'

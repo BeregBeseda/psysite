@@ -1,5 +1,16 @@
 == README
 
+Welcome, my Friend!
+My name is Vitalina Vakulchik. I`m from beautiful country Ukraine.
+I`m glad to see you on my new Web-project.
+Hope
+You`ll enjoy it!!)))
+Wish You a nice day...
+Share your impressions with me on my site: vitalina.liane@gmail.com 
+I`ll be wating)
+See You later
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
