@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   :port                 => 587,  
   :domain               => "psysite.herokuapp.com",  
   :user_name            => "bereg.beseda",  
-  :password             => "sh19781968199719",  
+  :password             => "gsh1978196819971",  
   :authentication       => "plain",  
   :enable_starttls_auto => true  
 }  
