@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .email_fond
+      .email
+        .email_top_field
+		  %p
+		    Клиент по имени #{@order.news_email_name} 
+			с E-mail`ом #{@order.news_email_email} 
+			хочет проконсультироваться и пишет, 
+			что оплатил #{@order.sum} грн			
+			Время оплаты: #{@order.when_payed}
+			Местное время клиента: #{@order.now_time}
+			Способ оплаты: #{@order.account}
+			- if @order.want_datetime != '' and @order.want_datetime != nil
+			  и хотел бы встретиться @order.want_datetime
+			  
+          %p
+            - if @order.number_of_fails > 3
+              Обратите внимание, что клиент уже #{@order.number_of_fails} раз(а) подряд указал неверные данные оплаты консультации!
+        
+		=render partial: 'layouts/email/email_footer'      		  
+

@@ -2,18 +2,20 @@ Psysite::Application.routes.draw do
 
   # get "templates/index"
 
-  get '/orders/:akey/:id', to: 'orders#show'  
-  get '/orders/confirm/:akey/:id', to: 'orders#confirm'
-  get '/orders/fail/:akey/:id', to: 'orders#fail'
+  # get '/orders/:akey/:id', to: 'orders#show'  
+  # get '/orders/confirm/:akey/:id', to: 'orders#confirm'
+  # get '/orders/fail/:akey/:id', to: 'orders#fail'
   
-  get '/news_emails/confirm/:akey/:id', to: 'news_emails#confirm'
-  get '/news_emails/end_delivery/:akey/:id', to: 'news_emails#end_delivery'
+  # get '/news_emails/confirm/:akey/:id', to: 'news_emails#confirm'
+  # get '/news_emails/end_delivery/:akey/:id', to: 'news_emails#end_delivery'
   
-  get '/payments/:end/:sum', to: 'payments#index'  
+  # get '/payments/:end/:sum', to: 'payments#index'  
+  
   #get '/products_pays/:email/:product_name', to: 'products_pays#index'
 
   
-  resources :menus, :products, :posts, :pers, :abouts, :news_emails, :mentions, :payments, :products_pays, :products_gets, :templates, :orders, :for_email_orders
+  resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users
+  # resources :pers, :abouts  
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -22,11 +24,21 @@ Psysite::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :posts do
-    resources :posts_comments
+    resources :post_comments
   end
 
-  resources :products do
-    resources :products_comments
+  resources :books do
+    resources :book_comments
+    resources :book_orders    
+  end
+
+  resources :consults do
+    resources :consult_orders    
+  end
+
+  resources :films do
+    resources :film_comments
+    resources :film_orders    
   end
 
   # You can have the root of your site routed with "root"

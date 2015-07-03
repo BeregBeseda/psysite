@@ -1,0 +1,17 @@
+- @menu_up_item = 'orders'
+
+- @prerender = 'http://www.psysite.herokuapp.com/products/'
+
+#block
+  = form_for @order, url: {action: "update"} do |f|
+    = f.text_field :sum
+    = f.text_field :account
+    = f.text_field :when_payed
+	  - if @order.type == 0
+      = f.text_field :want_datetime
+    = f.text_field :now_time
+	  = f.submit 'Да, всё так'
+	
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  = render partial: 'menus/menu_down'
+  = render partial: 'layouts/footer_rights'

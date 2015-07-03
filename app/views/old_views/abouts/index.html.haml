@@ -1,0 +1,46 @@
+-#>>> page with psychologist`s CONTACTS
+
+- @prerender = 'http://www.psysite.herokuapp.com/products'
+
+-# NAME OF PAGE (e.g. is used for menu_up partial)
+- @menu_up_item = 'abouts'
+
+-# TITLE OF PAGE is used at html > head > title
+- @title='Контакты (почувствовать счастье)'
+
+
+-####### FOND
+=render partial: 'abouts/abouts_fond'
+
+
+#block
+  -##### UP
+  = render partial: 'menus/menu_up'
+
+
+  -##### MAIN __________________________________________________________________________________________________________
+
+  #list_description
+    #list_name{style: 'font-size:110%;'}
+      Контактные данные:
+    %br/
+    %p
+      ■ Татьяна Вакульчик
+    %p
+      Украина, Чернигов
+    %p
+      E-mail:
+      %b
+        bereg.beseda (собачка) ukr.net
+    %p
+      Skype:
+      %b
+        Bereg.Beseda
+
+  = image_tag('products/separator.png', alt: '----------------------------------------', id: 'separator')
+
+
+  -##### DOWN __________________________________________________________________________________________________________
+
+  = render partial: 'menus/menu_down'
+  = render partial: 'layouts/footer_rights'

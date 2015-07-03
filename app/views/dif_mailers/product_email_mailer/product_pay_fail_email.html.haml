@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .email_fond
+      .email
+        .email_top_field
+          .big_bold_color{style: 'font-size:140%; line-height:110%;'}
+            Доброго времени суток,
+            = @order.news_email_name
+          .big_bold_color{style: 'font-size:140%; line-height:110%;'}
+            Вы выразили желание приобрести видеозапись семинара психолога Татьяны Вакульчик:
+            = @order.title
+	      %p
+		    К сожалению, те данные об оплате семинара,
+            что Вы мне отправили - неверные.
+			
+		  %p
+		    Если Вы уверенны, что оплатили видеозапись семинара,
+            попробуйте снова ввести данные об оплате по 
+			= link_to "http://psysite.herokuapp.com/orders/#{@order.akey}/#{@order.id}" do
+              этому адресу
+            
+		  %p
+            Или попробуйте оплатить видеозапись ещё раз на	
+            = link_to "http://psysite.herokuapp.com/payments/prod" do
+              этой странице	
+
+	      %p
+            - if @order.number_of_fails > 3
+              Обратите внимание, что #{@order.number_of_fails} раз(а) подряд Вы указали неверные данные оплаты этого видеосеминара
+
+        =render partial: 'layouts/email/email_not_you'
+
+        =render partial: 'layouts/email/email_footer'
+
+
+
+
+
+
+

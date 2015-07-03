@@ -1,0 +1,102 @@
+-#>>> page with REVIEW (mention)
+
+- @prerender = 'http://www.psysite.herokuapp.com/posts/'
+
+-# NAME of page (e.g. is used for menu_up partial)
+- @menu_up_item = 'mention'
+
+-# title is used at HTML > HEAD > TITLE
+- @title='Отзыв (почувствовать счастье)'
+
+
+-####### FOND
+=render partial: 'mentions/mentions_fond'
+
+
+.block.block_with_menu_up
+  -##### UP
+  = render partial: 'menus/menu_up'
+
+
+  -##### MAIN __________________________________________________________________________________________________________
+
+.block.block_with_description
+  .menu_back_to_posts_or_products
+    = render partial: 'posts/back_to_posts'
+  -# if reviewer added photo - puts REVIEWER PHOTO
+  - if @mention.img_url != ''
+    = image_tag(@mention.img_url, alt: @mention.name, id: 'position_img')
+
+
+  -# NAME, SURNAME, AGE, COUNTRY, CITY of the reviewer
+  
+  
+  #list_name
+
+    = @mention.name
+    = @mention.surname
+
+    (#{@mention.age} лет),
+    %br/
+  #mention_country_city
+    = @mention.place
+    = @mention.nation
+
+    -# REVIEW
+  %p
+    #mention_word
+      Отзыв:
+
+  -# if reviewer added video review - puts VIDEO REVIEW
+  - if @mention.video_url != ''
+    .margin_bottom.margin_top
+      %iframe{allowfullscreen: "", frameborder: "0", src: "//www.youtube.com/embed/#{@mention.video_url}", width: "450", height: "257"}
+
+  -# if reviewer added audio review - puts AUDIO REVIEW
+  - if @mention.audio_url != ''
+    .margin_bottom.margin_top
+      = link_to 'Нажмите здесь, чтобы прослушать аудио отзыв', @mention.audio_url
+
+  -# if reviewer added text review - puts TEXT REVIEW
+  - if @mention.mention != ''
+    #list_description
+      = @mention.mention.html_safe
+
+  = image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+  -# REVIEWER`S CONTACTS
+  #mention_contacts.white_text_shadow
+    %p.margin_top
+      Контакты (E-mail, Skype...):
+    %p.margin_bottom{style: 'font-size:120%;'}
+      -# REVIEWER`S E-MAIL or SKYPE or ANOTHER CONTACTS
+      = @mention.online_address
+
+    -# if reviewer added own site - puts REVIEWER SITE
+    - if @mention.site != ''
+      = link_to 'Нажмите, чтобы посмотреть сайт автора отзыва', @mention.site
+    
+  - if flash[:success]
+    = javascript_include_tag 'auto_focus'
+    #errors_style      
+
+
+  -# FORM FOR NEW REVIEW
+  - @addresser ||= Mention.new
+  -#= render partial: 'mentions/mentions_form'
+
+
+
+
+  -##### DOWN __________________________________________________________________________________________________________
+
+  = render partial: 'menus/menu_down'
+  = render partial: 'layouts/footer_rights'
+
+
+
+
+  
+
+
+

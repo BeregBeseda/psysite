@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .email_fond
+      .email
+        .email_top_field
+          %p
+            Доброго времени суток,
+            = @order.news_email_name
+            Вы выразили желание проконсультироваться со мной (психолог Татьяна Вакульчик).
+            
+            После оплаты консультации
+            заполните форму
+            = link_to "http://psysite.herokuapp.com/orders/#{@order.akey}/#{@order.id}" do
+              по этому адресу
+
+            Если Вы только собираетесь оплатить консультацию (или не знаете, как это сделать), то пройдите на
+            = link_to "http://psysite.herokuapp.com/payments/per/#{@order.has_to_pay}" do
+              эту страницу
+
+        =render partial: 'layouts/email/email_not_you'
+        =render partial: 'layouts/email/email_footer'
+
+

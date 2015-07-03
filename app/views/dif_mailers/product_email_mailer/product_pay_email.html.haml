@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    .email_fond
+      .email
+        .email_top_field
+          .big_bold_color{style: 'font-size:140%; line-height:110%;'}
+            Доброго времени суток,
+            = @order.news_email_name
+          .big_bold_color{style: 'font-size:140%; line-height:110%;'}
+            Вы выразили желание приобрести видеозапись семинара психолога Татьяны Вакульчик:
+            %u
+              = @order.title
+          #top_field
+            После оплаты записи семинара
+            заполните форму
+            = link_to "http://psysite.herokuapp.com/orders/#{@order.akey}/#{@order.id}" do
+              по этому адресу
+
+            Если Вы только собираетесь оплатить видеозапись семинара (или не знаете, как это сделать), то пройдите на
+            = link_to "http://psysite.herokuapp.com/payments/prod/#{@order.has_to_pay}" do
+              эту страницу
+
+
+        =render partial: 'layouts/email/email_not_you'
+
+        =render partial: 'layouts/email/email_footer'
+
+
+
+

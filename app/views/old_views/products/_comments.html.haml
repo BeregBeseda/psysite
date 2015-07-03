@@ -1,0 +1,154 @@
+= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+#comment_block.margin_bottom
+
+  .comment_title
+    - if @product.products_comments.any?
+      Комментарии :
+      %b :
+    - else
+      Комментариев ещё нет
+
+
+  - if flash[:success]
+    #top_field{style: 'margin-top:5px;'}
+      = flash[:success]
+    - flash[:success]
+
+
+  - @product.products_comments.reverse_order.each do |comment|
+    -if comment.visible == true
+      .comment
+        %p
+          .big_bold_color.c_comment.white_text_shadow
+            %b
+              = comment.comment
+
+        .c_name_surname.white_text_shadow
+          ■
+          %b
+            = comment.name
+            = comment.surname
+          ,
+
+          = comment.created_at
+
+        - if comment.soc_url != ''
+          .c_soc_url
+            Страница в соц сети, Skype и т.д:
+            %b
+              = comment.soc_url
+        = link_to products_path do
+          %p
+            .comment_answer
+              %b
+                Ответить
+
+        -#.c_date
+          Комментарий оставлен
+          = comment.created_at
+
+  -# $comment = @product.products_comments.build
+
+  - unless flash[:fail]
+    .comment_title
+      %p
+      Вы можете оставить свой комментарий
+      %b :
+
+  - if flash[:fail]
+    %p
+      #errors_style{style: 'font-weight: 600; margin-top:5px; font-size:150%;'}
+        = flash[:fail]
+    - flash[:fail] = nil
+    - @errors_f = 'errors_field '
+
+
+
+  -#= form_for([@product, @product.product_comments.build]) do |f|
+  = form_for([@product, @product.products_comments.build]) do |f|
+    -# if $comment_js
+      = javascript_include_tag 'auto_focus_comment'
+      = $comment_js.html_safe
+
+    - if $comment && $comment.errors.any? 
+      %div{style: 'color:red;'}
+        HELLO!!!
+      = javascript_include_tag 'auto_focus'
+      :css
+        #button INPUT {
+          margin-bottom: 4px !important;
+        }
+        #button {
+          margin-top: 30px !important;
+        }
+
+      #errors_style
+        - @product.products_comments.errors.each do |attribute, msg|
+          - if attribute == :name
+            - @name_class = 'errors_field'
+          - if attribute == :surname
+            - @surname_class = 'errors_field'
+          - if attribute == :email
+            - @email_class = 'errors_field'
+          - if attribute == :soc_url
+            - @soc_url_class = 'errors_field'
+          - if attribute == :comment
+            - @comment_class = 'errors_field'
+          - if attribute == :word
+            - @word_class = 'errors_field'
+          -#%li
+            = msg
+
+    #input_hey
+      .row-fluid
+        .span6
+          /[if IE]
+            #list_description
+              Ваше Имя :
+          = f.text_field :name, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше Имя', 'data-maxsize' => '60', spellcheck: 'false'}
+          - @name_class = nil
+
+        .span6
+          /[if IE]
+            #list_description
+              Фамилия :
+          = f.text_field :surname, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '60', spellcheck: 'false'}
+          - @surname_class = nil
+
+      /[if IE]
+        #list_description
+          Комментарий :
+      = f.text_area :comment, {id: 'textarea', class: "#{@errors_f}" 'input-address' ' input-xlarge' 'input-comment' " #{@comment_class}", rows:3, type: 'text', placeholder: 'Комментарий', 'data-maxsize' => '3000', spellcheck: 'false'}
+      - @comment_class = nil
+
+      /[if IE]
+        #list_description
+          Страница в Соц сети, Skype и т.д. :
+      = f.text_field :soc_url, {class: 'input-address' ' input-xlarge' " #{@soc_url_class}", type: 'text', placeholder: 'Страница в Соц сети, Skype и т.д.', 'data-maxsize' => '60', spellcheck: 'false'}
+      - @soc_url_class = nil
+
+      #email_security
+        Для Вашей безопасности
+        %br/
+        Ваш E-mail не будет виден посетителям сайта
+
+      .row-fluid
+        .span6
+          /[if IE]
+            #list_description
+              E-mail :
+          = f.text_field :email, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@email_class}", type: 'text', placeholder: 'E-mail', 'data-maxsize' => '60', spellcheck: 'false'}
+          - @email_class = nil
+
+        .span6
+          /[if IE]
+            #list_description
+              -# CONTROL DIGIT for form regenerate after every success save in DataBase or generate if have not exist already and puts in var
+              Введите сюда число '#{$form_control_digit}' :
+          = f.text_field :word, {class: "#{@errors_f}" 'input-address' ' input-xlarge' " #{@word_class}", rows: '15', type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '3000', spellcheck: 'false'}
+          - @word_class = nil
+
+      = f.submit 'Добавить комментарий', {class: 'btn' ' btn-large' ' btn-primary'}

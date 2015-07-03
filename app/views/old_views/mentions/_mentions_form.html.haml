@@ -1,0 +1,209 @@
+-#>>> NEW REVIEW FORM
+
+#button.margin_top
+  = form_for @addresser do |f|
+
+    -# if there was errors while new review saved - puts ERROR MESSAGE
+    - if @addresser.errors.any?
+      = javascript_include_tag 'auto_focus'
+      -# if there was errors while new review saved - add INDENT
+      :css
+        #button INPUT {
+          margin-bottom: 4px !important;
+        }
+        #button {
+          margin-top: 30px !important;
+        }
+
+      -# in fact, the ERROR MESSAGE
+      %p
+        #errors_style
+          Чтобы оставить свой отзыв, заполните все обязательные поля:
+
+          -# add VISUAL DIFFERENCES to fields with errors
+          
+          - if flash[:name]
+            - @name_class = 'errors_field'
+            - flash[:name] = nil
+          - if flash[:surname]
+            - @surname_class = 'errors_field'
+            - flash[:surname] = nil
+          - if flash[:nation]
+            - @nation_class = 'errors_field'
+            - flash[:nation] = nil
+          - if flash[:place]
+            - @place_class = 'errors_field'
+            - flash[:place] = nil
+          - if flash[:age]
+            - @age_class = 'errors_field'
+            - flash[:age] = nil
+          - if flash[:profession]
+            - @profession_class = 'errors_field'
+            - flash[:profession] = nil
+          - if flash[:mention]
+            - @mention_class = 'errors_field'
+            - flash[:mention] = nil
+          - if flash[:video_url]
+            - @video_url_class = 'errors_field'
+            - flash[:video_url] = nil
+          - if flash[:audio_url]
+            - @audio_url_class = 'errors_field'
+            - flash[:audio_url] = nil
+          - if flash[:online_address]
+            - @online_address_class = 'errors_field'
+            - flash[:online_address] = nil
+          - if flash[:site]
+            - @site_class = 'errors_field'
+            - flash[:site] = nil
+          - if flash[:img_url]
+            - @img_url_class = 'errors_field'
+            - flash[:img_url] = nil
+          - if flash[:word]
+            - @word_class = 'errors_field'
+            - flash[:word] = nil
+          
+          -# @addresser.errors.each do |attribute, msg|
+            - if attribute == :name
+              - @name_class = 'errors_field'
+            - if attribute == :surname
+              - @surname_class = 'errors_field'
+            - if attribute == :nation
+              - @nation_class = 'errors_field'
+            - if attribute == :place
+              - @place_class = 'errors_field'
+            - if attribute == :age
+              - @age_class = 'errors_field'
+            - if attribute == :profession
+              - @profession_class = 'errors_field'
+            - if attribute == :mention
+              - @mention_class = 'errors_field'
+            - if attribute == :video_url
+              - @video_url_class = 'errors_field'
+            - if attribute == :audio_url
+              - @audio_url_class = 'errors_field'
+            - if attribute == :online_address
+              - @online_address_class = 'errors_field'
+            - if attribute == :site
+              - @site_class = 'errors_field'
+            - if attribute == :img_url
+              - @img_url_class = 'errors_field'
+            - if attribute == :word
+              - @word_class = 'errors_field'
+
+            -# puts ERROR MESSAGE
+            -#%li
+              = msg
+
+    -# if there was not errors while new review saved - puts SIMPLE TEXT before new review form
+    - unless @addresser.errors.any?
+      #top_field
+        = flash[:success]
+    - if @addresser.errors.any?
+      #top_field
+        = flash[:fail]		
+
+    -# CLEAN VAR to remove the intermediate simple text before new review form
+    - flash[:success] = nil
+
+    -# CLEAN VAR to remove the intermediate information about new review
+    - @addresser = nil
+
+    -# place fields in 2 columns
+    .row-fluid
+      -# the first column
+      .span6
+        /[if IE]
+          #list_description
+            Ваше имя :
+        = f.text_field :name, {class: 'input-address' ' input-xlarge' " #{@name_class}", type: 'text', placeholder: 'Ваше имя', 'data-maxsize' => '30', spellcheck: 'false'}
+      -# the second column
+      .span6
+        /[if IE]
+          #list_description
+            Возраст :
+        = f.text_field :age, {class: 'input-address' ' input-xlarge' " #{@age_class}", type: 'text', placeholder: 'Возраст', 'data-maxsize' => '3', spellcheck: 'false'}
+
+    #email_security
+      Для Вашей безопасности
+      %br/
+      Ваш E-mail не будет виден посетителям сайта
+    -# place fields in 2 columns
+    .row-fluid
+      -# the first column
+      .span6
+        /[if IE]
+          #list_description
+            Фамилия :
+        = f.text_field :surname, {class: 'input-address' ' input-xlarge' " #{@surname_class}", type: 'text', placeholder: 'Фамилия', 'data-maxsize' => '30', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            Страна :
+        = f.text_field :nation, {class: 'input-address' ' input-xlarge' " #{@nation_class}", type: 'text', placeholder: 'Страна', 'data-maxsize' => '30', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            Город :
+        = f.text_field :place, {class: 'input-address' ' input-xlarge' " #{@place_class}", type: 'text', placeholder: 'Город', 'data-maxsize' => '30', spellcheck: 'false'}
+      -# the second column
+      .span6
+        /[if IE]
+          #list_description
+            E-mail :
+        = f.text_field :online_address, {class: 'input-address' ' input-xlarge' " #{@online_address_class}", type: 'text', placeholder: 'E-mail, Skype и т.д.', 'data-maxsize' => '500', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            Ваш сайт (если есть) :
+        = f.text_field :site, {class: 'input-address' ' input-xlarge' " #{@site_class}", type: 'text', placeholder: 'Ваш сайт (если есть)', 'data-maxsize' => '200', spellcheck: 'false'}
+        /[if IE]
+          #list_description
+            Ссылка на Ваше фото (необязательно) :
+        = f.text_field :img_url, {class: 'input-address' ' input-xlarge' " #{@img_url_class}", type: 'text', placeholder: 'Ссылка на Ваше фото (необязательно)', 'data-maxsize' => '300', spellcheck: 'false'}
+
+    -# place fields in 1 column
+    /[if IE]
+      #list_description
+        Профессия :
+    = f.text_field :profession, {class: 'input-address' ' input-xlarge' " #{@profession_class}", style: 'width:99%;', type: 'text', placeholder: 'Профессия', 'data-maxsize' => '60', spellcheck: 'false'}
+    /[if IE]
+      #list_description
+        Отзыв :
+    = f.text_area :mention, {id: 'textarea', class: 'input-address' ' input-xlarge' 'input-comment' " #{@mention_class}", rows:3, type: 'text', placeholder: 'Отзыв', 'data-maxsize' => '3000', spellcheck: 'false'}
+
+    -# place fields in 2 columns
+    .row-fluid
+      -# the first column
+      .span6
+        /[if IE]
+          #list_description
+            или сылка на YouTube видео отзыв :
+        = f.text_field :video_url, {class: 'input-address' ' input-xlarge' " #{@video_url_class}", type: 'text', placeholder: 'или сылка на YouTube видео отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
+      -# the second column
+      .span6
+        /[if IE]
+          #list_description
+            или сылка на аудио отзыв :
+        = f.text_field :audio_url, {class: 'input-address' ' input-xlarge' " #{@audio_url_class}", type: 'text', placeholder: 'или сылка на аудио отзыв', 'data-maxsize' => '500', spellcheck: 'false'}
+    -# place fields in 1 column
+    /[if IE]
+      #list_description
+        Введите сюда число '#{$form_control_digit}' :
+    = f.text_field :word, {class: 'input-address' ' input-xlarge' " #{@word_class}", type: 'text', placeholder: "Введите сюда число '#{$form_control_digit}'", 'data-maxsize' => '60', spellcheck: 'false'}
+
+
+    -# CLEAN VARS to remove the intermediate information about new review
+    - @name_class = nil
+    - @surname_class = nil
+    - @nation_class = nil
+    - @place_class = nil
+    - @age_class = nil
+    - @profession_class = nil
+    - @mention_class = nil
+    - @video_url_class = nil
+    - @audio_url_class = nil
+    - @online_address_class = nil
+    - @site_class = nil
+    - @img_url_class = nil
+    - @word_class = nil
+
+    =# SUBMIT BUTTON
+    = f.submit 'Добавить отзыв', { class: 'btn' ' btn-large' ' btn-primary' }
+

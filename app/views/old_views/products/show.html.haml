@@ -1,0 +1,50 @@
+﻿- @menu_up_item = 'product'
+
+- @prerender = 'http://www.psysite.herokuapp.com/pers'
+
+.block.block_with_menu_up
+  = render partial: 'menus/menu_up'
+  
+.block.block_with_description
+  .menu_back_to_posts_or_products
+    = render partial: 'products/back_to_products'
+  - if @product.image != ''
+    = image_tag(@product.image, alt: @product.name, id: 'position_img')
+  #list_name
+    = @product.name
+  #list_description
+    = @product.description.html_safe
+
+  -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+  -##list_date.half_of_width
+    = @product.date.to_s(:ru_datetime)
+  -##list_price
+    %span
+      Цена:
+    = @product.price
+    %span
+      = t(:monetary_unit)
+  -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+
+  - if flash[:success]
+    = javascript_include_tag 'auto_focus'
+    #errors_style
+
+  - @addresser ||= NewsEmail.new
+  - @addresser_type = 'product'  
+  - @addresser_pp_id = @product.id
+
+  = render partial: 'layouts/content/form_pay'
+
+-#.block.block_with_comments
+  = render partial: 'products/comments'
+
+  -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
+    
+.block
+  = render partial: 'menus/menu_down'    
+  = render partial: 'layouts/footer_rights'
+
+
+
+

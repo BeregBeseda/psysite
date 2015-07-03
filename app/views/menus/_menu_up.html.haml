@@ -1,19 +1,26 @@
 .menu_up
   %ul
-    - if @menu_up_item != 'mentions'
+    - if @menu_up_item != 'reviews'
       %li
-        = link_to mentions_path do
+        = link_to reviews_path do
           %p
             = image_tag 'fond/square.png'
             -# = image_tag 'common/favicon.ico'
             %b Отзывы
 
-    - if @menu_up_item != 'products'
+    - if @menu_up_item != 'films'
       %li
-        = link_to products_path do
+        = link_to films_path do
           %p
             = image_tag 'fond/square.png'
-            %b Видеозаписи&nbsp;семинаров
+            %b Видеозаписи
+
+    - if @menu_up_item != 'books'
+      %li
+        = link_to books_path do
+          %p
+            = image_tag 'fond/square.png'
+            %b Книги
 
     - if @menu_up_item != 'posts'
       %li
@@ -24,24 +31,25 @@
 
     - if @menu_up_item != 'menus' and @menu_up_item != 'mention' and @menu_up_item != 'mentions'
       %li
-        = link_to mentions_path do
+        = link_to reviews_path do
           %p
             = image_tag 'fond/square.png'
             Оставить&nbsp;отзыв
 
-    - if @menu_up_item != 'pers'
+    - if @menu_up_item != 'consults'
       %li
-        = link_to pers_path do
+        = link_to consults_path do
           %p
             = image_tag 'fond/square.png'
-            Личная&nbsp;консультация
+            -# Личная&nbsp;
+            Консультация
 
-    - if @menu_up_item != 'abouts' && @menu_up_item != 'post' && @menu_up_item != 'product'
+    - if @menu_up_item != 'bios' && @menu_up_item != 'post' && @menu_up_item != 'consult'
       %li
-        = link_to abouts_path do
+        = link_to bios_path do
           %p
             = image_tag 'fond/square.png'
-            -#Обо&nbsp;мне
+            Обо&nbsp;мне,
             Контакты
 -#%p
 -#= image_tag('products/separator.png', alt: '--------------------------', id: 'separator')
