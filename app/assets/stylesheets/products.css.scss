@@ -1,4 +1,5 @@
 #link_under_description {
+  margin: 20px 0 30px 25px;
   font-weight: 700;
   letter-spacing: 120%;
   font-size: 170% !important;
@@ -28,6 +29,9 @@
     @include transition(color);
     @include transition(text-shadow);
   }
+  
+
+/*#link_under_description, #list_description, #list_name, #position_img_min {*/
   &:hover A {
     color: $link_green;
     text-decoration: none !important;
@@ -167,11 +171,12 @@
 
 /* product_min_IMG */
 #position_img_min {
-  width: 20%;
+  width: 13%;
   height: auto;
   min-width: 150px;
   min-height: auto;
-  margin:  0 5px 5px 0;
+  margin:  0 5px 5px 15px;
+  margin-left: 20px;
   float:left;
   border-radius: 40px 20px/100px 100px;
   -webkit-border-radius: 40px 20px/100px 100px;
@@ -182,4 +187,13 @@
   border-bottom-right-radius: 40px 20px/100px 100px;
 }
 
-
+#list_img {
+  float:left;
+  border-radius: 40px 20px/100px 100px;
+  -webkit-border-radius: 40px 20px/100px 100px;
+  -moz-border-radius: 40px 20px/100px 100px;
+  border-top-left-radius: 40px 20px/100px 100px;
+  border-top-right-radius: 40px 20px/100px 100px;
+  border-bottom-left-radius: 40px 20px/100px 100px;
+  border-bottom-right-radius: 40px 20px/100px 100px;
+}

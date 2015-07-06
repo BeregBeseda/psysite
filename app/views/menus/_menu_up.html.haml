@@ -29,9 +29,9 @@
             = image_tag 'fond/square.png'
             %b Статьи
 
-    - if @menu_up_item != 'menus' and @menu_up_item != 'mention' and @menu_up_item != 'mentions'
+    - if @menu_up_item != 'menus' and @menu_up_item != 'new_review' 
       %li
-        = link_to reviews_path do
+        = link_to new_review_path do
           %p
             = image_tag 'fond/square.png'
             Оставить&nbsp;отзыв
@@ -44,9 +44,10 @@
             -# Личная&nbsp;
             Консультация
 
-    - if @menu_up_item != 'bios' && @menu_up_item != 'post' && @menu_up_item != 'consult'
+    - if @menu_up_item != 'bio'
+      -# && @menu_up_item != 'post' && @menu_up_item != 'consult'
       %li
-        = link_to bios_path do
+        = link_to bio_path(1) do
           %p
             = image_tag 'fond/square.png'
             Обо&nbsp;мне,

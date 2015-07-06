@@ -1,0 +1,39 @@
+- @menu_up_item = 'reviews'
+
+- @prerender = 'http://www.psysite.herokuapp.com/bios'
+
+.block.block_with_menu_up
+  = render partial: 'menus/menu_up'
+  
+  -if $success_msg
+    #top_field
+      = $success_msg
+    - $success_msg = nil
+
+-#.block.block_with_comments
+  = render partial: 'reviews/new_comment'                         
+
+  -##list
+- @reviews.reverse_order.each do |review|
+  - if review.able == true
+    = link_to review, target: '_blank' do
+      #list
+        .list_position
+          .block.block_with_description{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')}"}
+            %p
+              -# = image_tag(review.main_image, alt: review.title, id: 'position_img_min')
+            %p
+              #list_name
+              -#  = book.title
+            %p
+              #list_description{style: 'font-size: 150%'}
+                -#■
+                = image_tag 'fond/square.png'  
+                = truncate(strip_tags(review.review), length: 150, separator: ' ')
+            %p
+              = link_to 'Читать всю статью...', review, id: 'link_under_description', target: '_blank'
+            -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')                      
+        
+.block        
+  = render partial: 'menus/menu_down'
+  = render partial: 'layouts/footer_rights'

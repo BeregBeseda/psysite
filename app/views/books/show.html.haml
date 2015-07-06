@@ -1,27 +1,27 @@
-﻿- @menu_up_item = 'post'
+﻿- @menu_up_item = 'book'
 
-- @prerender = 'http://www.psysite.herokuapp.com/pers'
+- @prerender = 'http://www.psysite.herokuapp.com/bios'
 
 .block.block_with_menu_up
   = render partial: 'menus/menu_up'
   
 .block.block_with_description
-  .menu_back_to_posts_or_products
+  -#.menu_back_to_posts_or_products
     = render partial: 'posts/back_to_posts'
-  - if @post.image != ''
-    = image_tag(@post.image, alt: @post.name, id: 'position_img')
+  - if @book.main_image != ''
+    = image_tag(@book.main_image, alt: @book.title, id: 'position_img')
   #list_name
-    = @post.name
+    = @book.title
   #list_description
-    = @post.description.html_safe
+    = @book.description.html_safe
 
   -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
   -##list_date.half_of_width
     = @post.date.to_s(:ru_datetime)
-  -##list_price
+  #list_price
     %span
       Цена:
-    = @post.price
+    = @book.price
     %span
       = t(:monetary_unit)
   -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
@@ -37,7 +37,7 @@
   -#= render partial: 'layouts/content/form_pay'
 
 .block.block_with_comments
-  = render partial: 'posts/comments'
+  = render partial: 'books/comments'
 
   -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')
     

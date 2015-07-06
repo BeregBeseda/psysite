@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 gem 'haml'
 gem 'sass-rails', '~> 4.0.0'
+gem 'country_select', github: 'stefanpenner/country_select'
 gem 'bootstrap-sass', '2.3.1.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'

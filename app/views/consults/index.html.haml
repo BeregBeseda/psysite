@@ -1,6 +1,6 @@
-- @menu_up_item = 'posts'
+- @menu_up_item = 'consults'
 
-- @prerender = 'http://www.psysite.herokuapp.com/products'
+- @prerender = 'http://www.psysite.herokuapp.com/posts'
 
 .block.block_with_menu_up
   = render partial: 'menus/menu_up'
@@ -11,24 +11,24 @@
     - $success_msg = nil
 
   -##list
-- @posts.reverse_order.each do |post|
-  - if post.visible == true
-    = link_to post, target: '_blank' do
+- @consults.reverse_order.each do |consult|
+  - if consult.able == true
+    = link_to consult do
       #list
         .list_position
           .block.block_with_description{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')}"}
             %p
-              = image_tag(post.image, alt: post.name, id: 'position_img_min')
+            -#  = image_tag(consult.main_image, alt: film.title, id: 'position_img_min')
             %p
               #list_name
-                = post.name
+                = consult.title
             %p
               #list_description{style: 'font-size: 150%'}
                 -#■
                 = image_tag 'fond/square.png'  
-                = truncate(strip_tags(post.description), length: 150, separator: ' ')
+                = truncate(strip_tags(consult.description), length: 150, separator: ' ')
             %p
-              = link_to 'Читать всю статью...', post, id: 'link_under_description', target: '_blank'
+              = link_to 'Читать всю статью...', consult, id: 'link_under_description'
             -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')               
         
 .block        

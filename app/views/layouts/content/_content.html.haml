@@ -1,15 +1,6 @@
 #main_content.row-fluid
 
-  - if @menu_up_item == 'post' or @menu_up_item == 'product' or @menu_up_item == 'mention'    
-
-    #button_and_menu.span12
-      =yield        
-  
-
-    -##button_and_menu.span5
-        
-
-  - else
+  - if @menu_up_item == 'menus_main' or @menu_up_item == 'menus' or @menu_up_item == 'bio' 
     = image_tag 'psychologist.png', alt: 'Фото психолога', class: 'span4' ' offset2', id: 'psychologist', title: 'Психолог', alt: 'Психолог : <<Приглашаю присесть рядом>>'
   
     - if @menu_up_item == 'menus_main'
@@ -20,5 +11,12 @@
       #button_and_menu.span6.offset6
         =yield        
 
+  - else
 
+    #button_and_menu.span12
+      =yield        
+  
+
+    -##button_and_menu.span5
+        
 

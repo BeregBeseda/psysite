@@ -5,7 +5,7 @@
 #comment_block.margin_bottom
 
   .comment_title
-    - if @post.post_comments.any?
+    - if @film.film_comments.any?
       Комментарии :
       %b :  
     - else
@@ -18,7 +18,7 @@
     - $success_msg = nil
 
 
-  - @post.post_comments.reverse_order.each do |comment|
+  - @film.film_comments.reverse_order.each do |comment|
     -if comment.able == true
       .comment
         %p
@@ -55,7 +55,7 @@
   -#= form_for($addresser) do |f|
 
 
-  - $comment = @post.post_comments.build
+  - $comment = @film.film_comments.build
 
   - unless $fail_msg
     .comment_title
@@ -72,8 +72,8 @@
 
 
 
-  -#= form_for([@post, @post.post_comments.build]) do |f|
-  = form_for([@post, $comment]) do |f|
+  -#= form_for([@book, @book.book_comments.build]) do |f|
+  = form_for([@film, $comment]) do |f|
     -# if $comment_js
       = javascript_include_tag 'auto_focus_comment'
       = $comment_js.html_safe

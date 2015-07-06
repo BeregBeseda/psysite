@@ -1,66 +1,10 @@
--#= image_tag('posts/separator.png', alt: '--------------------', id: 'separator')
--#= image_tag('posts/separator.png', alt: '--------------------', id: 'separator')
--#= image_tag('posts/separator.png', alt: '--------------------', id: 'separator')
-
 #comment_block.margin_bottom
-
-  .comment_title
-    - if @post.post_comments.any?
-      Комментарии :
-      %b :  
-    - else
-      Комментариев ещё нет   
-
-
-  - if $success_msg
-    #top_field{style: 'font-weight: 700; margin-top:5px;'}
-      = $success_msg
-    - $success_msg = nil
-
-
-  - @post.post_comments.reverse_order.each do |comment|
-    -if comment.able == true
-      .comment
-        %p
-          .big_bold_color.c_comment.white_text_shadow
-            %b
-              = comment.comment
-
-        -#.c_name_surname.white_text_shadow
-          ■
-          %b
-            = comment.name
-            = comment.surname
-          ,
-
-          = comment.created_at
-        
-        -#- if comment.soc_url != ''
-          .c_soc_url
-            Страница в соц сети, Skype и т.д:
-            %b
-              = comment.soc_url
-        -#= link_to posts_path do
-          %p
-            .comment_answer
-              %b
-                Ответить
-
-        -#.c_date
-          Комментарий оставлен
-          = comment.created_at
-
-  - #$comment =
-  -# $addresser = PostComment.new
-  -#= form_for($addresser) do |f|
-
-
-  - $comment = @post.post_comments.build
+  -#- $comment = @review.build
 
   - unless $fail_msg
     .comment_title
       %p
-      Вы можете оставить свой комментарий
+      Вы можете оставить свой отзыв
       %b :
 
   - if $fail_msg
@@ -73,7 +17,7 @@
 
 
   -#= form_for([@post, @post.post_comments.build]) do |f|
-  = form_for([@post, $comment]) do |f|
+  = form_for(@review) do |f|
     -# if $comment_js
       = javascript_include_tag 'auto_focus_comment'
       = $comment_js.html_safe
@@ -90,7 +34,7 @@
           margin-top: 30px !important;
         }
 
-      #errors_style
+      -##errors_style
         - $comment.errors.each do |attribute, msg|
           - if attribute == :name
             - @name_class = 'errors_field'
@@ -126,7 +70,7 @@
       /[if IE]
         #list_description
           Комментарий :
-      = f.text_area :comment, {id: 'textarea', class: "#{@errors_f}" 'input-address' ' input-xlarge' 'input-comment' " #{@comment_class}", rows:3, type: 'text', placeholder: 'Комментарий', 'data-maxsize' => '3000', spellcheck: 'false'}
+      = f.text_area :review, {id: 'textarea', class: "#{@errors_f}" 'input-address' ' input-xlarge' 'input-comment' " #{@comment_class}", rows:3, type: 'text', placeholder: 'Комментарий', 'data-maxsize' => '3000', spellcheck: 'false'}
       - @comment_class = nil
 
       -#/[if IE]

@@ -10,6 +10,14 @@ GIT
   specs:
     rails_log_stdout (0.0.1)
 
+GIT
+  remote: git://github.com/stefanpenner/country_select.git
+  revision: 20f83bda911abd7c1d5cb96fd37f9ea22d892f0e
+  specs:
+    country_select (2.2.0)
+      countries (~> 0.11.0)
+      sort_alphabetical (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -68,6 +76,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    countries (0.11.4)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.7.0)
+    currencies (0.4.2)
     devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -102,6 +114,7 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    i18n_data (0.7.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -182,6 +195,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sort_alphabetical (1.0.1)
+      unicode_utils (>= 1.2.2)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -209,6 +224,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
+    unicode_utils (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -219,6 +235,7 @@ DEPENDENCIES
   activeadmin (~> 1.0.0.pre1)
   bootstrap-sass (= 2.3.1.0)
   coffee-rails (~> 4.0.0)
+  country_select!
   devise
   haml
   heroku
