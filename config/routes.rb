@@ -1,22 +1,16 @@
 Psysite::Application.routes.draw do
 
-  # get "templates/index"
 
-  # get '/orders/:akey/:id', to: 'orders#show'  
-  # get '/orders/confirm/:akey/:id', to: 'orders#confirm'
-  # get '/orders/fail/:akey/:id', to: 'orders#fail'
+  match '/cases', to: 'menus#index', via: 'get'  
+  match '/case/:id', to: 'menus#show', via: 'get'  
   
-  # get '/news_emails/confirm/:akey/:id', to: 'news_emails#confirm'
-  # get '/news_emails/end_delivery/:akey/:id', to: 'news_emails#end_delivery'
-  
-  # get '/payments/:end/:sum', to: 'payments#index'  
-  
-  #get '/products_pays/:email/:product_name', to: 'products_pays#index'
+  match '/arts', to: 'posts#index', via: 'get'  
+  match '/art/:id', to: 'posts#show', via: 'get'    
+  match '/abouts', to: 'bios#show', via: 'get'  
 
-  
+
   resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users
-  # resources :pers, :abouts  
-
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

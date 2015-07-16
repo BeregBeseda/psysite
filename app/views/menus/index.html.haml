@@ -23,7 +23,7 @@
   #title_text
 
   - @menus.each do |menu|
-    = link_to menu do
+    = link_to "case/#{menu.id}" do
       %div{id: menu.name}
 
 

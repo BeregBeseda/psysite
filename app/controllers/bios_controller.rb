@@ -2,10 +2,6 @@
 class BiosController < ApplicationController
 
   before_action :set_post, only: [:show]
-
-  def index
-    @bios = Bio.all
-  end
   
   def show
   end
@@ -14,7 +10,7 @@ class BiosController < ApplicationController
   private
 
   def set_post
-    @bio = Bio.find(params[:id])
+    @bio = Bio.find(1)
   end
 
 end

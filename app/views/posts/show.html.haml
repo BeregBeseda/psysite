@@ -6,8 +6,8 @@
   = render partial: 'menus/menu_up'
   
 .block.block_with_description
-  .menu_back_to_posts_or_products
-    = render partial: 'posts/back_to_posts'
+  -#.menu_back_to_posts_or_products
+    -#= render partial: 'posts/back_to_posts'
   - if @post.image != ''
     = image_tag(@post.image, alt: @post.name, id: 'position_img')
   #list_name
