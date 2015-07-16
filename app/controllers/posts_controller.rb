@@ -9,12 +9,14 @@ class PostsController < ApplicationController
   end
 
   def show
-    if $form_control_digit == nil
-      $form_control_digit = rand(1..9)
-    end
+    #if $form_control_digit == nil
+    #  $form_control_digit = rand(1..9)
+    #end
     I18n.locale = :ru
     #@post = Post.find(params[:id])
-    flash[:notise] = 'и я буду присылать Вам свежие, а также любимые читателями статьи и видео семинары'
+    #flash[:notise] = 'и я буду присылать Вам свежие, а также любимые читателями статьи и видео семинары'
+    
+    @user = cur_user
   end
 
   def create
