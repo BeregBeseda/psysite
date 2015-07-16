@@ -12,7 +12,7 @@
 
     /[if lt IE 7]
       .box
-        - if @menu_up_item == 'menus_main' or @menu_up_item == 'bio'
+        - unless @menu_up_item != 'menus_main' or @menu_up_item != 'bio' or session[:visited_psy]
           = image_tag 'forest/forest_original.jpg', id: 'forest_img_ie6', alt: 'Умиротворяющий лес'
         - else
           = image_tag 'forest/forest_blur.jpg', id: 'forest_img_ie6', alt: 'Умиротворяющий лес'

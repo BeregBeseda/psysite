@@ -131,7 +131,7 @@
 
 /* product_full_IMG */
 #position_img {
-  width: 50%;
+  width: 35%;
   height: auto;
   min-width: 80px;
   min-height: auto;
@@ -149,7 +149,7 @@
 
 /* product_min_IMG */
 #position_img_min {
-  width: 13%;
+  width: 15%;
   height: auto;
   min-width: 150px;
   min-height: auto;
@@ -177,42 +177,8 @@
 }
 
 
-#description_link:hover {
-  color: red;
-
-  /*
-  &:hover {
-    color: $link_green;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;    
-    
-    #link_under_description {
-    color: $link_green;
-    text-decoration: underline !important;
-    }    
-  } */
-  
-  &:active {
-    color: $dark_blue_spring;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;    
-  } 
-     
-  /*
-  &:hover #link_under_description {
-    color: $link_green;
-    text-decoration: none !important;
-  }
-  &:active #link_under_description {
-    color: $dark_blue_spring;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;   
-  }
-  &:hover #link_under_description {
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-    text-decoration: underline !important;
-  }  
-  &:active #link_under_description {
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-    text-decoration: none !important; 
-  }    
+#description_link:hover { 
+   
   &:hover #list_name {
     color: $link_green;
     text-shadow: 2px 2px 1px white, 0 0 1em white;
@@ -220,7 +186,29 @@
   &:active #list_name {
     color: $dark_blue_spring;
     text-shadow: 2px 2px 1px white, 0 0 1em white;
-  }  
-  */
+  }   
+       
+  &:hover #list_description {
+    color: $link_green;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }
+  &:active #list_description {
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }       
+       
+  &:hover #link_under_description {
+    color: $link_green;
+    text-decoration: none !important;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;    
+  }
+  &:active #link_under_description {
+    color: $dark_blue_spring;
+    text-decoration: none !important;     
+    text-shadow: 2px 2px 1px white, 0 0 1em white;   
+  }   
+  
 }
+
+
 

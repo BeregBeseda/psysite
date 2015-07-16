@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     #if $form_control_digit == nil
     #  $form_control_digit = rand(1..9)
     #end
-    I18n.locale = :ru
+    #I18n.locale = :ru
     #@post = Post.find(params[:id])
     #flash[:notise] = 'и я буду присылать Вам свежие, а также любимые читателями статьи и видео семинары'
     

@@ -9,6 +9,10 @@ HTML, BODY {
   letter-spacing: .01em;      */
 }
 
+BODY {
+  line-height: 27px;
+}
+
 BODY::selection {
   color: $dark_blue_spring;
   background-color: $my_green;

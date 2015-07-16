@@ -1,16 +1,28 @@
 .k
-
   #menu.white_text_shadow
-    -#.row-fluid
-      -#.span6
-    .menu_vars
-      = link_to arts_path do
+    .row-fluid
+      .span6
+        .menu_vars
+          = link_to arts_path do
 
-        %p
-          = image_tag 'fond/square.png'
-          %b
-            Позна&shy;комиться
-          со стать&shy;ями и замет&shy;ками, с моим твор&shy;чест&shy;вом и профес&shy;сиональ&shy;ной дея&shy;тель&shy;ностью
+            %p
+              = image_tag 'fond/square.png'
+              %b
+                Статьи и заметки
+              -#%b
+              -#  Позна&shy;комиться
+              -#со стать&shy;ями и замет&shy;ками, с моим твор&shy;чест&shy;вом и профес&shy;сиональ&shy;ной дея&shy;тель&shy;ностью                    
+          
+      .span6      
+        .menu_vars
+          = link_to abouts_path do
+    
+            %p
+              = image_tag 'fond/square.png'
+              %b
+                Обо мне,
+                контакты          
+          
 
         -#.menu_vars
           = link_to books_path do
@@ -40,13 +52,6 @@
                 Прокон&shy;суль&shy;тиро&shy;ваться
               с&nbsp;психо&shy;ло&shy;гом по Skype
 
-    .menu_vars
-      = link_to abouts_path(1) do
 
-        %p
-          = image_tag 'fond/square.png'
-          %b
-            Обо мне,
-          контакты
 
 

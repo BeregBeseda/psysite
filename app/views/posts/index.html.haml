@@ -15,7 +15,7 @@
   - if post.visible == true
     #list
       .list_position
-        = link_to "art/#{post.id}", target: '_blank', id: 'description_link' do
+        = link_to "/arts/#{post.id}", target: '_blank', id: 'description_link' do
           .block.block_with_description{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')}"}
             %p
               = image_tag(post.image, alt: post.name, id: 'position_img_min')
@@ -25,10 +25,9 @@
             %p
               #list_description{style: 'font-size: 150%'}
                 -#■
-                = truncate(strip_tags(post.description), length: 150, separator: ' ')
-            
-            #link_under_description            
-              = link_to arts_path(post.id), target: '_blank' do
+                = truncate(strip_tags(post.description), length: 150, separator: ' ')            
+            .link_under_description            
+              = link_to "/arts/#{post.id}", target: '_blank', id: 'link_under_description' do
                 %p
                   = image_tag 'fond/square.png'              
                   Читать всю статью...

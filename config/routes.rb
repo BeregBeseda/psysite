@@ -2,14 +2,15 @@ Psysite::Application.routes.draw do
 
 
   match '/cases', to: 'menus#index', via: 'get'  
-  match '/case/:id', to: 'menus#show', via: 'get'  
+  match '/cases/:id', to: 'menus#show', via: 'get'  
   
   match '/arts', to: 'posts#index', via: 'get'  
-  match '/art/:id', to: 'posts#show', via: 'get'    
+  match '/arts/:id', to: 'posts#show', via: 'get'    
   match '/abouts', to: 'bios#show', via: 'get'  
 
 
-  resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users
+  #resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users
+  resources :users
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

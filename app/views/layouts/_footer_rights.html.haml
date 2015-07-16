@@ -2,19 +2,19 @@
   .row-fluid
 
     .span4
-      %p
+      .unselected
         Все права прина&shy;длежат 
         %br/
         вла&shy;дельцу сайта - 
         %br/
         психологу
         %br/
-        = link_to abouts_path(1), id: 'footer_link' do
-          Татьяне Вакульчик
-        %br/
-        &#169; 2013-#{Time.now.year}
+      = link_to abouts_path, id: 'footer_link' do
+        Татьяне Вакульчик
+      %br/
+      &#169; 2013-#{Time.now.year}
 
-    .span4
+    .span4.unselected
       %p
         Копи&shy;рова&shy;ние кон&shy;тента сайта
         %br/
@@ -24,7 +24,9 @@
           
     .span4
       %p
-        Адрес автора сайта/Design by:
+        Адрес автора сайта/
+        %br/
+        Design and created by:
         %br/
         vitalina.liane@gmail.com
           
