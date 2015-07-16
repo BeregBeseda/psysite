@@ -1,6 +1,7 @@
 .menu_up
-  %ul
-    - if @menu_up_item != 'reviews'
+  %ul  
+  
+    -#- if @menu_up_item != 'reviews'
       %li
         = link_to reviews_path do
           %p
@@ -8,14 +9,14 @@
             -# = image_tag 'common/favicon.ico'
             %b Отзывы
 
-    - if @menu_up_item != 'films'
+    -#- if @menu_up_item != 'films'
       %li
         = link_to films_path do
           %p
             = image_tag 'fond/square.png'
-            %b Видеозаписи
+            %b Видеосеминары
 
-    - if @menu_up_item != 'books'
+    -#- if @menu_up_item != 'books'
       %li
         = link_to books_path do
           %p
@@ -29,14 +30,14 @@
             = image_tag 'fond/square.png'
             %b Статьи
 
-    - if @menu_up_item != 'menus' and @menu_up_item != 'new_review' 
+    -#- if @menu_up_item != 'menus' and @menu_up_item != 'new_review' 
       %li
         = link_to new_review_path do
           %p
             = image_tag 'fond/square.png'
             Оставить&nbsp;отзыв
 
-    - if @menu_up_item != 'consults'
+    -#- if @menu_up_item != 'consults'
       %li
         = link_to consults_path do
           %p
@@ -52,6 +53,13 @@
             = image_tag 'fond/square.png'
             Обо&nbsp;мне,
             Контакты
+            
+    %li
+      = link_to menus_path do
+        %p
+          = image_tag 'fond/square.png'
+          На&nbsp;главную
+                      
 -#%p
 -#= image_tag('products/separator.png', alt: '--------------------------', id: 'separator')
 %p

@@ -1,10 +1,16 @@
 #footer_rights
   .row-fluid
+
     .span4
       %p
-        Адрес автора сайта/Design by:
+        Все права прина&shy;длежат 
         %br/
-        vitalina.liane@gmail.com
+        вла&shy;дельцу сайта - 
+        %br/
+        психологу
+        %br/
+        = link_to bio_path(1), id: 'footer_link' do
+          Татьяне Вакульчик
         %br/
         &#169; 2013-#{Time.now.year}
 
@@ -14,10 +20,11 @@
         %br/
         пресле&shy;дуется по закону
         %br/
-        <<Об автор&shy;ском праве>>
-
+        <<Об автор&shy;ском праве>>          
+          
     .span4
       %p
-        Все права прина&shy;длежат вла&shy;дельцу сайта - психологу
-        = link_to bio_path(1), id: 'footer_link' do
-          Татьяне Вакульчик
+        Адрес автора сайта/Design by:
+        %br/
+        vitalina.liane@gmail.com
+          

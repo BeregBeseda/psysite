@@ -9,12 +9,12 @@
   @include transition(text-shadow);
   
   @include transition(color);  
-  &:active {
+  /*&:active {
     color: $dark_blue_spring;
   }
   &:focus {
     color: $dark_blue_spring;
-  }
+  }*/
 }
 
 .list_position {
@@ -29,41 +29,6 @@
     @include transition(color);
     @include transition(text-shadow);
   }
-  
-
-/*#link_under_description, #list_description, #list_name, #position_img_min {*/
-  &:hover A {
-    color: $link_green;
-    text-decoration: none !important;
-  }
-  &:active A {
-    color: $dark_blue_spring;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;   
-  }
-  &:hover #link_under_description {
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-    text-decoration: underline !important;
-  }  
-  &:active #link_under_description {
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-    text-decoration: none !important;
-  }    
-  &:hover #list_name {
-    color: $link_green;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-  }
-  &:active #list_name {
-    color: $dark_blue_spring;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-  }  
-  &:hover #list_description {
-    color: $link_green;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;    
-  }
-  &:active #list_description {
-    color: $dark_blue_spring;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;    
-  }  
 }
 
 #list_name {
@@ -76,15 +41,16 @@
   @include transition(color);
   @include transition(text-shadow);
   
-  &:hover {
+  /*&:hover {
     color: $link_green;
     text-shadow: 2px 2px 1px white, 0 0 1em white;
   }
   &:active {
     color: $dark_blue_spring;
     text-shadow: 2px 2px 1px white, 0 0 1em white;
-  }    
+  } */   
 }
+
 
 #list_description {
   color: $dark_brown;
@@ -119,7 +85,8 @@
     height: auto;
     padding-bottom: 2px;
     /*opacity: .9;*/
-  }  
+  }    
+  
 }
 
 #list_name::before {
@@ -197,3 +164,52 @@
   border-bottom-left-radius: 40px 20px/100px 100px;
   border-bottom-right-radius: 40px 20px/100px 100px;
 }
+
+
+#description_link:hover {
+  color: red;
+
+  /*
+  &:hover {
+    color: $link_green;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;    
+    
+    #link_under_description {
+    color: $link_green;
+    text-decoration: underline !important;
+    }    
+  } */
+  
+  &:active {
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;    
+  } 
+     
+  /*
+  &:hover #link_under_description {
+    color: $link_green;
+    text-decoration: none !important;
+  }
+  &:active #link_under_description {
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;   
+  }
+  &:hover #link_under_description {
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+    text-decoration: underline !important;
+  }  
+  &:active #link_under_description {
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+    text-decoration: none !important; 
+  }    
+  &:hover #list_name {
+    color: $link_green;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }
+  &:active #list_name {
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }  
+  */
+}
+

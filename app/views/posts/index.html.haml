@@ -13,9 +13,9 @@
   -##list
 - @posts.reverse_order.each do |post|
   - if post.visible == true
-    = link_to post, target: '_blank' do
-      #list
-        .list_position
+    #list
+      .list_position
+        = link_to post, target: '_blank', id: 'description_link' do
           .block.block_with_description{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')}"}
             %p
               = image_tag(post.image, alt: post.name, id: 'position_img_min')
