@@ -2,7 +2,7 @@
   margin: 20px 0 30px 25px;
   font-weight: 700;
   letter-spacing: 120%;
-  font-size: 170% !important;
+  font-size: 170%;
   text-shadow: 2px 2px 1px white, 0 0 1em white;
   
   @include transition(color);
@@ -36,6 +36,7 @@
   
   &:hover {
     text-decoration: underline !important;
+    color: $my_green;
   }
   
 }
