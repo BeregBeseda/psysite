@@ -10,11 +10,12 @@
   text-shadow: 2px 2px 2px #5F5E5E, 0px 0px 1em #FFF;
   /*@include transition(color);
   @include transition(font-weight);*/
+  @include transition(text-shadow);
   
   &:hover {
     color: $dark_brown;
     /*font-weight: 400;*/
-    text-shadow: 2px 2px 2px #FFF, 0px 0px 1em #FFF;
+    text-shadow: 2px 2px 2px #FFF, 0px 0px 1em #FFF;    
   }
   &:hover A {
     color: rgb(9, 84, 141);
@@ -24,13 +25,13 @@
 
 #footer_link {
   color: white;
-  text-decoration: underline !important;
+  text-decoration: none !important;
   @include transition(text-decoration);
   @include transition(text-shadow);
   @include transition(font-weight);
   
   &:hover {
-    text-decoration: none !important;
+    text-decoration: underline !important;
     text-shadow: 2px 2px 1px white, 0 0 1em white;  
     font-weight: 700 !important;    
   }

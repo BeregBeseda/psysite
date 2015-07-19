@@ -7,8 +7,7 @@
   
   @include transition(color);
   @include transition(text-shadow);
-  
-  @include transition(color);  
+    
   /*&:active {
     color: $dark_blue_spring;
   }
@@ -34,6 +33,10 @@
     padding-bottom: 2px;
     /*opacity: .9;*/
   }   
+  
+  &:hover {
+    text-decoration: underline !important;
+  }
   
 }
 
@@ -74,7 +77,7 @@
 
 #list_description {
   color: $dark_brown;
-  font-size: 160% !important;
+  font-size: 150% !important;
   text-align: center;
   margin-bottom: 5px;
   /*padding: 50px;
@@ -98,6 +101,10 @@
     /*opacity: .9;*/
   }    
   
+  &:hover #link_under_description {
+    text-decoration: underline !important;
+    @include transition(text-decoration);
+  }
 }
 
 #list_name::before {
@@ -199,13 +206,15 @@
        
   &:hover #link_under_description {
     color: $link_green;
-    text-decoration: none !important;
+    text-decoration: underline !important;
     text-shadow: 2px 2px 1px white, 0 0 1em white;    
+    @include transition(text-decoration);
   }
   &:active #link_under_description {
     color: $dark_blue_spring;
     text-decoration: none !important;     
     text-shadow: 2px 2px 1px white, 0 0 1em white;   
+    @include transition(text-decoration);
   }   
   
 }

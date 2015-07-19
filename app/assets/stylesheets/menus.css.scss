@@ -29,7 +29,8 @@
     @include transition(text-decoration);
   }
     P:hover B {
-    text-decoration: none !important;
+    text-decoration: underline !important;
+    @include transition(text-decoration);
     }
     P:active B {
     text-decoration: none !important;
@@ -40,12 +41,12 @@
   /*padding: 50px;
   padding-top: 0;*/
   padding: 0px 50px 25px;
+  @include transition(text-decoration);  
   P {
-    color: $dark_blue_spring;
-    @include transition(text-decoration);
+    color: $dark_blue_spring;    
   }
     P:hover B {
-    text-decoration: none !important;
+    text-decoration: underline !important;
     }
     P:active B {
     text-decoration: none !important;
