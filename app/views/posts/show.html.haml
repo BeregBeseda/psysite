@@ -5,7 +5,7 @@
 .block.block_with_menu_up
   = render partial: 'menus/menu_up'
   
-  - if flash[:msg]
+-#  - if flash[:msg]
     = flash[:msg]  
   - if session[:user_id]  
     = session[:user_id]
@@ -13,7 +13,7 @@
   
   
   
-.block
+-#.block
   - if session[:user_id]    
     = form_for @user do |f|           
       = f.check_box :subscribe

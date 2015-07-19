@@ -26,7 +26,7 @@
   - @descr_body='Желание принимать пищу, выпить, закурить. Чувство пустоты, подавленности, второсортности. Хочется уверенности, безопасности, покоя, счастья'
   - @h1='Психолог по Skype и E-mail - Хочется почувствовать уверенность, принятие, тепло, любовь, безопасность, счастье, избавиться от нежелательных привычек'
 
-#block
+#block{style: 'padding-top: 50px;'}
 
   - if flash[:success]
     #top_field
@@ -42,7 +42,8 @@
 
   .menu1_2_n_down
     = render partial: 'menus/menu1_2_n'
-    
+
+.block    
   .menu_down_back{style: 'margin-top: 0; margin-bottom: 30px;'}  
     = render partial: 'menus/menu_down_back'    
 

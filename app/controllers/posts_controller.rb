@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     #@post = Post.find(params[:id])
     #flash[:notise] = 'и я буду присылать Вам свежие, а также любимые читателями статьи и видео семинары'
     
-    @user = cur_user
+    ###@user = cur_user
   end
 
   def create
