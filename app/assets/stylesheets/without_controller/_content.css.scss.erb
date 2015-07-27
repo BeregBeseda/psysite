@@ -31,9 +31,24 @@
   @include background-size(100% 100%);
   padding: 24px 40px 20px 22px;
   margin-left: 5%;
-  margin-bottom: 10px;
+  margin-bottom: 10px;  
   
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.with_footer_block {
+  background: transparent url(<%=asset_path 'bred50.png'%>) no-repeat;
+  
+  width: 70%;
+  min-width: 20px;
+  height: auto;
+  @include background-size(100% 100%);
+  padding: 24px 40px 20px 22px;
+
+  margin: 0 auto 10px;
+  
+  font-family: 'Open Sans', 'Roboto', sans-serif;
   font-weight: 400;
 }
 
