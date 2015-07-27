@@ -19,9 +19,9 @@
           .block.block_with_description{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')}"}
             %p
               = image_tag(post.image, alt: post.name, id: 'position_img_min')
-            %p
+            %p{style: 'margin-bottom: 15px;'}
               #list_name
-                = post.name
+                = post.name    
             %p
               #list_description{style: 'font-size: 150%'}
                 -#■
@@ -34,6 +34,6 @@
                 -#= link_to 'Читать всю статью', post, id: 'link_under_description', target: '_blank'              
             -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')               
         
-.block        
+.with_footer_block        
   = render partial: 'menus/menu_down'
   = render partial: 'layouts/footer_rights'

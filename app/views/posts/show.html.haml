@@ -34,6 +34,7 @@
     = image_tag(@post.image, alt: @post.name, id: 'position_img')
   #list_name
     = @post.name
+  %br/  
   #list_description
     = @post.description.html_safe
 
