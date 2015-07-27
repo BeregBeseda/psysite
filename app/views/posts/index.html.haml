@@ -34,6 +34,6 @@
                 -#= link_to 'Читать всю статью', post, id: 'link_under_description', target: '_blank'              
             -#= image_tag('products/separator.png', alt: '--------------------', id: 'separator')               
         
-.with_footer_block        
+.with_footer_block{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')}"}        
   = render partial: 'menus/menu_down'
   = render partial: 'layouts/footer_rights'

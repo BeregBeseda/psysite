@@ -7,6 +7,9 @@ Psysite::Application.routes.draw do
   match '/arts', to: 'posts#index', via: 'get'  
   match '/arts/:id', to: 'posts#show', via: 'get'    
   match '/abouts', to: 'bios#show', via: 'get'  
+  
+  match '/success_pay/:sum', to: 'pays#success', via: 'get'    
+  match '/fail_pay', to: 'pays#fail', via: 'get'      
 
 
   #resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users

@@ -98,6 +98,9 @@
   .menu1_2_n_up {
     display: none;
   }  
+  .form_pay_block {
+    margin-top: 15% !important;
+  }
 }
 
 @media (min-width: 1500px) {
@@ -114,7 +117,6 @@
     max-width: 1500px;
   }
   .block {
-    font-weight: 600;
     max-width: 1500px;
     margin-left: 13%;
   }

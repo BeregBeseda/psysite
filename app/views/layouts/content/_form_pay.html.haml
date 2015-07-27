@@ -1,5 +1,6 @@
 ﻿#button.margin_bottom.form_fond
-  = form_for @addresser do |f|   
+  - @user = User.new
+  = form_for @user do |f|   
      
 
     -# @addresser.link = @product.link
