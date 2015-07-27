@@ -78,7 +78,7 @@
 
 #list_description {
   color: $dark_brown;
-  font-size: 150% !important;
+  font-size: 145% !important;
   text-align: center;
   margin-bottom: 5px;
   /*padding: 50px;
@@ -90,6 +90,9 @@
   @include transition(color);
   @include transition(text-shadow);
   
+  P {
+    margin-bottom: 20px;
+  }
 
   LI {
     margin: 15px 0;

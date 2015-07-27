@@ -1,16 +1,20 @@
 #footer_rights {
   /*color: #c06142; */
-  color: white;
+  color: $light_sky_blue;
   font-size: 14px;
   font-weight: 700;
   line-height: 15px;
   margin-left: 10px;
   margin-bottom: 20px;
   text-align: center;
-  text-shadow: 2px 2px 2px #5F5E5E, 0px 0px 1em #FFF;
+  text-shadow: 2px 2px 2px #FFF, 0px 0px 1em #FFF;
   /*@include transition(color);
   @include transition(font-weight);*/
   @include transition(text-shadow);
+  
+  A {
+    color: $middle_sky_blue;
+  }
   
   &:hover {
     color: $dark_brown;
