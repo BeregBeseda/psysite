@@ -110,11 +110,20 @@
   #list_description {
     font-size: 150% !important;
   }
+  #block {
+    max-width: 1500px;
+  }
   .block {
     font-weight: 600;
     max-width: 1500px;
     margin-left: 13%;
   }
+  .main_menus_block_text_padding {
+    padding: 70px 55px 30px !important;
+  }
+  .block_text_padding {
+    padding: 45px 55px 50px !important;
+  }  
   .with_footer_block {
     font-weight: 600;
     max-width: 950px;
