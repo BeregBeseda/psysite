@@ -10,8 +10,12 @@
         психологу
         %br/
       = link_to abouts_path, id: 'footer_link' do
+        = image_tag 'fond/square.png', class: 'menu_up_square_img'
         Татьяне Вакульчик
       %br/
+      %br/
+      &#169; 2013-#{Time.now.year}
+      %br/        
 
     .span4.unselected
       %p
@@ -21,9 +25,6 @@
         %br/
         <<Об автор&shy;ском праве>>          
         %br/
-        %br/
-        &#169; 2013-#{Time.now.year}
-        %br/        
           
     .span4
       %p

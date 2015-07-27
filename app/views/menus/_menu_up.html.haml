@@ -52,14 +52,15 @@
         = link_to abouts_path(1) do
           %p
             = image_tag 'fond/square.png'
-            Обо&nbsp;мне,
-            Контакты
+            %b Обо&nbsp;мне,
+            %b Контакты
             
     %li
       = link_to '/' do
         %p
           = image_tag 'fond/square.png'
-          На&nbsp;главную
+          -#На&nbsp;главную
+          Выбрать сферу жизни для изменений
                       
 -#%p
 -#= image_tag('products/separator.png', alt: '--------------------------', id: 'separator')

@@ -1,7 +1,6 @@
 .menu_up {
   display: block;
   text-align: center;
-  margin-left: -5%;
   UL {
     list-style: none outside none;
     margin: 0;
@@ -35,6 +34,13 @@
     padding-bottom: 2px;
     opacity: .9;
   }
+}
+
+.menu_up_square_img {
+  width: 16px;
+  height: auto;
+  padding-bottom: 2px;
+  opacity: .9;
 }
 
 .icon_opacity {

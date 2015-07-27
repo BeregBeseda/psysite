@@ -25,7 +25,7 @@
             %p
               #list_description{style: 'font-size: 150%'}
                 -#■
-                = truncate(strip_tags(post.description), length: 150, separator: ' ')            
+                = truncate(strip_tags(post.description), length: 200, separator: ' ')            
             .link_under_description            
               = link_to "/arts/#{post.id}", target: '_blank', id: 'link_under_description' do
                 %p
