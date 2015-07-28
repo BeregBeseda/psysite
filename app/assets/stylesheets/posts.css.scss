@@ -1,0 +1,227 @@
+#link_under_description {
+  margin: 20px 0 30px 25px;
+  font-weight: 700;
+  letter-spacing: 120%;
+  font-size: 170%;
+  text-shadow: 2px 2px 1px white, 0 0 1em white;
+  
+  @include transition(color);
+  @include transition(text-shadow);
+    
+  /*&:active {
+    color: $dark_blue_spring;
+  }
+  &:focus {
+    color: $dark_blue_spring;
+  }*/
+  
+  P {
+    margin-top: 20px;
+    font-size: 100%;
+    line-height: 120%;
+  }
+  P::before {
+    content: '';
+    width: 20px;
+    height: 15px;
+    float: left;
+  }  
+  
+  IMG {
+    width: 18px;
+    height: auto;
+    padding-bottom: 2px;
+    /*opacity: .9;*/
+  }   
+  
+  &:hover {
+    text-decoration: underline !important;
+    color: $my_green;
+  }
+  
+}
+
+.list_position {
+  margin: 20px auto;
+  display: block;
+  @include transition(color);
+  @include transition(text-shadow);
+  
+  A {
+    text-decoration: none;
+    display: block;
+    @include transition(color);
+    @include transition(text-shadow);
+  }
+}
+
+#list_name {
+  color: $dark_brown;
+  font-size: 160%;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 25px;
+  
+  @include transition(color);
+  @include transition(text-shadow);
+  
+  /*&:hover {
+    color: $link_green;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }
+  &:active {
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  } */   
+}
+
+
+#list_description {
+  color: $dark_brown;
+  font-size: 145% !important;
+  text-align: center;
+  margin-bottom: 5px;
+  /*padding: 50px;
+  padding-top: 25px;*/
+  padding: 0px 35px 10px;
+  @include user-select-none;
+  /*line-height:105%;*/
+  
+  @include transition(color);
+  @include transition(text-shadow);
+  
+  P {
+    margin-bottom: 20px;
+  }
+
+  LI {
+    margin: 15px 0;
+  }
+  
+  IMG {
+    width: 18px;
+    height: auto;
+    padding-bottom: 2px;
+    /*opacity: .9;*/
+  }    
+  
+  &:hover #link_under_description {
+    text-decoration: underline !important;
+    @include transition(text-decoration);
+  }
+}
+
+#list_name::before {
+  /*content: '■';*/
+  float: left;
+}
+
+#list_description::selection {
+  color: $dark_blue_spring;
+  background-color: $my_green;
+}
+
+#list_description::-moz-selection {
+  color: $dark_blue_spring;
+  background-color: $my_green;
+}
+
+#list_date_price {
+
+}
+
+#list_date {
+  color: black;
+  float: left;
+}
+
+#list_price {
+  color: $dark_brown;
+  font-size: 120%;
+}
+
+/* product_full_IMG */
+#position_img {
+  width: 35%;
+  height: auto;
+  min-width: 80px;
+  min-height: auto;
+  margin:  0 5px 5px 0;
+  float:left;
+  padding: 30px;
+  border-radius: 145px 65px 85px 75px / 90px 100px 120px 60px;
+  -webkit-border-radius: 145px 65px 85px 75px / 90px 100px 120px 60px;
+  -moz-border-radius: 145px 65px 85px 75px / 90px 100px 120px 60px;
+  border-top-left-radius: 145px 65px 85px 75px / 90px 100px 120px 60px;
+  border-top-right-radius: 145px 65px 85px 75px / 90px 100px 120px 60px;
+  border-bottom-left-radius: 145px 65px 85px 75px / 90px 100px 120px 60px;
+  border-bottom-right-radius: 145px 65px 85px 75px / 90px 100px 120px 60px;
+}
+
+/* product_min_IMG */
+#position_img_min {
+  width: 15%;
+  height: auto;
+  min-width: 150px;
+  min-height: auto;
+  margin:  0 5px 5px 15px;
+  margin-left: 20px;
+  float:left;
+  border-radius: 40px 20px/100px 100px;
+  -webkit-border-radius: 40px 20px/100px 100px;
+  -moz-border-radius: 40px 20px/100px 100px;
+  border-top-left-radius: 40px 20px/100px 100px;
+  border-top-right-radius: 40px 20px/100px 100px;
+  border-bottom-left-radius: 40px 20px/100px 100px;
+  border-bottom-right-radius: 40px 20px/100px 100px;
+}
+
+#list_img {
+  float:left;
+  border-radius: 40px 20px/100px 100px;
+  -webkit-border-radius: 40px 20px/100px 100px;
+  -moz-border-radius: 40px 20px/100px 100px;
+  border-top-left-radius: 40px 20px/100px 100px;
+  border-top-right-radius: 40px 20px/100px 100px;
+  border-bottom-left-radius: 40px 20px/100px 100px;
+  border-bottom-right-radius: 40px 20px/100px 100px;
+}
+
+
+#description_link:hover { 
+   
+  &:hover #list_name {
+    color: $link_green;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }
+  &:active #list_name {
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }   
+       
+  &:hover #list_description {
+    color: $link_green;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }
+  &:active #list_description {
+    color: $dark_blue_spring;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;
+  }       
+       
+  &:hover #link_under_description {
+    color: $link_green;
+    text-decoration: underline !important;
+    text-shadow: 2px 2px 1px white, 0 0 1em white;    
+    @include transition(text-decoration);
+  }
+  &:active #link_under_description {
+    color: $dark_blue_spring;
+    text-decoration: none !important;     
+    text-shadow: 2px 2px 1px white, 0 0 1em white;   
+    @include transition(text-decoration);
+  }   
+  
+}
+
+
+

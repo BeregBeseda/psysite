@@ -28,7 +28,7 @@
 
 
 
-#block.block.main_menus_block_text_padding{style: 'padding-top: 50px;'}
+#block.block.main_menus_block_text_padding{style: "padding-top: 50px; margin-left: #{cycle('30px', '20px', '12px', '22px')}; width: 70%;"}
 
   - if flash[:success]
     #top_field
@@ -45,7 +45,7 @@
   .menu1_2_n_down
     = render partial: 'menus/menu1_2_n'
 
-.with_footer_block    
+.with_footer_block{style: "margin-left: #{cycle('30px', '20px', '12px', '22px')};"}    
   .menu_down_back{style: 'margin-top: 0; margin-bottom: 30px;'}  
     = render partial: 'menus/menu_down_back'    
 
