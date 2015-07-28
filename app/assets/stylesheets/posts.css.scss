@@ -8,12 +8,6 @@
   @include transition(color);
   @include transition(text-shadow);
     
-  /*&:active {
-    color: $dark_blue_spring;
-  }
-  &:focus {
-    color: $dark_blue_spring;
-  }*/
   
   P {
     margin-top: 20px;
@@ -63,16 +57,7 @@
   margin-top: 25px;
   
   @include transition(color);
-  @include transition(text-shadow);
-  
-  /*&:hover {
-    color: $link_green;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-  }
-  &:active {
-    color: $dark_blue_spring;
-    text-shadow: 2px 2px 1px white, 0 0 1em white;
-  } */   
+  @include transition(text-shadow);  
 }
 
 
@@ -81,11 +66,8 @@
   font-size: 145% !important;
   text-align: center;
   margin-bottom: 5px;
-  /*padding: 50px;
-  padding-top: 25px;*/
   padding: 0px 35px 10px;
   @include user-select-none;
-  /*line-height:105%;*/
   
   @include transition(color);
   @include transition(text-shadow);
@@ -102,7 +84,6 @@
     width: 18px;
     height: auto;
     padding-bottom: 2px;
-    /*opacity: .9;*/
   }    
   
   &:hover #link_under_description {
@@ -117,12 +98,12 @@
 }
 
 #list_description::selection {
-  color: $dark_blue_spring;
+  color: $my_blue_link;
   background-color: $my_green;
 }
 
 #list_description::-moz-selection {
-  color: $dark_blue_spring;
+  color: $my_blue_link;
   background-color: $my_green;
 }
 

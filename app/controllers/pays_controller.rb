@@ -1,6 +1,6 @@
 class PaysController < ApplicationController
 
-  def the_pay
+  def to_pay
     @sum = params[:sum].to_s + '.0'    
   end
   
