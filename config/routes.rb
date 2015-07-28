@@ -8,7 +8,9 @@ Psysite::Application.routes.draw do
   match '/arts/:id', to: 'posts#show', via: 'get'    
   match '/abouts', to: 'bios#show', via: 'get'  
   
-  match '/success_pay/:sum', to: 'pays#success', via: 'get'    
+  match '/to_pay/:sum', to: 'pays#to_pay', via: 'get'    
+  match '/success_pay', to: 'pays#success', via: 'get'      
+  match '/pending_pay', to: 'pays#pending', via: 'get'        
   match '/fail_pay', to: 'pays#fail', via: 'get'      
 
 
