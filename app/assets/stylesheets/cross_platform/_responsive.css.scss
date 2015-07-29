@@ -13,6 +13,7 @@
 @media (max-width: 798px) {
   #button_and_menu{
     margin-left: 44px;
+    width: 100%;
   }
 
   #main_block {
@@ -21,7 +22,7 @@
 
   #psychologist {
     position: static;
-    margin: -10% 0 -10% 7%;
+    margin: -10% 0 -7% 7%;
   }
   
   .menu_back_to_posts_or_products {
@@ -78,6 +79,22 @@
   }
 }
 
+
+
+@media (min-width: 770px) and (max-width: 799px) {
+  #psychologist {
+    margin-left: 0%; /*--------------------------------*/
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1250px) {
+  #psychologist {
+    margin-left: 0%;
+  }
+}
+
+
+
 @media (max-width: 1500px) {
   #main_block{
     margin-top: 10%;
@@ -87,7 +104,7 @@
     padding-left: 25px;
   }
   .block_with_menu_up {
-    min-weight: 300px;
+    min-wedth: 300px;
   }
 }
 
@@ -115,7 +132,7 @@
   }
   .block {
     max-width: 950px;
-    margin-left: 13%;
+    margin-left: 13% !important;
   }
   .main_menus_block_text_padding {
     padding: 30px 55px 30px !important;
@@ -129,7 +146,7 @@
   .with_footer_block {
     font-weight: 600;
     max-width: 950px;
-    margin-left: 13%;    
+    margin-left: 13% !important;    
   }  
   BODY {
     line-height: 1.5;
