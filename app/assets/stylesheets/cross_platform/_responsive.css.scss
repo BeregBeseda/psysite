@@ -110,8 +110,8 @@
 
 
 @media (max-width: 1500px) {
-  #main_block{
-    margin-top: 10%;
+  #main_block {
+    margin-top: 2%;
     padding: 25px;
   }
   .menu_up UL {
@@ -168,3 +168,125 @@
 }
 
 
+
+
+
+@media (min-width: 1023px) and (max-width: 1200px) and (min-height: 599px) and (max-height: 760px)  {
+  #psychologist {
+    margin-top: 8%;
+  }  
+  #main_block {
+    margin-top: -3%;
+  }
+}
+
+@media (min-width: 1023px) and (max-width: 1200px) and (min-height: 761px) and (max-height: 780px)  {
+  #psychologist {
+    margin-top: 23%;
+    margin-left: 3%;
+  }  
+  #main_block {
+    margin-top: 20%;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1330px) and (min-height: 762px) and (max-height: 801px)  {
+  #psychologist {
+    margin-top: 20%;
+  }  
+  #main_block {
+    margin-top: 20%;
+  }
+}
+
+@media (min-width: 1331px) and (max-width: 1400px) and (min-height: 763px) and (max-height: 850px)  {
+  #psychologist {
+    margin-top: 15%;
+  }  
+}
+
+@media (min-width: 1401px) and (max-width: 1520px) and (min-height: 851px) and (max-height: 980px)  {
+  #psychologist {
+    margin-top: 20%;
+  }  
+  #main_block {
+    margin-top: 25%;
+  }
+}
+
+@media (min-width: 1521px) and (max-width: 1620px) and (min-height: 851px) and (max-height: 980px)  {
+  #psychologist {
+    margin-top: 14%;
+  }  
+}
+
+@media (min-width: 1621px) and (max-width: 1750px) and (min-height: 981px) and (max-height: 1100px)  {
+  #psychologist {
+    margin-top: 18%;
+  }  
+  #main_block {
+    margin-top: 25%;
+  }
+}
+
+
+
+/*
+@media (width: 1024px) and (height: 600px) {
+  #psychologist {
+    margin-top: 8%;
+  }  
+  #main_block {
+    margin-top: -3%;
+  }
+}
+
+@media (width: 1024px) and (height: 768px) {
+  #psychologist {
+    margin-top: 23%;
+    margin-left: 3%;
+  }  
+  #main_block {
+    margin-top: 20%;
+  }
+}
+
+@media (width: 1280px) and (height: 800px) {
+  #psychologist {
+    margin-top: 20%;
+  }  
+  #main_block {
+    margin-top: 20%;
+  }
+}
+
+@media (width: 1366px) and (height: 768px) {
+  #psychologist {
+    margin-top: 15%;
+  }  
+}
+
+@media (width: 1440px) and (height: 900px) {
+  #psychologist {
+    margin-top: 20%;
+  }  
+  #main_block {
+    margin-top: 25%;
+  }
+}
+
+@media (width: 1600px) and (height: 900px) {
+  #psychologist {
+    margin-top: 14%;
+  }  
+}
+
+@media (width: 1680px) and (height: 1050px) {
+  #psychologist {
+    margin-top: 18%;
+  }  
+  #main_block {
+    margin-top: 25%;
+  }
+}
+*/
