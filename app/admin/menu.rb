@@ -16,7 +16,7 @@ ActiveAdmin.register Menu do
 
   controller do
     def permitted_params
-      params.permit menu: [:name, :css_id, :description]
+      params.permit menu: [:name, :title, :css_id, :description]
     end
   end
   

@@ -12,6 +12,12 @@
     position: fixed;
 }
 
+#psychologist_scroll {
+    /*max-width: 50%;*/
+    min-width: 400px;
+    min-height: 460px;
+}
+
 #block {
     width: 85%;
     height: auto;
@@ -24,17 +30,15 @@
 
 .block {
   background: transparent url(<%=asset_path 'bred50.png'%>) no-repeat;
-  
-  width: 70%;
-  min-width: 20px;
-  height: auto;
   @include background-size(100% 100%);
-  padding: 24px 40px 20px 22px;
-  margin-left: 5%;
+  
+  max-width: 950px;  
+  min-width: 300px;
+  padding: 25px 57px 25px;
   margin-bottom: 10px;  
   
   font-family: 'Open Sans', 'Roboto', sans-serif;
-  font-weight: 400;
+  font-weight: 400;  
 }
 
 .with_footer_block {

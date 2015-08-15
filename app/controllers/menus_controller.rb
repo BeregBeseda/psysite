@@ -12,11 +12,9 @@
     #@menu = Menu.find(params[:id])
     #$menu = Menu.find(params[:id])
     #$menu_id = @menu.id
+    @consult = Consult.find(1)
+    @order = Order.new
   end
-
-  def about_me
-  end
-
 
 
 

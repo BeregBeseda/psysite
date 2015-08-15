@@ -62,11 +62,11 @@
 
 
 #list_description {
+  padding-top: 20px;
+  
   color: $dark_brown;
   font-size: 145% !important;
   text-align: center;
-  margin-bottom: 5px;
-  padding: 0px 35px 10px;
   @include user-select-none;
   
   @include transition(color);

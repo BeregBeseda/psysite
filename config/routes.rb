@@ -15,7 +15,7 @@ Psysite::Application.routes.draw do
 
 
   #resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users
-  resources :users
+  resources :orders, :users
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

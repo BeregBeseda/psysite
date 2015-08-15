@@ -10,6 +10,14 @@
 //= require google_analytics
 
 
+  
+document.onLoad = function() {
+  function show_pay_form() {
+    document.getElementById('pay_form').style.display = 'block';
+  }
+
+  document.getElementById('div_on_click').onClick(show_pay_form);
+}
 
 
 

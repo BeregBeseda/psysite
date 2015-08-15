@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729002358) do
+ActiveRecord::Schema.define(version: 20150814080906) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -124,10 +124,13 @@ ActiveRecord::Schema.define(version: 20150729002358) do
 
   create_table "consults", force: true do |t|
     t.string  "title"
-    t.decimal "price_per_30_mins"
-    t.integer "min_deration"
     t.text    "description"
-    t.boolean "able",              default: true
+    t.decimal "price"
+    t.string  "link_for_pay_from_ukr_card"
+    t.date    "at_last_price_installed_at"
+    t.date    "at_last_link_for_pay_from_ukr_card_installed_at"
+    t.string  "ukr_pay_link_without_price"
+    t.boolean "able"
   end
 
   create_table "film_comments", force: true do |t|
@@ -175,6 +178,19 @@ ActiveRecord::Schema.define(version: 20150729002358) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.string   "title"
+  end
+
+  create_table "orders", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "cool_time1"
+    t.datetime "cool_time2"
+    t.string   "pay_way"
+    t.string   "promo"
+    t.datetime "when_payed"
+    t.integer  "end_cards"
+    t.boolean  "payed"
   end
 
   create_table "pays", force: true do |t|
