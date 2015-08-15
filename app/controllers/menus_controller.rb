@@ -14,6 +14,7 @@
     #$menu_id = @menu.id
     @consult = Consult.find(1)
     @order = Order.new
+    @bio = Bio.find(1)
   end
 
 
