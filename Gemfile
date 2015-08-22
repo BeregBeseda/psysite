@@ -16,7 +16,7 @@ gem 'devise'
 gem 'passenger'
 gem 'heroku'
 
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'uglifier', '>= 1.3.0'
 

@@ -1,6 +1,6 @@
 
-
-//= require jquery_1_10_1
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
 
 //= require form_hints
@@ -8,16 +8,6 @@
 //= require angle
 //= require clients_selects
 //= require google_analytics
-
-
-  
-document.onLoad = function() {
-  function show_pay_form() {
-    document.getElementById('pay_form').style.display = 'block';
-  }
-
-  document.getElementById('div_on_click').onClick(show_pay_form);
-}
 
 
 

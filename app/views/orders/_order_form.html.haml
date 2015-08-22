@@ -1,0 +1,14 @@
+= form_for @order do |f|
+  = f.text_field :name, value: 'Ваше имя'
+  = f.text_field :email, value: 'E-mail'  
+  = f.datetime_select :cool_time1,  value: 'Удобное время (необязательно)'
+  -#
+    
+  
+    = redio_tag :pay_way, value: 'Карта украинского банка'
+    = redio_tag :pay_way, value: 'Карта зарубежного банка'    
+    = redio_tag :pay_way, value: 'Другой способ (банкомат, банк и т.д.)'  
+    = f.text_field :promo, value: 'Скидочный код (необязательно)'  
+  = f.submit 'Ok'
+  
+  

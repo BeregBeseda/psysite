@@ -1,3 +1,43 @@
 // Place all the styles related to the Pays controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pay_way_button {
+  &:hover {
+    color: #8DC58D;
+    cursor: pointer;
+  }
+  &:active {
+    color: white;
+  }
+}
+
+
+
+.pay_via_ukr_card {
+  
+}
+
+.common_form_for_ukr_card_pay {
+  display: none;
+}
+
+
+
+.pay_via_ne_ukr_card {
+  
+}
+
+.common_form_for_ne_ukr_card_pay {
+  display: none;
+}
+
+
+
+.pay_via_another_way {
+  font-size: 120%;  
+}
+
+.common_form_for_another_way_pay {
+  display: none;
+}

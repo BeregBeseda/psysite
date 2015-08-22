@@ -1,3 +1,4 @@
-$(document).ready(function(){
-    document.all.errors_style.scrollIntoView(true);
-});
+cool = document.getElementByID('cool');
+cool.onclick = function(){
+  cool.style.color = 'red';
+};

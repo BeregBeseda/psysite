@@ -11,11 +11,12 @@ Psysite::Application.routes.draw do
   match '/to_pay/:sum', to: 'pays#to_pay', via: 'get'    
   match '/success_pay', to: 'pays#success', via: 'get'      
   match '/pending_pay', to: 'pays#pending', via: 'get'        
-  match '/fail_pay', to: 'pays#fail', via: 'get'      
+  match '/fail_pay', to: 'pays#fail', via: 'get'       
+  match '/for_pay_click/:name', to: 'pays#for_pay', via: 'get'
 
 
   #resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users
-  resources :orders, :users
+  resources :pays, :orders, :users
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
