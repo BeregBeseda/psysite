@@ -1,13 +1,40 @@
 = form_for @order do |f|
-  = f.text_field :name, value: 'Ваше имя'
-  = f.text_field :email, value: 'E-mail'  
-  = f.datetime_select :cool_time1,  value: 'Удобное время (необязательно)'
-  -#
+  :css
+    .btn {
+      margin-top: 0 !important;
+      margin-bottom: 5px !important;
+    }
     
+    .btn:hover {
+      cursor: text;
+    }
+
+  .label_words{style: 'text-align: center !important; color: #175717 !important; font-size: 160%;'}
+    Пожалуйста, введите
+  .label_words{style: 'text-align: center !important; color: #175717 !important; font-size: 160%;'}
+    свое имя:     
+  = f.text_field :name, class: ' btn ' ' my-btn ' ' my-btn-large ', style: 'background-color: white; color: green !important; max-width: 300px;'
+
   
-    = redio_tag :pay_way, value: 'Карта украинского банка'
-    = redio_tag :pay_way, value: 'Карта зарубежного банка'    
-    = redio_tag :pay_way, value: 'Другой способ (банкомат, банк и т.д.)'  
+  .label_words{style: 'text-align: center !important; color: #175717 !important; font-size: 160%;'}
+    E-mail:       
+  = f.text_field :email, class: ' btn ' ' my-btn ' ' my-btn-large ', style: 'background-color: white; color: green !important; max-width: 300px;'
+
+  
+  .label_words{style: 'text-align: center !important; color: #175717 !important; font-size: 160%;'}
+    Удобные дату и время (необязательно):       
+  = f.text_field :cool_time1, class: ' btn ' ' my-btn ' ' my-btn-large ', style: 'background-color: white; color: green !important; max-width: 300px;'
+  
+
+
+
+  -#
+    = f.datetime_field :cool_time1,  value: 'Удобное время (необязательно)'  
+  
+    = f.radio_button :pay_way, value: 'Карта украинского банка'
+    = f.radio_button :pay_way, value: 'Карта зарубежного банка'
+    = f.radio_button :pay_way, value: 'Другой способ'    
+    
     = f.text_field :promo, value: 'Скидочный код (необязательно)'  
   = f.submit 'Ok'
   

@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+  <title>Психолог онлайн - психологическая консультация по Скайпу</title>
   <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+
+  BODY {
     text-align: center;
-    font-family: arial, sans-serif;
   }
-
-  div.dialog {
-    width: 25em;
-    margin: 4em auto 0 auto;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 4em 0 4em;
+  
+  #menu_list {
+    padding: 50px;
+    width: 350px;    
+    background-image: url(bred.png);
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    -khtml-background-size: 100% 100%;
+    background-size: 100% 100%;       
   }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  
+  #menu_list A {
+    margin-bottom: 5px;
   }
-
-  body > p {
-    width: 33em;
-    margin: 0 auto 1em;
-    padding: 1em 0;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);
+  
+  #menu_list A:visited {    
   }
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
+  <!--
   <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
+    <h1>Такой страницы еще не существует</h1>
   </div>
-  <p>If you are the application owner check the logs for more information.</p>
+  <p></p>
+  -->
+<nav id="menu_list">
+  <p>
+    В какой сфере хотите
+      <strong>
+        изменений:
+      </strong>
+  </p>
+  <a href="http://psysite.herokuapp.com/cases/1">
+        <strong>
+          Личная жизнь
+        </strong>
+      </a>
+      <br/>
+      <br/>
+      <a href="http://psysite.herokuapp.com/cases/2">
+        <strong>
+          Стать более продуктивным в творчестве и деятельности
+        </strong>
+      </a>
+      <br/>
+      <br/>
+      <a href="http://psysite.herokuapp.com/cases/3">
+        <strong>
+          Избавиться от привычки курить, переедать и т.д.
+        </strong>
+  </a>
+  
 </body>
 </html>
