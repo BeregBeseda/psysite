@@ -9,15 +9,17 @@ class OrdersController < ApplicationController
     
   def create
     @order = Order.new(order_params)
-    if @order.save
-      flash[:notice] = 'После оплаты зайдите на свою почту.'
-      # СРАЗУ ПЕРЕНАПРАВЛЯТЬНА СТРАНИЦУ ОПЛАТЫ
+    @order.sum_for_pay = Consult.find(1).price
+    @order.akey = akey
+    if @order.save      
+      OrderMailer.confirm_pay(@order).deliver
+      # СРАЗУ ПЕРЕНАПРАВЛЯТЬ НА СТРАНИЦУ ОПЛАТЫ
       #params = {'ik_x_name' => 'hello', 'ik_am' => '3.0', 'ik_co_id' => '52ebcda5bf4efcf93108363c', 'ik_pm_no' => 'ID_001', 'ik_cur' => 'UAH', 'ik_desc' => 'PayWays', 'ik_suc_u' => 'http://psysite.herokuapp.com/success_pay/', 'ik_suc_m' => 'post', 'ik_fal_u' => 'http://psysite.herokuapp.com/fail_pay/', 'ik_fal_m' => 'post', 'ik_pnd_u' => 'http://psysite.herokuapp.com/pending_pay/', 'ik_exp' => '2015-08-10'}
       #x = Net::HTTP.post_form(URI.parse('https://sci.interkassa.com/'), params)
       #redirect_to x.body      
       # puts x.body     
-      redirect_to "/for_pay_click/#{@order.name}"
     end  
+    redirect_to "/for_pay_click/#{@order.name}/#{@order.sum_for_pay}"
   end
   
 

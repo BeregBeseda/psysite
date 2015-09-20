@@ -12,7 +12,9 @@ Psysite::Application.routes.draw do
   match '/success_pay', to: 'pays#success', via: 'get'      
   match '/pending_pay', to: 'pays#pending', via: 'get'        
   match '/fail_pay', to: 'pays#fail', via: 'get'       
-  match '/for_pay_click/:name', to: 'pays#for_pay', via: 'get'
+  
+  match '/for_pay_click/:name/:sum', to: 'pays#for_pay', via: 'get'
+  match '/confirm_form/:order_akey/:id', to: 'pays#after_pay_form', via: 'get'    
 
 
   #resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users

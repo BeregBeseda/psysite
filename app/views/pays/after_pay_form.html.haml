@@ -11,21 +11,22 @@
 
   .label_words{style: 'text-align: center !important; color: #175717 !important; font-size: 160%;'}
     Пожалуйста, введите
+    
+    
   .label_words{style: 'text-align: center !important; color: #175717 !important; font-size: 160%;'}
-    свое имя:     
-  = f.text_field :name, class: ' btn ' ' my-btn ' ' my-btn-large ' ' text-field_psy ', style: 'background-color: white; color: green !important; max-width: 300px;'
-
+    Ваше имя:
+  = f.text_field :name, class: ' btn ' ' my-btn ' ' my-btn-large ', style: 'background-color: white; color: green !important; max-width: 300px;'    
+    
   
   .label_words{style: 'text-align: center !important; color: #175717 !important; font-size: 160%;'}
-    E-mail:       
-  = f.text_field :email, class: ' btn ' ' my-btn ' ' my-btn-large ', style: 'background-color: white; color: green !important; max-width: 300px;'
-
-  
+    2 последние цифры карты, с которой перечислена оплата:       
+  = f.text_field :end_cards, class: ' btn ' ' my-btn ' ' my-btn-large ', style: 'background-color: white; color: green !important; max-width: 300px;'
+    
+    
   .label_words{style: 'text-align: center !important; color: #175717 !important; font-size: 160%;'}
-    Удобные дату и время 
-    %br/
-    (необязательно):       
-  = f.text_field :cool_time1, class: ' btn ' ' my-btn ' ' my-btn-large ', style: 'background-color: white; color: green !important; max-width: 300px;'
+    дату и время оплаты:     
+  = f.text_field :when_payed, class: ' btn ' ' my-btn ' ' my-btn-large ' ' text-field_psy ', style: 'background-color: white; color: green !important; max-width: 300px;'
+  
   = f.submit 'Ok', class: ' btn ' ' btn-success ' ' submit_button_psy '
 
 
