@@ -1,0 +1,11 @@
+.row-fluid{style: 'margin-top: 5%; font-size: 105%;'}
+  .offset3.span6
+    -# СОДЕРЖИМОЕ ПО ЦЕНТРУ
+    .block{style: 'text-align: center; padding: 30px; '}
+      .label_words{style: 'text-align: center !important; color: #175717 !important; '}
+        = flash[:notice]
+
+      %br/
+      %br/      
+      = button_to 'Ok, перейти на главную', '/', class: ' btn ' ' btn-success ' ' submit_button_psy ' 
+

@@ -1,6 +1,8 @@
 Psysite::Application.routes.draw do
 
 
+  match '/', to: 'menus#index', via: 'post'    
+
   match '/cases', to: 'menus#index', via: 'get'  
   match '/cases/:id', to: 'menus#show', via: 'get'  
   
@@ -13,8 +15,11 @@ Psysite::Application.routes.draw do
   match '/pending_pay', to: 'pays#pending', via: 'get'        
   match '/fail_pay', to: 'pays#fail', via: 'get'       
   
-  match '/for_pay_click/:name/:sum', to: 'pays#for_pay', via: 'get'
-  match '/confirm_form/:order_akey/:id', to: 'pays#after_pay_form', via: 'get'    
+  #match '/for_pay_click/:name/:sum', to: 'pays#for_pay', via: 'get'
+  match '/for_pay_click', to: 'pays#for_pay', via: 'get'
+  match '/confirm_form/:name/:akey/:id', to: 'pays#after_pay_form', via: 'get'    
+  match '/success_confirm', to: 'pays#success_confirm_form', via: 'get'    
+  match '/payed/:akey/:id/:akey_payed', to: 'orders#order_is_payed', via: 'get'      
 
 
   #resources :bios, :books, :consults, :films, :menus, :posts, :reviews, :users
