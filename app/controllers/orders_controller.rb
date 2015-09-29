@@ -24,6 +24,11 @@ class OrdersController < ApplicationController
       
       #@url_name = URI.encode(@order.name)
       #redirect_to "/for_pay_click/#{@url_name}/#{@order.sum_for_pay.to_i}"
+      
+      @url_name = URI.encode(@order.name)
+      @form_url = "http://psysite.herokuapp.com/confirm_form/#{@url_name}/#{@order.akey}/#{@order.id}"
+      flash[:notice] = @form_url
+      
       redirect_to "/for_pay_click"          
     else
       #redirect_to "cases/#{}"    

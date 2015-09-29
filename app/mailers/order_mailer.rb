@@ -3,12 +3,13 @@ class OrderMailer < ActionMailer::Base
   
   def confirm_pay(order)
     @order = order
-    mail(to: @order.email, subject: 'Консультация психолога')
     
     @url_name = URI.encode(@order.name)
     #@pay_url = "http://psysite.herokuapp.com/for_pay_click/#{@url_name}/#{@order.sum_for_pay.to_i}"
     @pay_url = "http://psysite.herokuapp.com/for_pay_click"    
     @form_url = "http://psysite.herokuapp.com/confirm_form/#{@url_name}/#{@order.akey}/#{@order.id}"
+    
+    mail(to: @order.email, subject: 'Консультация психолога')    
   end
   
   def confirm_info_for_psyc(order)

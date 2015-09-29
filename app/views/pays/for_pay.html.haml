@@ -2,7 +2,8 @@
   .offset3.span6
     -# СОДЕРЖИМОЕ ПО ЦЕНТРУ
     .block{style: 'text-align: center; padding: 30px; '}
-
+      
+      = flash[:notice]
 
       -#
         - if (@consult.at_last_price_installed_at - @consult.at_last_link_for_pay_from_ukr_card_installed_at).to_i.abs < 3
