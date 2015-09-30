@@ -1,5 +1,8 @@
 class OrderMailer < ActionMailer::Base
+
   default from: "bereg.beseda@ukr.net"
+
+
   
   def confirm_pay(order)
     @order = order
@@ -12,15 +15,18 @@ class OrderMailer < ActionMailer::Base
     mail(to: @order.email, subject: 'Консультация психолога')    
   end
   
+  
+  
   def confirm_info_for_psyc(order)
     @order = order
-    mail(to: 'bereg.beseda@ukr.net', subject: 'Оплата консультации')    
     unless @order.cool_time1.empty?
       @cool_time1 = "И хотел бы встретиться #{@order.cool_time1}"
     else  
       @cool_time1 = ''
     end
     @url_for_payed_is_true = "http://psysite.herokuapp.com/payed/#{@order.akey}/#{@order.id}/#{@order.akey_payed}"
-  end
+    
+    mail(to: 'bereg.beseda@gmail.com', subject: 'Оплата консультации')        
+  end  
   
 end
